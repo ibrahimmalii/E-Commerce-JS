@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MobileController;
 use App\Http\Controllers\Api\LabtopController;
 use App\Http\Controllers\Api\Auth\AuthController;
+use App\Http\Controllers\Api\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,13 +37,21 @@ Route::post('labtops',[LabtopController::class,'store']);
 Route::post('/labtops/{labtop}',[LabtopController::class,'update']);
 Route::delete('/labtops/delete/{labtop}',[LabtopController::class,'destroy']);
 
+// Crud For Labtop
+Route::get('products',[ProductController::class,'index']);
+Route::get('products/{product}',[ProductController::class,'show']);
+Route::post('products',[ProductController::class,'store'])->middleware(['auth:sanctum' , 'admin']);
+Route::post('products/sell',[ProductController::class,'sell'])->middleware(['auth:sanctum']);
+Route::post('/products/{product}',[ProductController::class,'update'])->middleware(['auth:sanctum' , 'admin']);
+Route::delete('/products/delete/{product}',[ProductController::class,'destroy'])->middleware(['auth:sanctum' , 'admin']);
+
 
 // Auth Routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login' ,[AuthController::class , 'login'] );
 Route::get('/logout' , [AuthController::class, 'logout']);
-Route::get('/users' , [AuthController::class, 'index']);
-Route::delete('/user/delete/{user}',[AuthController::class,'destroy']);
+Route::get('/users' , [AuthController::class, 'index'])->middleware(['auth:sanctum' , 'admin']);
+Route::delete('/user/delete/{user}',[AuthController::class,'destroy'])->middleware(['auth:sanctum' , 'admin']);
 
 
 
