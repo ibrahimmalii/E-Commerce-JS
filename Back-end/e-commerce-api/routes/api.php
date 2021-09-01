@@ -37,11 +37,11 @@ Route::post('labtops',[LabtopController::class,'store']);
 Route::post('/labtops/{labtop}',[LabtopController::class,'update']);
 Route::delete('/labtops/delete/{labtop}',[LabtopController::class,'destroy']);
 
-// Crud For Labtop
+// Crud For Product
 Route::get('products',[ProductController::class,'index']);
 Route::get('products/{product}',[ProductController::class,'show']);
 Route::post('products',[ProductController::class,'store'])->middleware(['auth:sanctum' , 'admin']);
-Route::post('products/sell',[ProductController::class,'sell'])->middleware(['auth:sanctum']);
+Route::post('products/sell/{product}',[ProductController::class,'sell'])->middleware('auth:sanctum');
 Route::post('/products/{product}',[ProductController::class,'update'])->middleware(['auth:sanctum' , 'admin']);
 Route::delete('/products/delete/{product}',[ProductController::class,'destroy'])->middleware(['auth:sanctum' , 'admin']);
 
@@ -49,7 +49,7 @@ Route::delete('/products/delete/{product}',[ProductController::class,'destroy'])
 // Auth Routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login' ,[AuthController::class , 'login'] );
-Route::get('/logout' , [AuthController::class, 'logout']);
+Route::get('/logout' , [AuthController::class, 'logout'])->middleware('auth:sanctum');
 Route::get('/users' , [AuthController::class, 'index'])->middleware(['auth:sanctum' , 'admin']);
 Route::delete('/user/delete/{user}',[AuthController::class,'destroy'])->middleware(['auth:sanctum' , 'admin']);
 
