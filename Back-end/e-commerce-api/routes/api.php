@@ -41,3 +41,5 @@ Route::delete('/labtops/delete/{labtop}',[LabtopController::class,'destroy']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login' ,[AuthController::class , 'login'] );
 Route::get('/logout' , [AuthController::class, 'logout']);
+Route::get('/users' , [AuthController::class, 'index']);
+Route::delete('/user/delete/{user}',[AuthController::class,'destroy']);

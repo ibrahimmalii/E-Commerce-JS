@@ -214,4 +214,24 @@ class AuthController extends Controller
 
         return  $this->UnknownError();
     }
+
+
+    public function index()
+    {
+        $users=User::all();
+        return $this->apiResponse($users);
+    }
+
+
+    public function destroy($id)
+    {
+        $user = User::find($id);
+
+        if($user){
+            $user->delete();
+            return $this->apiResponse(true,'',200);
+        }
+
+        return $this->NotFoundError();
+    }
 }
