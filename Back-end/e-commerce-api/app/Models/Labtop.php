@@ -11,6 +11,7 @@ class Labtop extends Model
     protected $fillable = [
         'title',
         'description',
-        'price'
+        'price',
+        'amount',
     ];
 }

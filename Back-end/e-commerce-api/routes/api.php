@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\PhoneController;
+use App\Http\Controllers\Api\MobileController;
 use App\Http\Controllers\Api\LabtopController;
 use App\Http\Controllers\Api\Auth\AuthController;
 
@@ -22,11 +22,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Crud For Mobile
-Route::get('phones',[PhoneController::class,'index']);
-Route::get('phones/{phone}',[PhoneController::class,'show']);
-Route::post('phones',[PhoneController::class,'store']);
-Route::post('/phones/{phone}',[PhoneController::class,'update']);
-Route::delete('/phones/delete/{phone}',[PhoneController::class,'destroy']);
+Route::get('mobiles',[MobileController::class,'index']);
+Route::get('mobiles/{mobile}',[MobileController::class,'show']);
+Route::post('mobiles',[MobileController::class,'store']);
+Route::post('/mobiles/{mobile}',[MobileController::class,'update']);
+Route::delete('/mobiles/delete/{mobile}',[MobileController::class,'destroy']);
 
 
 // Crud For Labtop
@@ -43,3 +43,9 @@ Route::post('/login' ,[AuthController::class , 'login'] );
 Route::get('/logout' , [AuthController::class, 'logout']);
 Route::get('/users' , [AuthController::class, 'index']);
 Route::delete('/user/delete/{user}',[AuthController::class,'destroy']);
+
+
+
+Route::get('/test',function () {
+    return 'welcome';
+})->middleware(['auth:sanctum' , 'admin']);

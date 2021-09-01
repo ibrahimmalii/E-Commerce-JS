@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 
-class PhoneController extends Controller
+class MobileController extends Controller
 {
     use ApiResponseTrait;
 

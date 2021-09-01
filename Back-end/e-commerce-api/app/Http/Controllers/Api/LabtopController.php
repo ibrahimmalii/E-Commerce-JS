@@ -90,4 +90,19 @@ class LabtopController extends Controller
 
         return $this->NotFoundError();
     }
+
+    public function sell($id , Request $request){
+        $labtop = Labtop::find($id);
+        if(!$labtop){
+            return $this->NotFoundError();
+        };
+
+        if($request->amount > $labtop->amount){
+            return $this->apiResponse(null , 'this amount not avaliable now!!');
+        };
+
+        $labtop->amount -= $request->amount;
+        $labtop->save();
+    }
+
 }

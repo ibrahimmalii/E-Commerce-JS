@@ -11,6 +11,7 @@ class Mobile extends Model
     protected $fillable = [
         'title',
         'description',
-        'price'
+        'price',
+        'amount',
     ];
 }

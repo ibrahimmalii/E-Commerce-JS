@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('city')->nullable();
             $table->string('street')->nullable();
             $table->string('zip_code')->nullable();
+            $table->enum('role',[1 , 2]);
             $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->rememberToken();
             $table->timestamps();

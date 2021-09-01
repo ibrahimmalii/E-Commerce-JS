@@ -17,7 +17,8 @@ class CreateLabtopsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->tinyInteger('price');
+            $table->integer('price');
+            $table->integer('amount');
             $table->timestamps();
         });
     }
