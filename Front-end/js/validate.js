@@ -5,7 +5,7 @@ function validation(type , pattern , errMessage)
         type.select();
         return false;
     }else{
-        console.log('succ');
+        type.classList.add('success');
         errMessage.style.display = 'none';
         return true;
     }

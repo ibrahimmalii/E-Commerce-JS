@@ -28,15 +28,15 @@ let passwordConfirmationErr = document.getElementById('passwordConfirmationErr')
 firstName.focus();
 
 firstName.addEventListener('blur', function () {
-    validate(firstName, /^[a-zA-Z]{6,20}$/, firstNameErr);
+    validate(firstName, /^[a-zA-Z]{2,20}$/, firstNameErr);
 });
 
 lastName.addEventListener('blur', function () {
-    validate(lastName, /^[a-zA-Z]{6,20}$/, lastNameErr);
+    validate(lastName, /^[a-zA-Z]{2,20}$/, lastNameErr);
 });
 
 username.addEventListener('blur', function () {
-    validate(username, /^[a-zA-Z]{10,}$/, usernameErr);
+    validate(username, /^[a-zA-Z]{6,30}$/, usernameErr);
 });
 
 email.addEventListener('blur', function () {
