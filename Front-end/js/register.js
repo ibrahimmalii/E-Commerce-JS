@@ -25,7 +25,7 @@ let passwordErr = document.getElementById('passwordErr');
 let passwordConfirmationErr = document.getElementById('passwordConfirmationErr');
 
 
-firstName.focus();
+// firstName.focus();
 
 firstName.addEventListener('blur', function () {
     validate(firstName, /^[a-zA-Z]{2,20}$/, firstNameErr);
