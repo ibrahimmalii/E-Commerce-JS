@@ -44,7 +44,7 @@ email.addEventListener('blur', function () {
 });
 
 phone_number.addEventListener('blur', function () {
-    validate(phone_number, /^[a-zA-Z]{6,20}$/, phoneNumberErr);
+    validate(phone_number, /^(010|011|012|015)[0-9]{8}$/, phoneNumberErr);
 });
 
 city.addEventListener('blur', function () {
