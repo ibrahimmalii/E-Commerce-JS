@@ -21,25 +21,25 @@
         <div class="card-body p-3 text-center">
           <p class="h3">Welcome To Our Site</p>
           <center>
-          <hr width="50%" size="5" >
-        </center>
+            <hr width="50%" size="5">
+          </center>
         </div>
         <div class="card-body">
-          <form class="d-flex justify-content-center">
+          <form id="form" class="d-flex justify-content-center">
             <table class="w-75">
               <tr>
                 <td colspan="2" class="d-flex">
                   <div class=" flex-grow-1">
-                  <label for="fName">First Name</label>
-                  <input type="text" name="first_name" value="" class="form-control">
-                  <small id="firstNameErr" class="fs-6 fw-bold">You have to write min 6 char</small>
-                </div>
-                <pre>  </pre>
-                <div class=" flex-grow-1">
-                  <label for="lName">Last Name</label>
-                  <input type="text" name="last_name" class="form-control">
-                  <small id="lastNameErr" class="fs-6 fw-bold">You have to write min 6 char</small>
-                </div>
+                    <label for="fName">First Name</label>
+                    <input type="text" name="first_name" value="" class="form-control">
+                    <small id="firstNameErr" class="fs-6 fw-bold">You have to write min 6 char</small>
+                  </div>
+                  <pre>  </pre>
+                  <div class=" flex-grow-1">
+                    <label for="lName">Last Name</label>
+                    <input type="text" name="last_name" class="form-control">
+                    <small id="lastNameErr" class="fs-6 fw-bold">You have to write min 6 char</small>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -92,19 +92,20 @@
                 <td colspan="2">
                   <label for="password">Password</label>
                   <input type="password" class="form-control" name="password">
-                  <small id="passwordErr" class="fs-6 fw-bold">You have to write at least 1 char and number in your password</small>
+                  <small id="passwordErr" class="fs-6 fw-bold">You have to write at least 1 char and number in your
+                    password</small>
                 </td>
               </tr>
               <tr>
                 <td colspan="2">
                   <label for="password_confirmation">Password Confirmation</label>
-                  <input type="password" name="password_confrmation" class="form-control" name="password">
+                  <input type="password" name="password_confirmation" class="form-control" name="password">
                   <small id="passwordConfirmationErr" class="fs-6 fw-bold">password not matched</small>
                 </td>
               </tr>
               <tr>
                 <td colspan="2" class="text-center">
-                  <button type="submit" class="btn form-control w-50 fw-bold" id="submit">Submit</button>
+                  <input type="button" class="btn form-control w-50 fw-bold" id="submit" value="Submit"></input>
                 </td>
               </tr>
             </table>
@@ -112,7 +113,7 @@
           </form>
         </div>
         <div class="text-muted">
-          <button class="btn text-light" href="#">Do You Already Have Account?</button>
+          <a class="btn text-light btn-link">Do You Already Have An Account?</a>
         </div>
       </div>
     </div>
@@ -120,13 +121,19 @@
   <!-- End Of Main Section -->
 
   <!-- JS Scripts -->
+  <script src="../js/jquery.js"></script>
+  <script src="../js/register.js" type="module"></script>
+
+  <!-- BootStrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
     integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous">
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
     integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
-    crossorigin="anonymous"></script>
-  <script src="../js/register.js" type="module"></script>
+    crossorigin="anonymous">
+  </script>
+
 </body>
 
 </html>
