@@ -6,10 +6,11 @@ let firstName = document.getElementsByName('first_name')[0];
 let lastName = document.getElementsByName('last_name')[0];
 let username = document.getElementsByName('username')[0];
 let email = document.getElementsByName('email')[0];
+let gender = document.getElementsByName('gender');
 let phone_number = document.getElementsByName('phone_number')[0];
 let city = document.getElementsByName('city')[0];
 let password = document.getElementsByName('password')[0];
-let password_confrmation = document.getElementsByName('password_confrmation')[0];
+let password_confirmation = document.getElementsByName('password_confirmation')[0];
 
 
 
@@ -40,7 +41,7 @@ username.addEventListener('blur', function () {
 });
 
 email.addEventListener('blur', function () {
-    validate(email, /^[a-zA-Z0-9]{2,10}@[a-zA-Z]{2,10}.(es|com|org)$/, emailErr);
+    validate(email, /^[a-zA-Z0-9]{2,20}@[a-zA-Z]{2,20}.(es|com|org)$/, emailErr);
 });
 
 phone_number.addEventListener('blur', function () {
@@ -55,25 +56,53 @@ password.addEventListener('blur', function () {
     validate(password, /^[a-zA-Z0-9]{8,}$/, passwordErr);
 });
 
-password_confrmation.addEventListener('blur', function () {
-    if (password_confrmation.value != password.value) {
+password_confirmation.addEventListener('blur', function () {
+    if (password_confirmation.value != password.value) {
         passwordConfirmationErr.style.display = 'block';
-        password_confrmation.select();
+        password_confirmation.select();
     } else {
         passwordConfirmationErr.style.display = 'none';
     }
 });
 
-document.forms[0].addEventListener('submit', (e) => {
+//====================================== Data We Will Send To Store User =====================================//
+
+// document.forms[0].addEventListener('submit', (e) => {
+document.getElementById('submit').addEventListener('click', (e) => {
     // debugger;    
-    for(var i = 0 ; i < allErr.length && allInputs.length ; i++){
-        console.log(allInputs[i].value.length);
-        if(allErr[i].style.display == 'block' || allInputs[i].value.length == 0 || (password_confrmation.value != password.value)){
+    for (var i = 0; i < allErr.length && allInputs.length; i++) {
+        if (allErr[i].style.display == 'block' || allInputs[i].value.length == 0 || (password_confirmation.value != password.value)) {
             console.log('block');
             allErr[i].style.display = 'block';
             e.preventDefault();
             return false;
         }
-
     }
-})
+
+    //========================================= Send Request To Store User ===================================//
+
+    for (let i = 0; i < gender.length; i++) {
+        if (gender[i].checked) {
+            var genderChecked = gender[i].value;
+        }
+    }
+
+    $.ajax({
+        url: 'http://localhost:8000/api/register',
+        type: 'POST',
+        data: $('#form').serialize(),
+        dataType: 'json',
+        success: function (response) {
+            console.log('from ajax call');
+            console.log(response);
+            // location.replace('http://127.0.0.1:5502/index.html');
+        },
+        error: function (error) {
+            console.log(error);
+        }
+
+    });
+    // End Of Ajax Call
+});
+//=========================================== End Of Submit Form =============================================//
+
