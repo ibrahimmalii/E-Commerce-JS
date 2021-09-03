@@ -24,13 +24,13 @@ class User extends Authenticatable
         'email',
         'password',
         'gender',
-        // 'img_link',
         'phone_number',
-        // 'country',
         'city',
+        'role',
+        // 'img_link',
+        // 'country',
         // 'street',
         // 'zip_code',
-        'role',
     ];
 
     /**

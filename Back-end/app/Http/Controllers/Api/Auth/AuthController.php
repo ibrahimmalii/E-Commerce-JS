@@ -18,7 +18,7 @@ class AuthController extends Controller
     use ApiResponseTrait;
     public function register(Request $request)
     {
-        // return 'welcome';
+        // dd($request);
         $validator = Validator::make($request->all(), [
             'username'=> ['required','string','max:255','min:3'],
             'first_name' => 'required|string|min:3|max:255',
@@ -37,7 +37,8 @@ class AuthController extends Controller
 
         if ($validator->fails())
         {
-            return $this->apiResponse(null,$validator->errors(),200);
+            // return $this->apiResponse(null,$validator->errors(),200);
+            return 'invalid data';
         }
 
         $user = new User();
@@ -50,6 +51,7 @@ class AuthController extends Controller
         $user->gender = $request->gender;
         $user->phone_number = $request->phone_number;
         $user->city = $request->city;
+        $user->role = 1;
         // $user->country =$request->country;
         // $user->street = $request->street;
         // $user->zip_code = $request->zip_code;
@@ -59,14 +61,13 @@ class AuthController extends Controller
         //     $path = Storage::putFile('users', $request->file('img_link'));
         //     $user->img_link = $path;
         // }
-
         $user->save();
 
         $token = $user->createToken('auth_token')->plainTextToken;
 
         $data = [
                 'access_token' => $token,
-                'user' => new UserResource($user),
+                'user' => $user,
         ];
 
 
