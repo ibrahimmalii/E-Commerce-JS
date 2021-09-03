@@ -26,12 +26,12 @@ class AuthController extends Controller
             'email' => ['required','email','unique:users,email','max:255'],
             'password' => ['required', 'string', 'min:8','max:255', 'confirmed'],
             'gender' => 'required|in:male,female',
-            'img_link' => 'nullable|image|mimes:png,jpg',
             'phone_number' => 'min:11|numeric',
-            'country' => 'required',
             'city' => 'required',
-            'street' => 'required',
-            'zip_code' => 'required',
+            // 'img_link' => 'nullable|image|mimes:png,jpg',
+            // 'country' => 'required',
+            // 'street' => 'required',
+            // 'zip_code' => 'required',
         ]);
 
 
@@ -49,16 +49,16 @@ class AuthController extends Controller
         $user->last_name = $request->last_name;
         $user->gender = $request->gender;
         $user->phone_number = $request->phone_number;
-        $user->country =$request->country;
         $user->city = $request->city;
-        $user->street = $request->street;
-        $user->zip_code = $request->zip_code;
+        // $user->country =$request->country;
+        // $user->street = $request->street;
+        // $user->zip_code = $request->zip_code;
 
-        if ($request->hasFile('img_link'))
-        {
-            $path = Storage::putFile('users', $request->file('img_link'));
-            $user->img_link = $path;
-        }
+        // if ($request->hasFile('img_link'))
+        // {
+        //     $path = Storage::putFile('users', $request->file('img_link'));
+        //     $user->img_link = $path;
+        // }
 
         $user->save();
 
@@ -160,9 +160,9 @@ class AuthController extends Controller
 
         $validator = Validator::make($request->all(), [
             'phone_number' => 'min:11|numeric',
-            'country' => 'required',
             'city' => 'required',
-            'street' => 'required',
+            // 'country' => 'required',
+            // 'street' => 'required',
         ]);
 
 
@@ -172,9 +172,9 @@ class AuthController extends Controller
         }
 
         $user->phone_number = $request->phone_number;
-        $user->country = $request->country;
         $user->city = $request->city;
-        $user->street = $request->street;
+        // $user->country = $request->country;
+        // $user->street = $request->street;
         $user->save();
 
         if($user){
