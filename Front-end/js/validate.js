@@ -2,7 +2,7 @@ function validation(type , pattern , errMessage)
 {
     if(!type.value.match(pattern)){
         errMessage.style.display = 'block';
-        type.select();
+        // type.select();
         return false;
     }else{
         type.classList.add('success');
