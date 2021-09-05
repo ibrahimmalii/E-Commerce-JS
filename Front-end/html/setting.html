@@ -101,16 +101,15 @@
               data-bs-dismiss="modal"
               value="close"
             >
-              Close
           </input>
-            <input type="button" id='one' class="btn btn-primary" value="Save changes">Save changes</input>
+            <input type="button" id='one' class="btn btn-primary" value="Save changes"></input>
           </div>
         </div>
       </div>
     </div>
 </form>
     <!-- model to update password -->
-   <form action="">
+   <form id='formTwo'>
     <div
       class="modal fade"
       id="passwordModal"
@@ -131,11 +130,11 @@
           </div>
           <div class="modal-body">
             <label>Current Password</label><br />
-            <input type="password" class="form-control" />
+            <input type="password" class="form-control" name='password'/>
             <label>New Password</label><br />
-            <input type="password" class="form-control" />
+            <input type="password" class="form-control" name='new_password' />
             <label>Confirm New Password</label><br />
-            <input type="password" class="form-control" />
+            <input type="password" class="form-control" name='confirm_password' />
           </div>
           <div class="modal-footer">
             <button
@@ -145,13 +144,13 @@
             >
               Close
             </button>
-            <input type="button"id='two' class="btn btn-primary">Save changes</input>
+            <input type="button"id='two' class="btn btn-primary" value="Save Change"></input>
           </div>
         </div>
       </div>
     </div>
 </form>
-<form action="">
+<form action="" id='formThree'>
     <div
       class="modal fade"
       id="phoneModal"
@@ -172,12 +171,12 @@
           </div>
           <div class="modal-body">
             <label>Phone</label><br />
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" name='phone_number' />
             <label class="text-dark pull-left">Location</label>
             <br />
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" name='city' />
             <label>password</label><br />
-            <input type="password" class="form-control" />
+            <input type="password" class="form-control" name='password' />
           </div>
           <div class="modal-footer">
             <button
@@ -187,7 +186,7 @@
             >
               Close
             </button>
-            <input type="button" id='three' class="btn btn-primary" value="Save changes">Save changes</input>
+            <input type="button" id='three' class="btn btn-primary" value="Save changes"></input>
           </div>
         </div>
       </div>
