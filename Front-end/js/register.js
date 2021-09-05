@@ -105,4 +105,3 @@ document.getElementById('submit').addEventListener('click', (e) => {
     // End Of Ajax Call
 });
 //=========================================== End Of Submit Form =============================================//
-
