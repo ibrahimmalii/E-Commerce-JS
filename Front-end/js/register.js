@@ -81,11 +81,6 @@ document.getElementById('submit').addEventListener('click', (e) => {
 
     //========================================= Send Request To Store User ===================================//
 
-    for (let i = 0; i < gender.length; i++) {
-        if (gender[i].checked) {
-            var genderChecked = gender[i].value;
-        }
-    }
 
     $.ajax({
         url: 'http://localhost:8000/api/register',
@@ -96,6 +91,7 @@ document.getElementById('submit').addEventListener('click', (e) => {
             console.log('from ajax call');
             console.log(response);
             // location.replace('http://127.0.0.1:5502/index.html');
+            return;
         },
         error: function (error) {
             console.log(error);
