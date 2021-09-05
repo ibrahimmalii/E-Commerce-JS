@@ -67,7 +67,7 @@
       
     </div>
     <!-- Model to update email -->
-<form action="">
+<form id="form" action="">
     <div
       class="modal fade"
       id="exampleModal"
@@ -88,21 +88,22 @@
           </div>
           <div class="modal-body">
             <label class="pull-left">User Name</label><br />
-            <input type="text" class="form-control" />
+            <input type="text" name="username" class="form-control" />
             <label class="pull-left">Email</label><br />
-            <input type="Email" class="form-control" />
+            <input type="email" name='email' class="form-control" />
             <label class="pull-left">password</label><br />
-            <input type="Email" class="form-control" />
+            <input type="password" name='password' class="form-control" />
           </div>
           <div class="modal-footer">
-            <button
+            <input
               type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
+              value="close"
             >
               Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+          </input>
+            <input type="button" id='one' class="btn btn-primary" value="Save changes">Save changes</input>
           </div>
         </div>
       </div>
@@ -144,7 +145,7 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <input type="button"id='two' class="btn btn-primary">Save changes</input>
           </div>
         </div>
       </div>
@@ -186,7 +187,7 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <input type="button" id='three' class="btn btn-primary" value="Save changes">Save changes</input>
           </div>
         </div>
       </div>
