@@ -21,3 +21,16 @@ body{
     background-color: rgb(88, 121, 88);
     color: rgb(220 174 174) !important;
 }
+
+span{
+    display: none;
+    color:#ff6464 !important;
+}
+
+.error {
+    border: 3px solid #ff6464;
+}
+
+.success {
+    border: 3px solid green;
+}
