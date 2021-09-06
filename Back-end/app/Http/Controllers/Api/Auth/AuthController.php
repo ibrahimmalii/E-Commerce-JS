@@ -66,8 +66,8 @@ class AuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         $data = [
-                'access_token' => $token,
-                'user' => $user,
+            'access_token' => $token,
+            'user' => $user,
         ];
 
 
@@ -98,7 +98,7 @@ class AuthController extends Controller
 
         $token = $user->createToken('auth_token')->plainTextToken;
         $data = [
-            'token' => $token,
+            'access_token' => $token,
             'user' => new UserResource($user),
         ];
 
@@ -186,6 +186,7 @@ class AuthController extends Controller
     }
 
     public function updateUserPassword(Request $request ,$id){
+        // dd($request);
         $user = User::find($id);
 
         if(!$user){
@@ -197,7 +198,8 @@ class AuthController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'new_password' => ['required', 'string', 'min:8','max:255', 'confirmed']
+            // 'new_password' => ['required', 'string', 'min:8','max:255', 'confirmed']
+            'new_password' => ['required', 'string', 'min:8','max:255']
         ]);
 
 

@@ -28,13 +28,13 @@
           <form id="form" class="d-flex justify-content-center">
             <table class="w-75">
               <tr>
-                <td colspan="2" class="d-flex">
+                <td colspan="2" class="d-md-flex">
                   <div class=" flex-grow-1">
                     <label for="fName">First Name</label>
                     <input type="text" name="first_name" value="" class="form-control">
                     <small id="firstNameErr" class="fs-6 fw-bold">You have to write min 6 char</small>
                   </div>
-                  <pre>  </pre>
+                  <pre class="d-none d-md-block">  </pre>
                   <div class=" flex-grow-1">
                     <label for="lName">Last Name</label>
                     <input type="text" name="last_name" class="form-control">
@@ -92,8 +92,7 @@
                 <td colspan="2">
                   <label for="password">Password</label>
                   <input type="password" class="form-control" name="password">
-                  <small id="passwordErr" class="fs-6 fw-bold">You have to write at least 1 char and number in your
-                    password</small>
+                  <small id="passwordErr" class="fs-6 fw-bold">Password must containt A, *, 0 at least 8 Char</small>
                 </td>
               </tr>
               <tr>
@@ -105,7 +104,7 @@
               </tr>
               <tr>
                 <td colspan="2" class="text-center">
-                  <input type="button" class="btn form-control w-50 fw-bold" id="submit" value="Submit"></input>
+                  <input type="button"  class="btn form-control w-50 fw-bold" id="submit" value="Submit"></input>
                 </td>
               </tr>
             </table>
@@ -123,6 +122,7 @@
   <!-- JS Scripts -->
   <script src="../js/jquery.js"></script>
   <script src="../js/register.js" type="module"></script>
+  
 
   <!-- BootStrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
