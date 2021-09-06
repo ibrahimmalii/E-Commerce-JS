@@ -90,6 +90,7 @@ document.getElementById('submit').addEventListener('click', (e) => {
         success: function (response) {
             console.log('from ajax call');
             console.log(response);
+            localStorage.setItem('res' ,JSON.stringify( response));
             // location.replace('http://127.0.0.1:5502/index.html');
             return;
         },
