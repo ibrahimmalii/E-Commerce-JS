@@ -66,8 +66,8 @@ class AuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         $data = [
-                'access_token' => $token,
-                'user' => $user,
+            'access_token' => $token,
+            'user' => $user,
         ];
 
 
@@ -98,7 +98,7 @@ class AuthController extends Controller
 
         $token = $user->createToken('auth_token')->plainTextToken;
         $data = [
-            'token' => $token,
+            'access_token' => $token,
             'user' => new UserResource($user),
         ];
 

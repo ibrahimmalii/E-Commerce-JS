@@ -6,9 +6,9 @@ body{
 
 
 
-.loginForm{
+#loginForm{
     width: 40vw;
-    margin: 186px auto;
+    margin: 192px auto;
     background-color: none;
     color: white;
 }

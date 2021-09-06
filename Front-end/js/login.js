@@ -1,5 +1,11 @@
 import { validate } from "./validate.js";
 
+if(localStorage.getItem('user')){
+    let user_role = localStorage.getItem('user_role');
+    (user_role == 1) ? window.open("/index.html" , "_self") : window.open("/html/admin.html" , "_self");
+}
+
+
 //=================================== Target Inputs ===============================================//
 var allInputs = document.getElementsByTagName('input');
 let email = document.getElementsByName('email')[0];
@@ -13,7 +19,7 @@ let passwordErr = document.getElementById('passwordErr');
 
 
 email.addEventListener('blur', function () {
-    validate(email, /^[a-zA-Z0-9]{2,20}@[a-zA-Z]{2,20}.(es|com|org)$/, emailErr);
+    validate(email, /^[a-zA-Z0-9\.]{1,}\@[a-zA-Z0-9]{2,}\.[a-zA-Z]{2,}$/gmi, emailErr);
 });
 
 password.addEventListener('blur', function () {
@@ -41,10 +47,21 @@ password.addEventListener('blur', function () {
             dataType: 'json',
             success: function (response) {
                 console.log('from ajax call');
+                console.log($('#loginForm').serialize())
                 console.log(response);
-                localStorage.setItem('res' ,JSON.stringify( response));
-                // location.replace('http://127.0.0.1:5502/index.html');
-                return;
+                console.log(response.data.user.role);
+                
+                if(response.data != null){
+                    let user_role = response.data.user.role;
+                    localStorage.setItem('token' , response.data.access_token);
+                    localStorage.setItem('user' ,JSON.stringify( response.data.user));
+                    localStorage.setItem('user_role' , user_role);
+
+                    //redirect user as admin or visitor depend in his role 
+                    (user_role == 1) ? window.open("/index.html" , "_self") : window.open("/html/admin.html" , "_self");
+                }else{
+                    alert ('data field')
+                } 
             },
             error: function (error) {
                 console.log(error);
