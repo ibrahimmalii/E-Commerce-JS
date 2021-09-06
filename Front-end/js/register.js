@@ -97,10 +97,15 @@ document.getElementById('submit').addEventListener('click', (e) => {
             console.log(response);
             console.log(response.data.access_token);
             console.log(response.data.user);
+            
             if(response.data != null){
+                let user_role = response.data.user.role;
                 localStorage.setItem('token' , response.data.access_token);
                 localStorage.setItem('user' ,JSON.stringify( response.data.user));
-                location.replace('http://127.0.0.1:5500/index.html');
+                localStorage.setItem('user_role' , user_role);
+
+                //redirect user as admin or visitor depend in his role 
+                (user_role == 1) ? window.open("/index.html" , "_self") : window.open("/html/admin.html" , "_self");
             }else{
                 alert ('data field')
             } 
