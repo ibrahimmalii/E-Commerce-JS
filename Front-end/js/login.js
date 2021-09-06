@@ -13,11 +13,11 @@ let passwordErr = document.getElementById('passwordErr');
 
 
 email.addEventListener('blur', function () {
-    validate(email, /^[a-zA-Z0-9]{2,20}@[a-zA-Z]{2,20}.(es|com|org)$/, emailErr);
+    validate(email, /^[a-zA-Z0-9\.]{1,}\@[a-zA-Z0-9]{2,}\.[a-zA-Z]{2,}$/gmi, emailErr);
 });
 
 password.addEventListener('blur', function () {
-    validate(password, /^[a-zA-Z0-9]{8,}$/, passwordErr);
+    validate(password, /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/gm, passwordErr);
 });
 
 
