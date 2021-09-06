@@ -43,11 +43,11 @@ lastName.addEventListener('blur', function () {
 });
 
 username.addEventListener('blur', function () {
-    validate(username, /^[a-zA-Z]{6,30}$/, usernameErr);
+    validate(username, /^[a-zA-Z\s]{3,20}(?:[a-zA-z]{3})$/gmi, usernameErr);
 });
 
 email.addEventListener('blur', function () {
-    validate(email, /^[a-zA-Z0-9]{2,20}@[a-zA-Z]{2,20}.(es|com|org)$/, emailErr);
+    validate(email, /^[a-zA-Z0-9\.]{1,}\@[a-zA-Z0-9]{2,}\.[a-zA-Z]{2,}$/gmi, emailErr);
 });
 
 phone_number.addEventListener('blur', function () {
@@ -59,13 +59,12 @@ city.addEventListener('blur', function () {
 });
 
 password.addEventListener('blur', function () {
-    validate(password, /^[a-zA-Z0-9]{8,}$/, passwordErr);
+    validate(password, /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/gm, passwordErr);
 });
 
 password_confirmation.addEventListener('blur', function () {
     if (password_confirmation.value != password.value) {
         passwordConfirmationErr.style.display = 'block';
-        password_confirmation.select();
     } else {
         passwordConfirmationErr.style.display = 'none';
     }
