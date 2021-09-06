@@ -32,7 +32,7 @@ let btnsendthree = document.getElementById("three");
     // var sendData = $("#data").val();
     $.ajax({
       // url: `http://localhost:8000/api/user/updateemail/${userId}`,
-      url: `http://localhost:8000/api/user/updateemail/2`,
+      url: `http://localhost:8000/api/user/updateemail/8`,
       type: "post",
       dataType : 'json',
       data: $("#form").serialize(),
