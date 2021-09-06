@@ -1,14 +1,23 @@
 body{
-    /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcdZI1VXX94sjhQTO74zZtHDayGT00fg8to6eh8-6G2johWZtp8DKoC0jVqGLBjHJ1UuE&usqp=CAU'); */
     background-image: url('../public/image/register.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.form{
+
+
+.loginForm{
     width: 40vw;
-    margin-top: 40px;
-    background-color: #0c1d24;
-    opacity: 0.8;
+    margin: 186px auto;
+    background-color: none;
     color: white;
+}
+
+.btn{
+    background-color: #7b3212;
+}
+
+.btn:hover{
+    background-color: green;
+    color: black !important;
 }
