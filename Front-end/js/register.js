@@ -1,5 +1,11 @@
 import { validate } from "./validate.js";
 
+//=================================== Check If User Logged ===============//
+if(localStorage.getItem('user')){
+    location.assign('http://127.0.0.1:5500/index.html');
+}
+
+
 //=================================== Target Inputs ===============================================//
 var allInputs = document.getElementsByTagName('input');
 let firstName = document.getElementsByName('first_name')[0];
