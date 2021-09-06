@@ -50,7 +50,7 @@ password.addEventListener('blur', function () {
                 if(response.data != null){
                     localStorage.setItem('token' , response.data.access_token);
                     localStorage.setItem('user' ,JSON.stringify( response.data.user));
-                    // location.replace('http://127.0.0.1:5500/index.html');
+                    location.replace('http://127.0.0.1:5500/index.html');
                 }else{
                     alert ('data field')
                 } 
