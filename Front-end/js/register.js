@@ -67,9 +67,9 @@ password_confirmation.addEventListener('blur', function () {
 
 //====================================== Data We Will Send To Store User =====================================//
 
-// document.forms[0].addEventListener('submit', (e) => {
+
 document.getElementById('submit').addEventListener('click', (e) => {
-    // debugger;    
+    // debugger;
     for (var i = 0; i < allErr.length && allInputs.length; i++) {
         if (allErr[i].style.display == 'block' || allInputs[i].value.length == 0 || (password_confirmation.value != password.value)) {
             console.log('block');
@@ -79,7 +79,31 @@ document.getElementById('submit').addEventListener('click', (e) => {
         }
     }
 
-    //========================================= Send Request To Store User ===================================//
+    // ========================================= Send Request To Store User ===================================//
+
+    // fetch("http://localhost:8000/api/register", {
+
+    //     // Adding method type
+    //     method: "POST",
+
+    //     // Adding body or contents to send
+    //     body: JSON.stringify({
+    //         title: "foo",
+    //         body: "bar",
+    //         userId: 1
+    //     }),
+
+    //     // Adding headers to the request
+    //     headers: {
+    //         "Content-type": "application/json; charset=UTF-8"
+    //     }
+    // })
+
+    //     // Converting to JSON
+    //     .then(response => response.json())
+
+    //     // Displaying results to console
+    //     .then(json => console.log(json));
 
 
     $.ajax({
@@ -90,15 +114,23 @@ document.getElementById('submit').addEventListener('click', (e) => {
         success: function (response) {
             console.log('from ajax call');
             console.log(response);
-            localStorage.setItem('res' ,JSON.stringify( response));
-            // location.replace('http://127.0.0.1:5502/index.html');
-            return;
+            console.log(response.data.access_token);
+            console.log(response.data.user);
+            if(response.data != null){
+                localStorage.setItem('token' , response.data.access_token);
+                localStorage.setItem('user' ,JSON.stringify( response.data.user));
+                location.replace('http://127.0.0.1:5500/index.html');
+            }else{
+                alert ('data field')
+            } 
         },
         error: function (error) {
             console.log(error);
         }
 
     });
+
     // End Of Ajax Call
 });
 //=========================================== End Of Submit Form =============================================//
+
