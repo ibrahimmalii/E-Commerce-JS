@@ -1,5 +1,9 @@
 import { validate } from "./validate.js";
 
+if(localStorage.getItem('user')){
+    location.assign('http://127.0.0.1:5500/index.html');
+}
+
 //=================================== Target Inputs ===============================================//
 var allInputs = document.getElementsByTagName('input');
 let email = document.getElementsByName('email')[0];
@@ -17,7 +21,7 @@ email.addEventListener('blur', function () {
 });
 
 password.addEventListener('blur', function () {
-    validate(password, /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/gm, passwordErr);
+    validate(password, /^[a-zA-Z0-9]{8,}$/, passwordErr);
 });
 
 
@@ -41,10 +45,15 @@ password.addEventListener('blur', function () {
             dataType: 'json',
             success: function (response) {
                 console.log('from ajax call');
+                console.log($('#loginForm').serialize())
                 console.log(response);
-                localStorage.setItem('res' ,JSON.stringify( response));
-                // location.replace('http://127.0.0.1:5502/index.html');
-                return;
+                if(response.data != null){
+                    localStorage.setItem('token' , response.data.access_token);
+                    localStorage.setItem('user' ,JSON.stringify( response.data.user));
+                    // location.replace('http://127.0.0.1:5500/index.html');
+                }else{
+                    alert ('data field')
+                } 
             },
             error: function (error) {
                 console.log(error);

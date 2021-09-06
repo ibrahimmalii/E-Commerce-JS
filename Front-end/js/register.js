@@ -2,7 +2,7 @@ import { validate } from "./validate.js";
 
 //=================================== Check If User Logged ===============//
 if(localStorage.getItem('user')){
-    location.assign('http://127.0.0.1:5500/index.html');
+    localStorage.clear();
 }
 
 
@@ -59,7 +59,7 @@ city.addEventListener('blur', function () {
 });
 
 password.addEventListener('blur', function () {
-    validate(password, /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/gm, passwordErr);
+    validate(password, /^[a-zA-Z0-9]{8,}$/, passwordErr);
 });
 
 password_confirmation.addEventListener('blur', function () {
@@ -85,30 +85,6 @@ document.getElementById('submit').addEventListener('click', (e) => {
     }
 
     // ========================================= Send Request To Store User ===================================//
-
-    // fetch("http://localhost:8000/api/register", {
-
-    //     // Adding method type
-    //     method: "POST",
-
-    //     // Adding body or contents to send
-    //     body: JSON.stringify({
-    //         title: "foo",
-    //         body: "bar",
-    //         userId: 1
-    //     }),
-
-    //     // Adding headers to the request
-    //     headers: {
-    //         "Content-type": "application/json; charset=UTF-8"
-    //     }
-    // })
-
-    //     // Converting to JSON
-    //     .then(response => response.json())
-
-    //     // Displaying results to console
-    //     .then(json => console.log(json));
 
 
     $.ajax({
