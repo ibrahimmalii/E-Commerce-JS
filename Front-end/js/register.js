@@ -1,5 +1,11 @@
 import { validate } from "./validate.js";
 
+//=================================== Check If User Logged ===============//
+if(localStorage.getItem('user')){
+    localStorage.clear();
+}
+
+
 //=================================== Target Inputs ===============================================//
 var allInputs = document.getElementsByTagName('input');
 let firstName = document.getElementsByName('first_name')[0];
@@ -37,11 +43,11 @@ lastName.addEventListener('blur', function () {
 });
 
 username.addEventListener('blur', function () {
-    validate(username, /^[a-zA-Z]{6,30}$/, usernameErr);
+    validate(username, /^[a-zA-Z\s]{3,20}(?:[a-zA-z]{3})$/gmi, usernameErr);
 });
 
 email.addEventListener('blur', function () {
-    validate(email, /^[a-zA-Z0-9]{2,20}@[a-zA-Z]{2,20}.(es|com|org)$/, emailErr);
+    validate(email, /^[a-zA-Z0-9\.]{1,}\@[a-zA-Z0-9]{2,}\.[a-zA-Z]{2,}$/gmi, emailErr);
 });
 
 phone_number.addEventListener('blur', function () {
@@ -59,7 +65,6 @@ password.addEventListener('blur', function () {
 password_confirmation.addEventListener('blur', function () {
     if (password_confirmation.value != password.value) {
         passwordConfirmationErr.style.display = 'block';
-        password_confirmation.select();
     } else {
         passwordConfirmationErr.style.display = 'none';
     }
@@ -67,9 +72,9 @@ password_confirmation.addEventListener('blur', function () {
 
 //====================================== Data We Will Send To Store User =====================================//
 
-// document.forms[0].addEventListener('submit', (e) => {
+
 document.getElementById('submit').addEventListener('click', (e) => {
-    // debugger;    
+    // debugger;
     for (var i = 0; i < allErr.length && allInputs.length; i++) {
         if (allErr[i].style.display == 'block' || allInputs[i].value.length == 0 || (password_confirmation.value != password.value)) {
             console.log('block');
@@ -79,7 +84,7 @@ document.getElementById('submit').addEventListener('click', (e) => {
         }
     }
 
-    //========================================= Send Request To Store User ===================================//
+    // ========================================= Send Request To Store User ===================================//
 
 
     $.ajax({
@@ -90,14 +95,28 @@ document.getElementById('submit').addEventListener('click', (e) => {
         success: function (response) {
             console.log('from ajax call');
             console.log(response);
-            // location.replace('http://127.0.0.1:5502/index.html');
-            return;
+            console.log(response.data.access_token);
+            console.log(response.data.user);
+            
+            if(response.data != null){
+                let user_role = response.data.user.role;
+                localStorage.setItem('token' , response.data.access_token);
+                localStorage.setItem('user' ,JSON.stringify( response.data.user));
+                localStorage.setItem('user_role' , user_role);
+
+                //redirect user as admin or visitor depend in his role 
+                (user_role == 1) ? window.open("/index.html" , "_self") : window.open("/html/admin.html" , "_self");
+            }else{
+                alert ('data field')
+            } 
         },
         error: function (error) {
             console.log(error);
         }
 
     });
+
     // End Of Ajax Call
 });
 //=========================================== End Of Submit Form =============================================//
+
