@@ -13,7 +13,7 @@
     />
     <link rel="stylesheet" href="../css/setting.css" />
     <script src="../js/jquery.js"></script>
-    <script src="../js/setting.js"></script>
+    <script type='module' src="../js/setting.js"></script>
     <title>Setting</title>
   </head>
   <body>
@@ -88,11 +88,14 @@
           </div>
           <div class="modal-body">
             <label class="pull-left">User Name</label><br />
-            <input type="text" name="username" class="form-control" />
+            <input type="text" name="username" class="form-control"id='userName' />
+            <small id='userNameErr'>you have enter at least 5 character</small>
             <label class="pull-left">Email</label><br />
-            <input type="email" name='email' class="form-control" />
+            <input type="email" name='email' class="form-control"id='email' />
+            <small id='emailErr'>you email is not valid</small>
             <label class="pull-left">password</label><br />
-            <input type="password" name='password' class="form-control" />
+            <input type="password" name='password' class="form-control"id='password' />
+            <small id='passwordErr'>Password is not correct</small>
           </div>
           <div class="modal-footer">
             <input
@@ -129,12 +132,15 @@
             ></button>
           </div>
           <div class="modal-body">
-            <label>Current Password</label><br />
-            <input type="password" class="form-control" name='password'/>
-            <label>New Password</label><br />
-            <input type="password" class="form-control" name='new_password' />
-            <label>Confirm New Password</label><br />
-            <input type="password" class="form-control" name='confirm_password' />
+            <label class='pull-left'>Current Password</label><br />
+            <input type="password" class="form-control" name='password'id='inputpassword'/>
+            <small id='passwordTwo'>password is not correct</small>
+            <label class='pull-left'>New Password</label><br />
+            <input type="password" class="form-control" name='new_password'id='inputNewPassword' />
+            <small id='newpasswordErr'>enter at least 10 number</small>
+            <label class='pull-left'>Confirm New Password</label><br />
+            <input type="password" class="form-control" name='confirm_password'id='inputConfirmPassword' />
+            <small id='confirmpasswordErr'>your password is no matching</small>
           </div>
           <div class="modal-footer">
             <button
@@ -171,12 +177,15 @@
           </div>
           <div class="modal-body">
             <label>Phone</label><br />
-            <input type="text" class="form-control" name='phone_number' />
+            <input type="text" class="form-control" name='phone_number'id='phone_number' />
+            <small id="phoneNumberErr">phone number is not valid</small>
             <label class="text-dark pull-left">Location</label>
             <br />
-            <input type="text" class="form-control" name='city' />
+            <input type="text" class="form-control" name='city' id='city'/>
+            <small id="cityerr">please select your city</small>
             <label>password</label><br />
-            <input type="password" class="form-control" name='password' />
+            <input type="password" class="form-control" name='password'id='confirmPass' />
+            <small id='passwordErrTwo'>your password is no matching</small>
           </div>
           <div class="modal-footer">
             <button
