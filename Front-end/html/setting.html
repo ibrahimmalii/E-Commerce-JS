@@ -6,8 +6,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
   <link rel="stylesheet" href="../css/setting.css" />
-  <script src="../js/jquery.js"></script>
-  <script src="../js/setting.js"></script>
   <title>Setting</title>
 </head>
 
@@ -23,11 +21,11 @@
       <button class="btn fa fa-pencil pull-right rounded-circle" data-bs-toggle="modal"
         data-bs-target="#exampleModal"></button>
       <br /><br>
-      <p class="pull-left text-muted"> Alaa Ali</p>
+      <p class="pull-left text-muted userName"></p>
       <br /><br />
-      <h4 class="text-dark pull-left">Your Email</h4>
+      <h4 class="text-dark pull-left ">Your Email</h4>
       <br /><br>
-      <p class="pull-left text-muted">alaaali436@gmail.com</p>
+      <p class="pull-left text-muted email"></p>
       <br /><br /><br />
       <h4 class="text-dark pull-left"> Password</h4>
       <button class="btn fa fa-pencil pull-right rounded-circle" data-bs-toggle="modal"
@@ -37,11 +35,11 @@
       <h4 class="text-dark pull-left">Phone Number</h4>
       <button class="btn fa fa-pencil pull-right rounded-circle" data-bs-toggle="modal"
         data-bs-target="#phoneModal"></button><br /><br>
-      <p class="pull-left text-muted"> 011111111111</p>
+      <p class="pull-left text-muted phone"> </p>
       <br /><br /><br />
       <h4 class="text-dark pull-left">Location</h4>
       <br /><br>
-      <p class=" pull-left text-muted"> Tanta</p>
+      <p class=" pull-left text-muted city"></p>
 
     </div>
     <!-- Model to update email -->
@@ -55,11 +53,14 @@
             </div>
             <div class="modal-body">
               <label class="pull-left">User Name</label><br />
-              <input type="text" name="username" class="form-control" />
+              <input type="text" id="username" class="form-control" />
+              <small id='userNameErr'class='pull-left'>enter at least 6 letter</small><br>
               <label class="pull-left">Email</label><br />
-              <input type="email" name='email' class="form-control" />
+              <input type="email" id='email' class="form-control" />
+              <small id='emailErr'class='pull-left'>email is not valid</small><br>
               <label class="pull-left">password</label><br />
-              <input type="password" name='password' class="form-control" />
+              <input type="password" id='password' class="form-control" />
+              <small id="passwordErr" class="pull-left">password is not correct</small><br>
             </div>
             <div class="modal-footer">
               <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="close">
@@ -81,11 +82,14 @@
             </div>
             <div class="modal-body">
               <label class="pull-left fw-bold h6">Current Password</label><br />
-              <input type="password" class="form-control" name='password' />
+              <input type="password" class="form-control" name='password'id='inputpassword' />
+              <small id="passwordErr" class="pull-left" id='passwordTwo'>password is not correct</small><br>
               <label class="pull-left fw-bold h6">New Password</label><br />
-              <input type="password" class="form-control" name='new_password' />
+              <input type="password" class="form-control" name='new_password' id='inputNewPassword'/>
+              <small id='newpasswordErr' class="pull-left">your email is not valid</small><br>
               <label class="pull-left fw-bold h6">Confirm New Password</label><br />
-              <input type="password" class="form-control" name='confirm_password' />
+              <input type="password" class="form-control" name='confirm_password' id='inputConfirmPassword'/>
+              <small class='pull-left' id='confirmpasswordErr'>password is not matching</small><br>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
@@ -106,13 +110,15 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <label>Phone</label><br />
-              <input type="text" class="form-control" name='phone_number' />
-              <label class="text-dark pull-left">Location</label>
-              <br />
-              <input type="text" class="form-control" name='city' />
-              <label>password</label><br />
-              <input type="password" class="form-control" name='password' />
+              <label class='pull-left'>Phone</label><br />
+              <input type="text" class="form-control" name='phone_number' id='phone_number'/>
+              <small class="pull-left" id='phoneNumberErr'>enter 11 number</small><br>
+              <label class="text-dark pull-left">Location</label><br />
+              <input type="text" class="form-control" name='city' id='city'/>
+              <small class='pull-left' id='cityErr'>enter your city</small><br>
+              <label class='pull-left'>password</label><br />
+              <input type="password" class="form-control" name='password' id='confirmPass'/>
+              <small class='pull-left' id='passwordErrTwo'>password is not matching</small><br>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
@@ -127,6 +133,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
       crossorigin="anonymous"></script>
+  <script src="../js/jquery.js"></script>
+  <script type="module" src="../js/setting.js" ></script>
+
+
 </body>
 
 </html>
