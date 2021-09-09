@@ -29,13 +29,14 @@ class ProductController extends Controller
     }
 
     public function store(Request $request){
-
+        // dd($request);
         $validate = Validator::make($request->all(),[
             'title' => 'required|min:2|unique:mobiles,title',
             'description' => 'required|min:10,description',
             'price' => 'required|min:2,price',
             'type' => 'required|min:2,type',
             'amount' => 'required|min:2,amount',
+            'rate' => 'required|min:1,rate',
         ]);
 
         if($validate->fails()){
@@ -47,6 +48,7 @@ class ProductController extends Controller
             'price' => $request->price,
             'type' => $request->type,
             'amount' => $request->amount,
+            'rate' => $request->rate,
         ]);
 
         if($product){
@@ -62,6 +64,7 @@ class ProductController extends Controller
             'description' => 'required|min:10,description',
             'price' => 'required|min:2,price',
             'amount' => 'required|min:2,amount',
+            'rate' => 'required|min:2,rate',
             'type' => 'required|min:2,type',
         ]);
 
@@ -106,6 +109,7 @@ class ProductController extends Controller
         };
 
         $product->amount -= $request->amount;
+        $product->number_of_sales += $request->amount;
         $product->save();
     }
 

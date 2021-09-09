@@ -13,6 +13,8 @@ class Product extends Model
         'description',
         'price',
         'amount',
+        'rate',
+        // 'number_of_sales',
         'type',
     ];
 }

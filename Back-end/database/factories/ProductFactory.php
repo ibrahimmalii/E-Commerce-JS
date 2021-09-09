@@ -26,6 +26,8 @@ class ProductFactory extends Factory
             'description' => $this->faker->text(),
             'price' => $this->faker->numberBetween($min = 1000, $max = 10000),
             'amount' => $this->faker->numberBetween($min = 1, $max = 100),
+            'rate' => $this->faker->numberBetween($min = 1, $max = 5),
+            'number_of_sales' => $this->faker->numberBetween($min = 0, $max = 100),
             'type' => $this->faker->randomElement(['laptop','mobile']),
         ];
     }

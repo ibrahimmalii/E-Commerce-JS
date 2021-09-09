@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->integer('price');
             $table->integer('amount');
+            $table->enum('rate',[1 , 2, 3, 4, 5])->default(1);
+            $table->integer('number_of_sales')->default(1);
             $table->string('type');
             $table->timestamps();
         });
