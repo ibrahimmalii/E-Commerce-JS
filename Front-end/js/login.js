@@ -1,5 +1,10 @@
 import { validate } from "./validate.js";
 
+let register = document.getElementById('register');
+register.addEventListener('click' , ()=>{
+    window.open("/html/register.html");
+})
+
 if(localStorage.getItem('user')){
     let user_role = localStorage.getItem('user_role');
     (user_role == 1) ? window.open("/index.html" , "_self") : window.open("/Admin/index.html" , "_self");
@@ -10,7 +15,7 @@ if(localStorage.getItem('user')){
 var allInputs = document.getElementsByTagName('input');
 let email = document.getElementsByName('email')[0];
 let password = document.getElementsByName('password')[0];
-email.select();
+// email.select();
 
 //=================================== Target Err Messages ===============================================//
 var allErr = document.getElementsByTagName('span');
