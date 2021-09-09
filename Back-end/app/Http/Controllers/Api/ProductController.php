@@ -46,7 +46,7 @@ class ProductController extends Controller
             'description' => $request->description,
             'price' => $request->price,
             'type' => $request->type,
-            'amount' => 'required|min:2,amount',
+            'amount' => $request->amount,
         ]);
 
         if($product){

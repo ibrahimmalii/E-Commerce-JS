@@ -105,7 +105,7 @@ document.getElementById('submit').addEventListener('click', (e) => {
                 localStorage.setItem('user_role' , user_role);
 
                 //redirect user as admin or visitor depend in his role 
-                (user_role == 1) ? window.open("/index.html" , "_self") : window.open("/html/admin.html" , "_self");
+                (user_role == 1) ? window.open("/index.html" , "_self") : window.open("/Admin/index.html" , "_self");
             }else{
                 alert ('data field')
             } 
