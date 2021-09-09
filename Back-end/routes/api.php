@@ -40,10 +40,13 @@ Route::delete('/labtops/delete/{labtop}',[LabtopController::class,'destroy']);
 // Crud For Product
 Route::get('products',[ProductController::class,'index']);
 Route::get('products/{product}',[ProductController::class,'show']);
-Route::post('products',[ProductController::class,'store'])->middleware(['auth:sanctum' , 'admin']);
+// Route::post('products',[ProductController::class,'store'])->middleware(['auth:sanctum' , 'admin']);
+Route::post('products',[ProductController::class,'store']);
 Route::post('products/sell/{product}',[ProductController::class,'sell'])->middleware('auth:sanctum');
-Route::post('/products/{product}',[ProductController::class,'update'])->middleware(['auth:sanctum' , 'admin']);
-Route::delete('/products/delete/{product}',[ProductController::class,'destroy'])->middleware(['auth:sanctum' , 'admin']);
+// Route::post('/products/{product}',[ProductController::class,'update'])->middleware(['auth:sanctum' , 'admin']);
+Route::post('/products/{product}',[ProductController::class,'update']);
+// Route::delete('/products/delete/{product}',[ProductController::class,'destroy'])->middleware(['auth:sanctum' , 'admin']);
+Route::delete('/products/delete/{product}',[ProductController::class,'destroy']);
 
 
 // Auth Routes
