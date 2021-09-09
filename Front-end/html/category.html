@@ -1,632 +1,635 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>catogray-page</title>
-        <!--bootstrab file-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-        <!-- Font Awesome -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>catogray-page</title>
+    <!--bootstrab file-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 
     <link rel="icon" href="images/headerIcon.PNG" type="image/x-icon">
-     <!--style css-->
-     <link rel="stylesheet" href="/css/category.css">
-    </head>
-    <body>
-<!--navbar-->
-<nav class="navbar  navbar-expand-lg navbar-light bg-light scrolling-navbar white  fixed-top"  >
-    <!--toggler responsive-->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <!--style css-->
+    <link rel="stylesheet" href="/css/category.css">
+</head>
+
+<body>
+    <!--navbar-->
+    <nav class="navbar  navbar-expand-lg navbar-light bg-light scrolling-navbar white  fixed-top">
+        <!--toggler responsive-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-      <ul class="navbar-nav mx-md-4">
-        <li class="nav-item active ">
-          <a class="nav-link" href="#">  <i class="far fa-bookmark"></i> Home page <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="far fa-hand-pointer"></i> catogrey page </a>
-        </li>
-        <li class="nav-item ">
-            <a class="nav-link" href="#"> <i class="fas fa-shopping-cart"></i> cart page </a>
-          </li>
-     </ul> 
-    </div>
-          <div class="nav-item mx-md-4">
+
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav mx-md-4">
+                <li class="nav-item active ">
+                    <a class="nav-link" href="#"> <i class="far fa-bookmark"></i> Home page <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="far fa-hand-pointer"></i> catogrey page </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#"> <i class="fas fa-shopping-cart"></i> cart page </a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-item mx-md-4">
             <a class="nav-link " href="#"><i class="fas fa-cog blue-text"></i> Settings</a>
-          </div>
+        </div>
 
         <div class="nav-item dropdown  mx-md-4">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user"></i> New User
             </a>
             <div class="dropdown-menu text-center align-items-left" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item waves-effect waves-light"  id="signOutOrSignIn" href="#"><i class="fas fa-sign-in-alt m-2"></i>Sign In</a>
-              <a class="dropdown-item  waves-effect waves-light" id="signup" href="#"><i class="fas fa-user-plus m-2"></i>Sign Up</a>
+                <a class="dropdown-item waves-effect waves-light" id="signOutOrSignIn" href="#"><i class="fas fa-sign-in-alt m-2"></i>Sign In</a>
+                <a class="dropdown-item  waves-effect waves-light" id="signup" href="#"><i class="fas fa-user-plus m-2"></i>Sign Up</a>
             </div>
-  </nav>
+    </nav>
 
-<!--nav2-->
+    <!--nav2-->
 
-<div class="container mt-5 pt-3">
-<div class="row">
-  <div class="col-lg-12">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary  mt-5 mb-5">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="container mt-5 pt-3">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary  mt-5 mb-5">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse " id="navbarSupportedContent2">
-        <div class="nav-item  ">
-        <a class="font-weight-bold text-white m-2 " href="#">Categories</a>
-  
-  </div>
-  <div class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="collapse navbar-collapse " id="navbarSupportedContent2">
+                        <div class="nav-item  ">
+                            <a class="font-weight-bold text-white m-2 " href="#">Categories</a>
+
+                        </div>
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   laptops
   </a>
-  <div class="dropdown-menu text-center align-items-center mt-2 dropdown-expand-lg " aria-labelledby="navbarDropdown">
-    <div class="container mt-2 pt-3 ">
-  
-    <nav class="navbar navbar-expand-lg navbar-dark bg-white mb-5 ">
-      <div class="collapse navbar-collapse  " id="navbarSupportedContent2">
-  
-        <div class="collapse navbar-collapse " id="navbarSupportedContent2">
-          
-        <div class="nav-item dropdown  mx-md-4">
-  
-          <a class="dropdown-item waves-effect waves-light bro " href="#">
-            <h6 class="text-primary ">BRAND</h6>
-      </a>
-          <a class="nav-link dropdown-toggle dropdown-item  waves-effect waves-light text-uppercase mt-4"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="dropdown-menu text-center align-items-center mt-2 dropdown-expand-lg " aria-labelledby="navbarDropdown">
+                                <div class="container mt-2 pt-3 ">
+
+                                    <nav class="navbar navbar-expand-lg navbar-dark bg-white mb-5 ">
+                                        <div class="collapse navbar-collapse  " id="navbarSupportedContent2">
+
+                                            <div class="collapse navbar-collapse " id="navbarSupportedContent2">
+
+                                                <div class="nav-item dropdown  mx-md-4">
+
+                                                    <a class="dropdown-item waves-effect waves-light bro " href="#">
+                                                        <h6 class="text-primary ">BRAND</h6>
+                                                    </a>
+                                                    <a class="nav-link dropdown-toggle dropdown-item  waves-effect waves-light text-uppercase mt-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            Sony
           </a>
-          <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Lenovo
         </a>
-        <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         apple
       </a><a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         dell
     </a>
-    <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Asus
           </a>
-        
-          <div class="dropdown-menu text-center align-items-left" aria-labelledby="navbarDropdown">
-            
-            <!--menu links-->
-          </div>
-  </div>
-  
-  <div class="collapse navbar-collapse " id="navbarSupportedContent2">
-    <div class="nav-item dropdown  mx-md-4">
-    <a class="dropdown-item  waves-effect waves-light bro "  href="#">
-  
-      <h6 class="text-primary ">SALES</h6> 
-    </a>  
-  
-  
-  
-    <a class="nav-link dropdown-toggle dropdown-item  waves-effect waves-light text-uppercase mt-4"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                                    <div class="dropdown-menu text-center align-items-left" aria-labelledby="navbarDropdown">
+
+                                                        <!--menu links-->
+                                                    </div>
+                                                </div>
+
+                                                <div class="collapse navbar-collapse " id="navbarSupportedContent2">
+                                                    <div class="nav-item dropdown  mx-md-4">
+                                                        <a class="dropdown-item  waves-effect waves-light bro " href="#">
+
+                                                            <h6 class="text-primary ">SALES</h6>
+                                                        </a>
+
+
+
+                                                        <a class="nav-link dropdown-toggle dropdown-item  waves-effect waves-light text-uppercase mt-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Laptops Up to 50% Off  
       </a>
-     <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Laptops under $399
      </a>
-   <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
    Laptops Up to 50% Off
   </a><a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Laptops for designers
   </a>
-  <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Laptops for developers  
    </a>
-   
-     <div class="dropdown-menu text-center align-items-left" aria-labelledby="navbarDropdown">
-       
-       <!--menu links-->
-     </div>
-    </div>
-  </div>
-  
-  
-  
-  
-  
-  <div class="collapse navbar-collapse " id="navbarSupportedContent2">
-    <div class="nav-item dropdown  mx-md-4"> 
-      <a class="dropdown-item  waves-effect waves-light bro"  href="#">
-      
-      <h6 class="text-primary ">PROCESSOR Type</h6>
-     </a>
-  
-     <a class="nav-link dropdown-toggle dropdown-item  waves-effect waves-light text-uppercase mt-4"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                                        <div class="dropdown-menu text-center align-items-left" aria-labelledby="navbarDropdown">
+
+                                                            <!--menu links-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+
+                                                <div class="collapse navbar-collapse " id="navbarSupportedContent2">
+                                                    <div class="nav-item dropdown  mx-md-4">
+                                                        <a class="dropdown-item  waves-effect waves-light bro" href="#">
+
+                                                            <h6 class="text-primary ">PROCESSOR Type</h6>
+                                                        </a>
+
+                                                        <a class="nav-link dropdown-toggle dropdown-item  waves-effect waves-light text-uppercase mt-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       intel core i5 4th gen
   
      </a>
-     <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       intel core i5 5th gen
     </a>
-   <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     intel core i5 3th gen
   </a><a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     intel core i5 6th gen
   
   </a>
-  <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     intel core i5 7th gen
      </a>
-   
-     <div class="dropdown-menu text-center align-items-left" aria-labelledby="navbarDropdown">
-       
-       <!--menu links-->
-     </div>
-    </div>
-  </div>
-  <div class="collapse navbar-collapse " id="navbarSupportedContent2">
-  
-        <div class="nav-item dropdown  mx-md-4"> 
-         <a class="dropdown-item  waves-effect waves-light bro"  href="#">
-      <h6 class="text-primary">Customers OPINIONS</h6>
-     </a>  
-     <a class="nav-link dropdown-toggle dropdown-item  waves-effect waves-light text-uppercase mt-4"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                                        <div class="dropdown-menu text-center align-items-left" aria-labelledby="navbarDropdown">
+
+                                                            <!--menu links-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="collapse navbar-collapse " id="navbarSupportedContent2">
+
+                                                    <div class="nav-item dropdown  mx-md-4">
+                                                        <a class="dropdown-item  waves-effect waves-light bro" href="#">
+                                                            <h6 class="text-primary">Customers OPINIONS</h6>
+                                                        </a>
+                                                        <a class="nav-link dropdown-toggle dropdown-item  waves-effect waves-light text-uppercase mt-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Totam rem aperiam eaque
      </a>
-     <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Beatae vitae dicta sun
      </a>
-   <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Quae ab illo inventore
   </a>
-  <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Nemo enim ipsam
   </a>
-  <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <a class="nav-link dropdown-toggle dropdown-item waves-effect waves-light text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Neque porro quisquam est
      </a>
-   
-     <div class="dropdown-menu text-center align-items-left" aria-labelledby="navbarDropdown">
-       
-       <!--menu links-->
-     </div>
+
+                                                        <div class="dropdown-menu text-center align-items-left" aria-labelledby="navbarDropdown">
+
+                                                            <!--menu links-->
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                    </nav>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <form class="form-inline ">
+                                <input class="form-control mt-sm-1" type="search" placeholder="Search" aria-label="Search">
+                            </form>
+                </nav>
+                </div>
+
+                </div>
+
+                </nav>
+            </div>
         </div>
-  
-        </div>
-  
-  </div>
-  
-    </nav>
     </div>
-  
-  </div>
-  
-  </div>
-  <form class="form-inline ">
-    <input class="form-control mt-sm-1" type="search" placeholder="Search" aria-label="Search">
-  </form>
-    </nav>
-  </div>
-  
-      </div>
-  
-  </nav>
-  </div>
-</div>
-  </div>
 
-<!--content-->
+    <!--content-->
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-9">
-      <div class="container" >
+    <div class="container">
         <div class="row">
-          <div class="col-md-12" >
-                 <div class="container">
-                 <div class="row">
-                 <div class="col-md-4">
-                  <p>Example label: <a href="#" class="btn btn-primary w-50 ">Save</a> </p>
-                </div>
-                 <div class="col-md-4">
-                </div>
-                <div class="col-md-4">
-                  <div class="flex row">
-                    <div class="w-50"><a href="#" class="btn btn-primary "><i class="fas fa-border-none"></i> Grid</a> </div>
-                   <div class="w-50"> <a href="#" class="btn btn-primary  "><i class="fas fa-list-ul"></i> List</a></div>
-                                   </div>         
-                                         </div>
-                   </div>
-                 </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p>Example label: <a href="#" class="btn btn-primary w-50 ">Save</a> </p>
+                                    </div>
+                                    <div class="col-md-4">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="flex row">
+                                            <div class="w-50"><a href="#" class="btn btn-primary "><i class="fas fa-border-none"></i> Grid</a> </div>
+                                            <div class="w-50"> <a href="#" class="btn btn-primary  "><i class="fas fa-list-ul"></i> List</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-               </div>
-              </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-</div>
-      </div>
+        </div>
+    </div>
     </div>
 
-  </div>
-
-</div>
-<div class="container" >
-   <div class="row">
-    <div class="col-md-3" >
-<div class="w-100 mt-5"  >
-<h3 class="text-dark font-weight-bold">Order By</h3>
-<hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-<a class=" text-center  lin text-primary" href="#">Default</a><br>
-<a class=" text-center  lin" href="#">price: low to heigh</a><br>
-<a  class=" text-center  lin" href="#">price: heigh to low</a><br>
-
-</div>
-<div class="w-100 mt-5" >
-  <h3 class="text-dark font-weight-bold">Category</h3>
-  <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-  <div class="custom-control custom-radio">
-    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" style="cursor: pointer;">
-    <label class="custom-control-label" for="customRadio1" style="cursor: pointer;">All</label>
-  </div>
-  <div class="custom-control custom-radio">
-    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" style="cursor: pointer;" required> 
-    <label class="custom-control-label" for="customRadio2" style="cursor: pointer;">Laptop</label>
-  </div>
-  <div class="custom-control custom-radio">
-    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" style="cursor: pointer;">
-    <label class="custom-control-label" for="customRadio2" style="cursor: pointer;" >Smartphone</label>
-  </div>
-</div>
-<div class="w-100 mt-5" >
-  <h3 class="text-dark font-weight-bold">Price</h3>
-  <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-
-  <form>
-    <div class="form-group">
-      <label for="formControlRange">0$</label>
-      <input type="range" class="form-control-range" id="formControlRange">
-      <label for="formControlRange">319$</label>
+    </div>
 
     </div>
-  </form>
-</div>
-<div class="w-100 mt-5">
-  <h3 class="text-dark font-weight-bold">Rating</h3>
-  <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-  <div class="ml-1">
-<i class="fas fa-star text-primary "></i>
-  <i class="fas fa-star text-primary "></i>
-  <i class="fas fa-star text-primary "></i>
-  <i class="fas fa-star text-primary "></i>
-  <i class="fas fa-star text-primary "></i>
-<a href="#" class="text-dark font-weight-bold" style="text-decoration: none;">4 and more</a><br>
-  </div><br>
-  <div class="ml-1">
-    <i class="fas fa-star text-primary "></i>
-      <i class="fas fa-star text-primary "></i>
-      <i class="fas fa-star text-primary "></i>
-      <i class="fas fa-star text-primary "></i>
-      <i class="fas fa-star gr "></i>
-    <a href="#" class="text-dark font-weight-bold" style="text-decoration: none;">3-3.99</a>
-      </div><br>
-      <div class="ml-1">
-        <i class="fas fa-star text-primary "></i>
-          <i class="fas fa-star text-primary "></i>
-          <i class="fas fa-star text-primary "></i>
-          <i class="fas fa-star gr "></i>
-          <i class="fas fa-star gr"></i>
-        <a href="#" class="text-dark font-weight-bold" style="text-decoration: none;">3.00 and less</a><br>
-          </div><br>
-        
-</div>
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="w-100 mt-5">
+                    <h3 class="text-dark font-weight-bold">Order By</h3>
+                    <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <a class=" text-center  lin text-primary" href="#">Default</a><br>
+                    <a class=" text-center  lin" href="#">price: low to heigh</a><br>
+                    <a class=" text-center  lin" href="#">price: heigh to low</a><br>
 
-    <div class="col-md-9 text-center" >
-        <div class="row ">
-          <div class="col-md-4">
-            <div class="card mt-4" style="width: 16rem;">
-              <img src="/public/cat-images/Samsung V54.jpg V54.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Samsung V54</h5>
-                <a href="#" class="btn btn-danger ">Bestseller</a>
-                <div class="ml-1 mt-2">
-                  <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
                 </div>
-<div class="mt-2">
-                  <a  href="" style="text-decoration: none ;" class="card-text gr">1199  <i class="fas fa-shopping-cart gr"></i></a>
-
-</div>
-              </div>
-            </div>
-            
-
-            <div class="card mt-2" style="width: 16rem;">
-              <img src="/public/cat-images/Samsung V54.jpg V54.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">I phone </h5>
-                <a href="#" class="btn btn-danger ">Bestseller</a>  
-                <div class="ml-1 mt-2">
-                  <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
+                <div class="w-100 mt-5">
+                    <h3 class="text-dark font-weight-bold">Category</h3>
+                    <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" style="cursor: pointer;">
+                        <label class="custom-control-label" for="customRadio1" style="cursor: pointer;">All</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" style="cursor: pointer;" required>
+                        <label class="custom-control-label" for="customRadio2" style="cursor: pointer;">Laptop</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" style="cursor: pointer;">
+                        <label class="custom-control-label" for="customRadio2" style="cursor: pointer;">Smartphone</label>
+                    </div>
                 </div>
-                <div class="mt-2">
-                  <a  href="" style="text-decoration: none ;" class="card-text gr">1399  <i class="fas fa-shopping-cart gr"></i></a>
- 
- </div>
-              </div>
-            </div>
+                <div class="w-100 mt-5">
+                    <h3 class="text-dark font-weight-bold">Price</h3>
+                    <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 
-          </div>
-          <div class="col-md-4">
-           
+                    <form>
+                        <div class="form-group">
+                            <label for="formControlRange">0$</label>
+                            <input type="range" class="form-control-range" id="formControlRange">
+                            <label for="formControlRange">319$</label>
 
-           <div class="card mt-4" style="width: 16rem;">
-             <img src="/public/cat-images/Asus CT-567.jpg" class="card-img-top" alt="...">
-             <div class="card-body">
-               <h5 class="card-title">Asus CT-567</h5>
-               <a href="#" class="btn btn-danger ">Bestseller</a>
-               <div class="ml-1 mt-2">
-                 <i class="fas fa-star text-primary "></i>
-                   <i class="fas fa-star text-primary "></i>
-                   <i class="fas fa-star text-primary "></i>
-                   <i class="fas fa-star text-primary "></i>
-                   <i class="fas fa-star text-primary "></i>
-               </div>
-<div class="mt-2">
-                 <a  href="" style="text-decoration: none ;" class="card-text gr">3199  <i class="fas fa-shopping-cart gr"></i></a>
-
-</div>
-             </div>
-           </div>
-
-            <div class="card mt-2" style="width: 16rem;">
-              <img src="/public/cat-images/Dell V-964i.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Dell V-964i</h5>
-                <a href="#" class="btn btn-danger ">Bestseller</a>
-
-                <div class="ml-1 mt-2">
-                  <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
+                        </div>
+                    </form>
                 </div>
-<div class="mt-2">
-                  <a  href="" style="text-decoration: none ;" class="card-text gr">1399  <i class="fas fa-shopping-cart gr"></i></a>
+                <div class="w-100 mt-5">
+                    <h3 class="text-dark font-weight-bold">Rating</h3>
+                    <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <div class="ml-1">
+                        <i class="fas fa-star text-primary "></i>
+                        <i class="fas fa-star text-primary "></i>
+                        <i class="fas fa-star text-primary "></i>
+                        <i class="fas fa-star text-primary "></i>
+                        <i class="fas fa-star text-primary "></i>
+                        <a href="#" class="text-dark font-weight-bold" style="text-decoration: none;">4 and more</a><br>
+                    </div><br>
+                    <div class="ml-1">
+                        <i class="fas fa-star text-primary "></i>
+                        <i class="fas fa-star text-primary "></i>
+                        <i class="fas fa-star text-primary "></i>
+                        <i class="fas fa-star text-primary "></i>
+                        <i class="fas fa-star gr "></i>
+                        <a href="#" class="text-dark font-weight-bold" style="text-decoration: none;">3-3.99</a>
+                    </div><br>
+                    <div class="ml-1">
+                        <i class="fas fa-star text-primary "></i>
+                        <i class="fas fa-star text-primary "></i>
+                        <i class="fas fa-star text-primary "></i>
+                        <i class="fas fa-star gr "></i>
+                        <i class="fas fa-star gr"></i>
+                        <a href="#" class="text-dark font-weight-bold" style="text-decoration: none;">3.00 and less</a><br>
+                    </div><br>
 
-</div>
-              </div>
+                </div>
             </div>
 
-            </div>
+            <div class="col-md-9 text-center">
+                <div class="row ">
                     <div class="col-md-4">
-            
-             
-            <div class="card mt-4" style="width: 16rem;">
-              <img src="/public/cat-images/macbook.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">IMac 27</h5>
-                <a href="#" class="btn btn-danger ">Bestseller</a>
-                <div class="ml-1 mt-2">
-                  <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
-                    <i class="fas fa-star text-primary "></i>
-                </div>
-<div class="mt-2">
-                  <a  href="" style="text-decoration: none ;" class="card-text gr">1399  <i class="fas fa-shopping-cart gr"></i></a>
+                        <div class="card mt-4" style="width: 16rem;">
+                            <img src="/public/cat-images/Samsung V54.jpg V54.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Samsung V54</h5>
+                                <a href="#" class="btn btn-danger ">Bestseller</a>
+                                <div class="ml-1 mt-2">
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                </div>
+                                <div class="mt-2">
+                                    <a href="" style="text-decoration: none ;" class="card-text gr">1199  <i class="fas fa-shopping-cart gr"></i></a>
 
-</div>
-              </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="card mt-2" style="width: 16rem;">
+                            <img src="/public/cat-images/Samsung V54.jpg V54.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">I phone </h5>
+                                <a href="#" class="btn btn-danger ">Bestseller</a>
+                                <div class="ml-1 mt-2">
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                </div>
+                                <div class="mt-2">
+                                    <a href="" style="text-decoration: none ;" class="card-text gr">1399  <i class="fas fa-shopping-cart gr"></i></a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+
+
+                        <div class="card mt-4" style="width: 16rem;">
+                            <img src="/public/cat-images/Asus CT-567.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Asus CT-567</h5>
+                                <a href="#" class="btn btn-danger ">Bestseller</a>
+                                <div class="ml-1 mt-2">
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                </div>
+                                <div class="mt-2">
+                                    <a href="" style="text-decoration: none ;" class="card-text gr">3199  <i class="fas fa-shopping-cart gr"></i></a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mt-2" style="width: 16rem;">
+                            <img src="/public/cat-images/Dell V-964i.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Dell V-964i</h5>
+                                <a href="#" class="btn btn-danger ">Bestseller</a>
+
+                                <div class="ml-1 mt-2">
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                </div>
+                                <div class="mt-2">
+                                    <a href="" style="text-decoration: none ;" class="card-text gr">1399  <i class="fas fa-shopping-cart gr"></i></a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+
+
+                        <div class="card mt-4" style="width: 16rem;">
+                            <img src="/public/cat-images/macbook.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">IMac 27</h5>
+                                <a href="#" class="btn btn-danger ">Bestseller</a>
+                                <div class="ml-1 mt-2">
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                </div>
+                                <div class="mt-2">
+                                    <a href="" style="text-decoration: none ;" class="card-text gr">1399  <i class="fas fa-shopping-cart gr"></i></a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mt-2" style="width: 16rem;">
+                            <img src="/public/cat-images/Asus GT67i.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Asus GT67i</h5>
+                                <a href="#" class="btn btn-danger ">Bestseller</a>
+                                <div class="ml-1 mt-2">
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                    <i class="fas fa-star text-primary "></i>
+                                </div>
+                                <div class="mt-2">
+                                    <a href="" style="text-decoration: none ;" class="card-text gr">1199  <i class="fas fa-shopping-cart gr"></i></a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="page-footer text-center text-md-left pt-0">
+
+        <div style="background-color: #4285f4;">
+
+            <div class="container">
+
+                <div class="row py-4 d-flex align-items-center">
+
+                    <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+
+                        <h6 class="mb-0 text-white">Get connected with us on social networks!</h6>
+
+                    </div>
+
+                    <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+                        <!-- Facebook -->
+                        <a class="fb-ic ml-0 px-2" href="#" style="text-decoration: none;">
+
+                            <i class="fab fa-facebook-f text-white "> </i>
+
+                        </a>
+
+                        <!-- Twitter -->
+
+                        <a class="tw-ic px-2" href="#" style="text-decoration: none;">
+                            <i class="fab fa-twitter text-white"> </i>
+
+                        </a>
+
+                        <!-- Google -->
+                        <a class="gplus-ic px-2" href="#" style="text-decoration: none;">
+                            <i class="fab fa-google-plus-g text-white"> </i>
+                        </a>
+
+                        <!-- Linkedin -->
+                        <a class="li-ic px-2" href="#" style="text-decoration: none;">
+
+                            <i class="fab fa-linkedin-in text-white"> </i>
+
+                        </a>
+
+                        <!-- Instagram -->
+                        <a class="ins-ic px-2" href="#" style="text-decoration: none;">
+
+                            <i class="fab fa-instagram text-white"> </i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
             </div>
 
-              <div class="card mt-2" style="width: 16rem;">
-                <img src="/public/cat-images/Asus GT67i.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Asus GT67i</h5>
-                  <a href="#" class="btn btn-danger ">Bestseller</a>
-                  <div class="ml-1 mt-2">
-                    <i class="fas fa-star text-primary "></i>
-                      <i class="fas fa-star text-primary "></i>
-                      <i class="fas fa-star text-primary "></i>
-                      <i class="fas fa-star text-primary "></i>
-                      <i class="fas fa-star text-primary "></i>
-                  </div>
-  <div class="mt-2">
-                    <a  href="" style="text-decoration: none ;" class="card-text gr">1199  <i class="fas fa-shopping-cart gr"></i></a>
-  
-  </div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="container mt-5 mb-4 text-center text-md-left displ ">
+
+            <div class="row mt-3 ">
+
+                <!-- column  one-->
+                <div class="col-md-3 col-lg-4 col-xl-3 mt-3 mb-4">
+
+                    <h6 class="text-uppercase font-weight-bold text-white">
+                        <strong class="text-white"> navbar </strong>
+                    </h6>
+
+                    <hr class="bg-primary mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+
+                    <p class="text-white">Here you can find the best device with the best price . Do not hesitate and start searching for what you want.
+
+                    </p>
+
+
                 </div>
-              </div>
-            </div>      
-            
-            
-             
+
+                <div class="col-md-3 col-lg-4 col-xl-3 mt-3 mb-4 mx-auto">
+
+                    <h6 class="text-uppercase font-weight-bold text-white">
+                        <strong class="text-white">Useful links</strong>
+                    </h6>
+
+                    <hr class="bg-primary mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+
+                    <p>
+
+                        <a class="text-white " style="text-decoration: none;" href="#">Cart</a>
+
+                    </p>
+
+                    <p>
+
+                        <a class="text-white" style="text-decoration: none;" href="#">Categories </a>
+
+                    </p>
+                </div>
+                <!-- Third column -->
+
+                <!-- Fourth column -->
+                <div class="col-md-4 col-lg-3 col-xl-3">
+
+                    <h6 class="text-uppercase font-weight-bold">
+
+                        <strong class="text-white">Contact</strong>
+
+                    </h6>
+
+                    <hr class="bg-primary mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+
+                    <p class="text-white">
+
+                        <i class="fas fa-home mr-3"></i> Cairo, Egypt</p>
+
+                    <p class="text-white">
+
+                        <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+
+                    <p class="text-white">
+
+                        <i class="fas fa-phone mr-3"></i> + 01 000 000 00</p>
+
+                    <p class="text-white">
+
+                        <i class="fas fa-print mr-3"></i> + 01 111 111 11</p>
+
+                </div>
+                <!-- Fourth column-->
+
+            </div>
+
+        </div>
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright py-3 text-center linkpage">
+
+            <div class="container-fluid text-white">
+
+                © 2021 Copyright:
+
+
+            </div>
+
         </div>
 
-        
-      </div>
-      </div>
-      </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<footer class="page-footer text-center text-md-left pt-0">
-
-  <div style="background-color: #4285f4;">
-
-      <div class="container">
-
-          <div class="row py-4 d-flex align-items-center">
-
-              <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-
-                  <h6 class="mb-0 text-white">Get connected with us on social networks!</h6>
-
-              </div>
-
-              <div class="col-md-6 col-lg-7 text-center text-md-right">
-
-                  <!-- Facebook -->
-                  <a class="fb-ic ml-0 px-2" href="#"  style="text-decoration: none;">
-
-                      <i class="fab fa-facebook-f text-white "> </i>
-
-                  </a>
-
-                  <!-- Twitter -->
-
-              <a class="tw-ic px-2" href="#" style="text-decoration: none;">
-                 <i class="fab fa-twitter text-white"> </i>
-
-                  </a>
-
-                  <!-- Google -->
-                  <a class="gplus-ic px-2" href="#" style="text-decoration: none;">
-                      <i class="fab fa-google-plus-g text-white"> </i>
-                  </a>
-
-                  <!-- Linkedin -->
-                  <a class="li-ic px-2" href="#"   style="text-decoration: none;">
-
-                      <i class="fab fa-linkedin-in text-white"> </i>
-
-                  </a>
-
-                  <!-- Instagram -->
-                  <a class="ins-ic px-2" href="#"  style="text-decoration: none;">
-
-                      <i class="fab fa-instagram text-white"  > </i>
-
-                  </a>
-
-              </div>
-
-          </div>
-
-      </div>
-
-  </div>
-
-  <!-- Footer Links -->
-  <div class="container mt-5 mb-4 text-center text-md-left displ ">
-
-      <div class="row mt-3 ">
-
-          <!-- column  one-->
-          <div class="col-md-3 col-lg-4 col-xl-3 mt-3 mb-4">
-
-            <h6 class="text-uppercase font-weight-bold text-white"> 
-              <strong class="text-white"> navbar </strong>
-            </h6>
-
-            <hr class="bg-primary mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-
-              <p class="text-white">Here you can find the best device with the best price . Do not hesitate and start searching for what you want.
-
-            </p>
-
- 
-        </div>
-         
-          <div class="col-md-3 col-lg-4 col-xl-3 mt-3 mb-4 mx-auto">
-
-              <h6 class="text-uppercase font-weight-bold text-white">
-                <strong class="text-white">Useful links</strong> 
-                 </h6>
-
-              <hr class="bg-primary mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-
-              <p>
-
-                  <a class="text-white " style="text-decoration: none;" href="#">Cart</a>
-
-              </p>
-
-              <p>
-
-                  <a  class="text-white" style="text-decoration: none;" href="#">Categories </a>
-
-              </p>
-          </div>
-          <!-- Third column -->
-
-          <!-- Fourth column -->
-          <div class="col-md-4 col-lg-3 col-xl-3">
-
-              <h6 class="text-uppercase font-weight-bold">
-
-                  <strong class="text-white">Contact</strong>
-
-              </h6>
-
-              <hr class="bg-primary mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-
-              <p  class="text-white" >
-
-                  <i class="fas fa-home mr-3"></i> Cairo, Egypt</p>
-
-              <p  class="text-white" >
-
-                  <i class="fas fa-envelope mr-3"></i> info@example.com</p>
-
-              <p  class="text-white" >
-
-                  <i class="fas fa-phone mr-3"></i> + 01 000 000 00</p>
-
-              <p  class="text-white" >
-
-                  <i class="fas fa-print mr-3"></i> + 01 111 111 11</p>
-
-          </div>
-          <!-- Fourth column-->
-
-      </div>
-
-  </div>
-  <!-- Footer Links -->
-
-  <!-- Copyright -->
-  <div class="footer-copyright py-3 text-center linkpage">
-
-      <div class="container-fluid text-white">
-
-          © 2021 Copyright: 
-
-
-      </div>
-
-  </div>
-
-</footer> 
+    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
     <script src="/js/category.js"></script>
-    </body>
+</body>
+
 </html>
