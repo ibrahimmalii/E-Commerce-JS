@@ -34,3 +34,12 @@ span{
 .success {
     border: 3px solid green;
 }
+
+a{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
