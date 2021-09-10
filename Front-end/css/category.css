@@ -19,11 +19,6 @@ nav a{
     color:grey;
 }
 
-.form-inline{
-    right: 0;
-    position: absolute;
-    margin-right: 5px;
-}
 .displ{
     display: flex;
     flex-direction: row;
