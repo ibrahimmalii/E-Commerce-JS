@@ -24,10 +24,7 @@ class CreateUsersTable extends Migration
             $table->enum('gender',['male','female'])->nullable();
             // $table->string('img_link')->nullable();
             $table->string('phone_number')->nullable();
-            // $table->string('country')->nullable();
             $table->string('city')->nullable();
-            // $table->string('street')->nullable();
-            // $table->string('zip_code')->nullable();
             $table->enum('role',[1 , 2])->default(1);
             $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->rememberToken();

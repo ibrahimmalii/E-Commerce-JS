@@ -1,13 +1,13 @@
-/* body{
-    background-color: rgb(94, 99, 97);
-} */
-h3{
+body{
+    background-color: rgb(107 115 112);
+}
+/* h3{
   padding: 30px;
   color:rgb(94, 99, 97)
-}
+} */
 #container{
     background-color: rgb(231, 228, 224) ; 
-    height: 880px;
+    margin:40px auto;
     box-shadow: 8px 10px 8px 10px #8b8989;
     
 }
@@ -15,7 +15,8 @@ h3{
 button:hover{
     background-color:rgb(153, 158, 153);
 }
-#border{
-    outline: none;
-    border: 0px solid white;
+
+small{
+    color:red;
+    display: none;
 }

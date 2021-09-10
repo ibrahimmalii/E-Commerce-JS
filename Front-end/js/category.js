@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 //search operator
  
@@ -94,3 +95,8 @@ function showProduct(a,b,c,d,e){
   localStorage.setItem('carts',JSON.stringify(productList))
 }
 
+=======
+fetch('http://localhost:8000/api/products')
+    .then(response => response.json())
+    .then(data => console.log(data))
+>>>>>>> 4b110669d262a29dc5fd50b9497da125316925ee

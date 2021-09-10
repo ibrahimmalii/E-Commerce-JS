@@ -40,18 +40,25 @@ Route::delete('/labtops/delete/{labtop}',[LabtopController::class,'destroy']);
 // Crud For Product
 Route::get('products',[ProductController::class,'index']);
 Route::get('products/{product}',[ProductController::class,'show']);
-Route::post('products',[ProductController::class,'store'])->middleware(['auth:sanctum' , 'admin']);
-Route::post('products/sell/{product}',[ProductController::class,'sell'])->middleware('auth:sanctum');
-Route::post('/products/{product}',[ProductController::class,'update'])->middleware(['auth:sanctum' , 'admin']);
-Route::delete('/products/delete/{product}',[ProductController::class,'destroy'])->middleware(['auth:sanctum' , 'admin']);
+// Route::post('products',[ProductController::class,'store'])->middleware(['auth:sanctum' , 'admin']);
+Route::post('products',[ProductController::class,'store']);
+// Route::post('products/sell/{product}',[ProductController::class,'sell'])->middleware('auth:sanctum');
+Route::post('products/sell/{product}',[ProductController::class,'sell']);
+Route::post('products/rate/{product}',[ProductController::class,'updateRate']);
+// Route::post('/products/{product}',[ProductController::class,'update'])->middleware(['auth:sanctum' , 'admin']);
+Route::post('/products/{product}',[ProductController::class,'update']);
+// Route::delete('/products/delete/{product}',[ProductController::class,'destroy'])->middleware(['auth:sanctum' , 'admin']);
+Route::delete('/products/delete/{product}',[ProductController::class,'destroy']);
 
 
 // Auth Routes
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login' ,[AuthController::class , 'login'] );
 Route::get('/logout' , [AuthController::class, 'logout'])->middleware('auth:sanctum');
-Route::get('/users' , [AuthController::class, 'index'])->middleware(['auth:sanctum' , 'admin']);
-Route::delete('/user/delete/{user}',[AuthController::class,'destroy'])->middleware(['auth:sanctum' , 'admin']);
+// Route::get('/users' , [AuthController::class, 'index'])->middleware(['auth:sanctum' , 'admin']);
+Route::get('/users' , [AuthController::class, 'index']);
+// Route::delete('/user/delete/{user}',[AuthController::class,'destroy'])->middleware(['auth:sanctum' , 'admin']);
+Route::delete('/user/delete/{user}',[AuthController::class,'destroy']);
 Route::post('/user/updateemail/{user}' , [AuthController::class , 'updateUserEmailAndUsername']);
 Route::post('/user/updatepassword/{user}' , [AuthController::class , 'updateUserPassword']);
 Route::post('/user/updatecontact/{user}' , [AuthController::class , 'updateUserPhoneAndLocation']);
