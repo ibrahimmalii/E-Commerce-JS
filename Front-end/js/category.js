@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-fetch('http://localhost:8000/api/products')
-    .then(response => response.json())
-    .then(data => console.log(data))
-=======
->>>>>>> fba6333b5cfb2d97147538478a81471e965426e1
+
+
 
 //search operator
  
@@ -66,8 +60,8 @@ fetch('http://localhost:8000/api/products')
                         <i class="fas fa-star text-primary "></i>
                     </div>
     <div class="mt-2">   
-    <a href="#" style="text-decoration: none ;" class="card-text gr"  onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]['title']}','${mydata.data[i].price}','${mydata.data[i].description}',
-     ' ${i}.jpg')" >${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+    <a href="#" style="text-decoration: none ;"> ${mydata.data[i].price}<i class="fas fa-shopping-cart gr" onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]['title']}','${mydata.data[i].price}','${mydata.data[i].description}',
+    ' ${i}.jpg')"></i>
    
     </a> 
     </div>`
@@ -78,23 +72,16 @@ fetch('http://localhost:8000/api/products')
     }
 });    
 
-// function show(title){
-// console.log(title)
-// }
-
-
-
- //  onclick="showProduct(${mydata.data[i]['id']}, ${mydata.data[i]['title']},${mydata.data[i]['price']},${mydata.data[i]['description']},
-    //  ${i}.jpg)"></i>
 
 var productList=[]
-function showProduct(a,b,c,d,e){
+function showProduct(myId,myTitle,myPrice,myDecraption,myImage){
   let cart = {
-    id:a,
-    title:b,
-    price:c,
-    description:d,
-    image:e
+    id:myId,
+    title:myTitle,
+    price:    myPrice,
+
+    description:myDecraption,
+    image:myImage
   }   
   productList.push(cart);
 
@@ -102,12 +89,4 @@ function showProduct(a,b,c,d,e){
   localStorage.setItem('carts',JSON.stringify(productList))
 }
 
-<<<<<<< HEAD
-=======
-fetch('http://localhost:8000/api/products')
-    .then(response => response.json())
-    .then(data => console.log(data))
->>>>>>> 4b110669d262a29dc5fd50b9497da125316925ee
-=======
->>>>>>> 537840cb3fd6dff2fe2e23eaa90e1b5dcd385c80
->>>>>>> fba6333b5cfb2d97147538478a81471e965426e1
+
