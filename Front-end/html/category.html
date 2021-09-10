@@ -11,6 +11,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 
+<<<<<<< HEAD
     <link rel="icon" href="images/headerIcon.PNG" type="image/x-icon">
     <!--style css-->
     <link rel="stylesheet" href="/css/category.css">
@@ -40,18 +41,59 @@
         <div class="nav-item mx-md-4">
             <a class="nav-link " href="#"><i class="fas fa-cog blue-text"></i> Settings</a>
         </div>
+=======
+    <link rel="icon" href="../public/cat-images/headerIcon.PNG" type="image/x-icon">
+     <!--style css-->
+     <link rel="stylesheet" href="../css/category.css">
+    </head>
+    <body>
+<!--navbar-->
+<nav class="navbar  navbar-expand-lg navbar-light bg-light scrolling-navbar white  fixed-top"  >
+    <!--toggler responsive-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <!--nabar content-->
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav mx-md-4">
+        <li class="nav-item active ">
+          <a class="nav-link" href="#../index.html">  <i class="far fa-bookmark"></i> Home page <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#category.html"><i class="far fa-hand-pointer"></i> catogrey page </a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" href="#cart.html"> <i class="fas fa-shopping-cart"></i> cart page </a>
+          </li>
+     </ul> 
+    </div>
+    <!--setting-->
+          <div class="nav-item mx-md-4">
+            <a class="nav-link " href="#setting.html"><i class="fas fa-cog blue-text"></i> Settings</a>
+          </div>
+>>>>>>> 537840cb3fd6dff2fe2e23eaa90e1b5dcd385c80
 
         <div class="nav-item dropdown  mx-md-4">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user"></i> New User
             </a>
+            <!--dropdown for user-->
             <div class="dropdown-menu text-center align-items-left" aria-labelledby="navbarDropdown">
+<<<<<<< HEAD
                 <a class="dropdown-item waves-effect waves-light" id="signOutOrSignIn" href="#"><i class="fas fa-sign-in-alt m-2"></i>Sign In</a>
                 <a class="dropdown-item  waves-effect waves-light" id="signup" href="#"><i class="fas fa-user-plus m-2"></i>Sign Up</a>
+=======
+              <a class="dropdown-item waves-effect waves-light"  id="signOutOrSignIn" href="#login.html"><i class="fas fa-sign-in-alt m-2"></i>Sign In</a>
+              <a class="dropdown-item  waves-effect waves-light" id="signup" href="#register.html"><i class="fas fa-user-plus m-2"></i>Sign Up</a>
+>>>>>>> 537840cb3fd6dff2fe2e23eaa90e1b5dcd385c80
             </div>
     </nav>
 
+<<<<<<< HEAD
     <!--nav2-->
+=======
+<!--nav2 for search-->
+>>>>>>> 537840cb3fd6dff2fe2e23eaa90e1b5dcd385c80
 
     <div class="container mt-5 pt-3">
         <div class="row">
@@ -218,6 +260,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 
     <!--content-->
 
@@ -464,10 +507,136 @@
     </div>
     </div>
 
+=======
+  
+  </div>
+  
+  </div>
+  <!--label for search-->
+  <form class="mx-auto">
+        <input class="form-control fr" type="search" id="searchVal" placeholder="Search" aria-label="Search" onkeydown="search()">
+
+  </form>
+    </nav>
+  </div>
+  
+      </div>
+  
+  </nav>
+  </div>
+</div>
+  </div>
 
 
 
 
+
+<!--content-->
+
+<!--row1 how to nav by price -->
+
+<div class="container" >
+   <div class="row">
+    <div class="col-md-3" >
+     
+      <!--order by-->
+<div class="w-100 mt-5"  >
+<h3 class="text-dark font-weight-bold">Order By</h3>
+<hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+<a class=" text-center  lin text-primary" href="#">Default</a><br> <!--defult-->
+
+<a class=" text-center  lin" href="#">price: low to heigh</a><br>   <!--low to heigh-->
+
+<a  class=" text-center  lin" href="#">price: heigh to low</a><br>  <!--heigh to low-->
+ 
+
+</div>
+
+<!--our category-->
+<div class="w-100 mt-5" >
+  <h3 class="text-dark font-weight-bold">Category</h3>
+  <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+  <!--all type-->
+  <div class="custom-control custom-radio">
+    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" style="cursor: pointer;">
+    <label class="custom-control-label" for="customRadio1" style="cursor: pointer;">All</label>
+  </div>
+  <!--type laptop-->
+  <div class="custom-control custom-radio">
+    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" style="cursor: pointer;" required> 
+    <label class="custom-control-label" for="customRadio2" style="cursor: pointer;">Laptop</label>
+  </div>
+  <!--type smart phone-->
+  <div class="custom-control custom-radio">
+    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" style="cursor: pointer;">
+    <label class="custom-control-label" for="customRadio2" style="cursor: pointer;" >Smartphone</label>
+  </div>
+</div>
+<!--range price-->
+<div class="w-100 mt-5" >
+  <h3 class="text-dark font-weight-bold">Price</h3>
+  <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+
+  <form>
+    <div class="form-group">
+      <label for="formControlRange">0$</label>
+      <input type="range" class="form-control-range" id="formControlRange">
+      <label for="formControlRange">319$</label>
+
+    </div>
+  </form>
+</div>
+
+<!--the rating-->
+<div class="w-100 mt-5">
+  <h3 class="text-dark font-weight-bold">Rating</h3>
+  <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+  <div class="ml-1">
+<i class="fas fa-star text-primary "></i>
+  <i class="fas fa-star text-primary "></i>
+  <i class="fas fa-star text-primary "></i>
+  <i class="fas fa-star text-primary "></i>
+  <i class="fas fa-star text-primary "></i>
+<a href="#" class="text-dark font-weight-bold" style="text-decoration: none;">4 and more</a><br>
+  </div><br>
+  <div class="ml-1">
+    <i class="fas fa-star text-primary "></i>
+      <i class="fas fa-star text-primary "></i>
+      <i class="fas fa-star text-primary "></i>
+      <i class="fas fa-star text-primary "></i>
+      <i class="fas fa-star gr "></i>
+    <a href="#" class="text-dark font-weight-bold" style="text-decoration: none;">3-3.99</a>
+      </div><br>
+      <div class="ml-1">
+        <i class="fas fa-star text-primary "></i>
+          <i class="fas fa-star text-primary "></i>
+          <i class="fas fa-star text-primary "></i>
+          <i class="fas fa-star gr "></i>
+          <i class="fas fa-star gr"></i>
+        <a href="#" class="text-dark font-weight-bold" style="text-decoration: none;">3.00 and less</a><br>
+          </div><br>
+        
+</div>
+</div>
+
+<!--display my data-->
+    <div class="col-md-9 text-center" >
+        <div class="row " id="grid">
+          
+        
+        </div>        
+      </div>
+      </div> 
+      </div>
+</div>
+>>>>>>> 537840cb3fd6dff2fe2e23eaa90e1b5dcd385c80
+
+
+
+<!--my footer-->
+<footer class="page-footer text-center text-md-left  pt-0    navbar-expand-lg">
+
+<<<<<<< HEAD
 
 
 
@@ -483,12 +652,19 @@
         <div style="background-color: #4285f4;">
 
             <div class="container">
+=======
+  <div  class="w-100" style="background-color: #4285f4; ">
+>>>>>>> 537840cb3fd6dff2fe2e23eaa90e1b5dcd385c80
 
                 <div class="row py-4 d-flex align-items-center">
 
                     <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
 
+<<<<<<< HEAD
                         <h6 class="mb-0 text-white">Get connected with us on social networks!</h6>
+=======
+              <div class="col-md-6 col-md-5 text-center text-md-left mb-4 mb-md-0">
+>>>>>>> 537840cb3fd6dff2fe2e23eaa90e1b5dcd385c80
 
                     </div>
 
@@ -625,6 +801,7 @@
 
         </div>
 
+<<<<<<< HEAD
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -632,4 +809,14 @@
     <script src="/js/category.js"></script>
 </body>
 
+=======
+</footer> 
+
+<!--my script-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <script src="../js/category.js"></script>
+    </body>
+>>>>>>> 537840cb3fd6dff2fe2e23eaa90e1b5dcd385c80
 </html>
