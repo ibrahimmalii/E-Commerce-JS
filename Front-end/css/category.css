@@ -46,17 +46,7 @@ nav a {
     color: grey;
 }
 
-<<<<<<< HEAD
-.form-inline {
-    right: 0;
-    position: absolute;
-    margin-right: 5px;
-}
-
-.displ {
-=======
 .displ{
->>>>>>> 537840cb3fd6dff2fe2e23eaa90e1b5dcd385c80
     display: flex;
     flex-direction: row;
     justify-content: space-around;
