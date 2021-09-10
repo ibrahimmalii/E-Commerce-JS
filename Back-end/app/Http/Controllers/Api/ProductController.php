@@ -64,7 +64,6 @@ class ProductController extends Controller
             'description' => 'required|min:10,description',
             'price' => 'required|min:2,price',
             'amount' => 'required|min:2,amount',
-            // 'rate' => 'required|min:2,rate',
             'type' => 'required|min:2,type',
         ]);
 
