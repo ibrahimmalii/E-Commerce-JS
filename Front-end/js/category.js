@@ -1,4 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+fetch('http://localhost:8000/api/products')
+    .then(response => response.json())
+    .then(data => console.log(data))
+=======
+>>>>>>> fba6333b5cfb2d97147538478a81471e965426e1
 
 //search operator
  
@@ -95,8 +102,12 @@ function showProduct(a,b,c,d,e){
   localStorage.setItem('carts',JSON.stringify(productList))
 }
 
+<<<<<<< HEAD
 =======
 fetch('http://localhost:8000/api/products')
     .then(response => response.json())
     .then(data => console.log(data))
 >>>>>>> 4b110669d262a29dc5fd50b9497da125316925ee
+=======
+>>>>>>> 537840cb3fd6dff2fe2e23eaa90e1b5dcd385c80
+>>>>>>> fba6333b5cfb2d97147538478a81471e965426e1

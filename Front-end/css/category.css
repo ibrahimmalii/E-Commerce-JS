@@ -47,8 +47,11 @@ nav a {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .displ{
 =======
+=======
+>>>>>>> fba6333b5cfb2d97147538478a81471e965426e1
 .form-inline {
     right: 0;
     position: absolute;
@@ -56,7 +59,13 @@ nav a {
 }
 
 .displ {
+<<<<<<< HEAD
 >>>>>>> 4b110669d262a29dc5fd50b9497da125316925ee
+=======
+=======
+.displ{
+>>>>>>> 537840cb3fd6dff2fe2e23eaa90e1b5dcd385c80
+>>>>>>> fba6333b5cfb2d97147538478a81471e965426e1
     display: flex;
     flex-direction: row;
     justify-content: space-around;
