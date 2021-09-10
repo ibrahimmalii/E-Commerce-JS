@@ -23,12 +23,20 @@
     input[type="number"] {
       width: 50px
     }
+
+    .alert{
+      display: none;
+    }
   </style>
 </head>
 
 <body>
   <div class="mainwrapper p-5">
     <div class="container">
+      <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <strong>Great job!</strong> Data updated successfully.
+        <button type="button" class="btn-close close"  aria-label="Close"></button>
+      </div>
       <i id="back" class="fa fa-arrow-circle-o-left fw-bold fs-1 mb-2 text-dark"></i>
       <p class="h1 text-uppercase text-dark">Products___</p>
       <p class="h3 text-dark">Add New Product

@@ -20,7 +20,7 @@ $.ajax({
     productsData.data.forEach(item => {
 
       products.innerHTML += `<div class="row card-body">
-            <div class="col"><span class="h3">${item.title}</span><br><small>${item.description}</small></div>
+            <div class="col"><span class="h3">${item.title}</span> <span>( Rate : ${item.rate} )</span><br><small>${item.description}</small></div>
               <div class="col text-end">
                 <form class="form" id="${item.id}">
                   <input type="hidden" name="title" value="${item.title}">
@@ -45,6 +45,12 @@ $.ajax({
     var saveItem = document.getElementsByClassName('save');
     var removeItem = document.getElementsByClassName('remove');
     var allForms = document.getElementsByClassName('form');
+    var alert = document.getElementsByClassName('alert')[0];
+    var closeAlert = document.getElementsByClassName('close')[0];
+
+    closeAlert.addEventListener('click', () => {
+      alert.style.display = 'none';
+    })
 
     for (let i = 0; i < removeItem.length; i++) {
 
@@ -80,6 +86,7 @@ $.ajax({
           dataType: 'json',
           success: function (response) {
             console.log(response);
+            alert.style.display = 'block';
           },
           error: function (error) {
             console.log(error);
