@@ -4,7 +4,6 @@ window.addEventListener("load", function () {
     window.open("/html/login.html", "_self");
   } else {
     var userData = localStorage.getItem("user");
-    console.log(userData)
     userData = JSON.parse(userData);
     document.getElementsByClassName("userName")[0].innerHTML = userData.name;
     document.getElementsByClassName("email")[0].innerHTML = userData.email;
@@ -41,10 +40,13 @@ window.addEventListener("load", function () {
         data: $("#form").serialize(),
   
         success: function (response) {
+          console.log(response);
           console.log($("#form").serialize());
-          console.log(response)
-          localStorage.setItem('user' ,JSON.stringify(response.data));
-          window.location.reload();
+          console.log(userData.id);
+          if(response.data != null){
+            localStorage.setItem('user' ,JSON.stringify(response.data));
+            window.location.reload();
+          }
         },
         error: function (error) {
           console.log(error);

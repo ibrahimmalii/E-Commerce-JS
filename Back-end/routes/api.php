@@ -53,6 +53,7 @@ Route::post('/login' ,[AuthController::class , 'login'] );
 Route::get('/logout' , [AuthController::class, 'logout'])->middleware('auth:sanctum');
 Route::get('/users' , [AuthController::class, 'index'])->middleware(['auth:sanctum' , 'admin']);
 Route::delete('/user/delete/{user}',[AuthController::class,'destroy'])->middleware(['auth:sanctum' , 'admin']);
-Route::post('/user/updateemail/{user}' , [AuthController::class , 'updateUserEmailAndUsername'])->middleware('auth:sanctum');
+// Route::post('/user/updateemail/{user}' , [AuthController::class , 'updateUserEmailAndUsername'])->middleware('auth:sanctum');
+Route::post('/user/updateemail/{user}' , [AuthController::class , 'updateUserEmailAndUsername']);
 Route::post('/user/updatepassword/{user}' , [AuthController::class , 'updateUserPassword'])->middleware('auth:sanctum');
 Route::post('/user/updatecontact/{user}' , [AuthController::class , 'updateUserPhoneAndLocation'])->middleware('auth:sanctum');
