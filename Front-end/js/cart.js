@@ -1,6 +1,5 @@
 let cartData = localStorage.getItem("carts");
 cartData = JSON.parse(cartData);
-// console.log(cartData[0]);
 let table = document.getElementById("table");
 var value = 1;
 
@@ -45,7 +44,7 @@ window.addEventListener("load", function () {
 
     let creattdsix = document.createElement("td");
     creattdsix.innerHTML = `<button>save</button>`;
-    creattdsix.classList.add('save')
+    creattdsix.classList.add("save");
 
     let creattdseven = document.createElement("td");
     creattdseven.innerHTML = `<button>X</button>`;
@@ -65,40 +64,46 @@ window.addEventListener("load", function () {
   var creatbuttons = document.getElementsByClassName("one");
   var createxit = document.getElementsByClassName("exit");
   var creattrows = document.getElementsByClassName("tr");
-  var creatsave =document.getElementsByClassName('save')
+  var creatsave = document.getElementsByClassName("save");
+
+  var newCarts = "";
 
   for (let i = 0; i < creatbuttons.length; i++) {
     creatbuttons[i].addEventListener("click", () => {
       ++creatspans[i].innerHTML;
     });
+
     createxit[i].addEventListener("click", (e) => {
       if (this.confirm("are you sure from delet")) {
         creattrows[i].style.display = "none";
+        var cartData = JSON.parse(localStorage.getItjem("carts"));
+        cartData.splice(i, 1);
+        localStorage.setItem("carts", JSON.stringify(cartData));
       } else {
         e.preventDefault();
       }
     });
-    creatsave[i].addEventListener('click',function(){
-      var num = Number(creatspans[i].innerHTML)
-      console.log(cartData[i].id)
-      $.ajax({
-          url: `http://localhost:8000/api/products/sell/${cartData[i].id}`,
-          type: "post",
-          dataType: "json",
-          data: {"amount" : num},
-          success: function (response) {
-            console.log({"amount" : num})
-            console.log(response)
-          },
-          error: function (error) {
-            // console.log(JSON.parse({amount : num}))
 
-            console.log(error);
-          },
-        });
-      
-    })
-    
+    creatsave[i].addEventListener("click", function () {
+      var num = Number(creatspans[i].innerHTML);
+      creatbuttons[i].style.display = "none";
+      creatbtntwo[i].innerHTML = "Done...";
+      creatbtntwo[i].style.width = "70px";
+      creatbtntwo[i].disabled = true;
+      $.ajax({
+        url: `http://localhost:8000/api/products/sell/${cartData[i].id}`,
+        type: "post",
+        dataType: "json",
+        data: { amount: num },
+        success: function (response) {
+          console.log({ amount: num });
+          console.log(response);
+        },
+        error: function (error) {
+          console.log(error);
+        },
+      });
+    });
   }
   var creatbtntwo = document.getElementsByClassName("two");
   for (let i = 0; i < creatbtntwo.length; i++) {
@@ -108,5 +113,4 @@ window.addEventListener("load", function () {
       }
     });
   }
-
 });
