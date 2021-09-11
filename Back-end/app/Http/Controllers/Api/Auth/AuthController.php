@@ -115,6 +115,7 @@ class AuthController extends Controller
 
 
     public function updateUserEmailAndUsername(Request $request ,$id){
+        // dd($request);
         $user = User::find($id);
 
         if(!$user){

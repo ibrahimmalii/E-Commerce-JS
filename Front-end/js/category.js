@@ -59,7 +59,7 @@ fetch('http://localhost:8000/api/products')
                     </div>
     <div class="mt-2">   
     <a href="#" style="text-decoration: none ;" class="card-text gr"  onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]['title']}','${mydata.data[i].price}','${mydata.data[i].description}',
-     ' ${i}.jpg')" >${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+     '${i}.jpg')" >${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
    
     </a> 
     </div>`

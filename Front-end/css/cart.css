@@ -1,0 +1,36 @@
+#table{
+    width: 80%;
+    text-align: center;
+    margin-top: 40px;
+    font-family:sans-serif;
+    
+}
+tr{
+    height: 50px;
+    border-bottom: 1px solid rgb(204, 200, 200);
+}
+button{
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(64, 65, 58);
+    color: white;
+}
+button:hover{
+    background-color: white;
+    color: black;
+}
+img{
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    margin-left: -40px;
+    margin-right: -40px;
+}
+th{
+    font-size: 20px;
+}
+span {
+    font-size: 20px;
+    margin: 4px;
+}
