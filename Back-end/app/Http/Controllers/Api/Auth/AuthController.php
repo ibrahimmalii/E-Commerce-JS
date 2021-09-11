@@ -99,7 +99,7 @@ class AuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
         $data = [
             'access_token' => $token,
-            'user' => new UserResource($user),
+            'user' => $user,
         ];
 
         return $this->apiResponse($data);
