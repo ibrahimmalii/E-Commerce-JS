@@ -26,18 +26,18 @@
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav mx-md-4">
                 <li class="nav-item active ">
-                    <a class="nav-link" href="#"> <i class="far fa-bookmark"></i> Home page <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../index.html"> <i class="far fa-bookmark"></i> Home page <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="far fa-hand-pointer"></i> catogrey page </a>
+                    <a class="nav-link" href="category.html"><i class="far fa-hand-pointer"></i> catogrey page </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="#"> <i class="fas fa-shopping-cart"></i> cart page </a>
+                    <a class="nav-link" href="cart.html"> <i class="fas fa-shopping-cart"></i> cart page </a>
                 </li>
             </ul>
         </div>
         <div class="nav-item mx-md-4">
-            <a class="nav-link " href="#"><i class="fas fa-cog blue-text"></i> Settings</a>
+            <a class="nav-link " href="setting.html"><i class="fas fa-cog blue-text"></i> Settings</a>
         </div>
 
         <div class="nav-item dropdown  mx-md-4">
@@ -207,8 +207,10 @@
                                 </div>
 
                             </div>
+                              <!--label for search-->
+
                             <form class="form-inline  ">
-                                <input class="form-control mt-sm-1" type="search" placeholder="Search" aria-label="Search">
+                                <input class="form-control mt-sm-1" id="searchVal" onkeyup=" searchNav();" type="search" placeholder="Search" aria-label="Search">
                               </form>
                 </nav>
                 </div>
@@ -224,7 +226,6 @@
   </div>
   
   </div>
-  <!--label for search-->
   
     </nav>
   </div>
@@ -314,17 +315,15 @@
          
  </div>
  </div>
-
-<!--display my data-->
-    <div class="col-md-9 text-center" >
-        <div class="row " id="grid">
-          
+   <!--display data -->
+   
+<div class="col-md-9 text-center" > 
+    <div class="row" id="grid">
         
-        </div>        
-      </div>
-      </div> 
-      </div>
-</div>
+      
+    
+    </div>        
+  </div> 
 
 
     
