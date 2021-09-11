@@ -4,7 +4,6 @@ window.addEventListener("load", function () {
     window.open("/html/login.html", "_self");
   } else {
     var userData = localStorage.getItem("user");
-    console.log(userData)
     userData = JSON.parse(userData);
     document.getElementsByClassName("userName")[0].innerHTML = userData.name;
     document.getElementsByClassName("email")[0].innerHTML = userData.email;
@@ -41,6 +40,7 @@ window.addEventListener("load", function () {
         data: $("#form").serialize(),
   
         success: function (response) {
+          console.log(response);
           console.log($("#form").serialize());
           console.log(response)
           if(response.data != null){

@@ -1,11 +1,15 @@
-body{
+body {
     /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcdZI1VXX94sjhQTO74zZtHDayGT00fg8to6eh8-6G2johWZtp8DKoC0jVqGLBjHJ1UuE&usqp=CAU'); */
     background-image: url('../public/image/vjTqAL.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.form{
+.alert {
+    display: none;
+}
+
+.form {
     width: 40vw;
     margin-top: 40px;
     background-color: #0c1d24;
@@ -13,22 +17,22 @@ body{
     color: white;
 }
 
-#submit{
+#submit {
     background-color: #010610;
     color: white;
 }
 
-#submit:hover{
+#submit:hover {
     background-color: #f0ebd5;
     color: black;
 }
 
-small{
+small {
     display: none;
-    color:#ff6464 !important;
+    color: #ff6464 !important;
 }
 
-label{
+label {
     font-weight: bold;
 }
 
@@ -39,5 +43,3 @@ label{
 .success {
     border: 3px solid green;
 }
-
-
