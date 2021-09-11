@@ -1,16 +1,21 @@
 import { validate } from "./validate.js";
-window.addEventListener("load", function () {
-  if (!localStorage.getItem("user")) {
-    window.open("/html/login.html", "_self");
-  } else {
-    var userData = localStorage.getItem("user");
-    userData = JSON.parse(userData);
-    document.getElementsByClassName("userName")[0].innerHTML = userData.name;
-    document.getElementsByClassName("email")[0].innerHTML = userData.email;
-    document.getElementsByClassName("phone")[0].innerHTML =
-      userData.phone_number;
-    document.getElementsByClassName("city")[0].innerHTML = userData.city;
-  }
+
+//====================================== Check authorization and authentication ===========================//
+// Get user role and token from local_storage
+const user_role = localStorage.user_role;
+const token = localStorage.token;
+
+if (user_role != 1 || !token) {
+  window.open('/html/login.html' , "_self");
+};
+
+var userData = localStorage.getItem("user");
+userData = JSON.parse(userData);
+document.getElementsByClassName("userName")[0].innerHTML = userData.name;
+document.getElementsByClassName("email")[0].innerHTML = userData.email;
+document.getElementsByClassName("phone")[0].innerHTML =
+  userData.phone_number;
+document.getElementsByClassName("city")[0].innerHTML = userData.city;
   
 
   var btnsendone = document.getElementById("one");
@@ -36,6 +41,7 @@ window.addEventListener("load", function () {
       $.ajax({
         url: `http://localhost:8000/api/user/updateemail/${userData.id}`,
         type: "post",
+        headers: { "Authorization": `Bearer ${token}` },
         dataType: "json",
         data: $("#form").serialize(),
   
@@ -88,6 +94,7 @@ window.addEventListener("load", function () {
       $.ajax({
         url: `http://localhost:8000/api/user/updatepassword/${userData.id}`,
         type: "post",
+        headers: { "Authorization": `Bearer ${token}` },
         typeof: "json",
         data: $("#formTwo").serialize(),
         success: function (response) {
@@ -133,6 +140,7 @@ window.addEventListener("load", function () {
       $.ajax({
         url: `http://localhost:8000/api/user/updatecontact/${userData.id}`,
         type: "post",
+        headers: { "Authorization": `Bearer ${token}` },
         typeof: "json",
         data: $("#formThree").serialize(),
         success: function (response) {
@@ -208,4 +216,3 @@ window.addEventListener("load", function () {
   exit.addEventListener("click", () => {
     window.open("/index.html");
   });
-});
