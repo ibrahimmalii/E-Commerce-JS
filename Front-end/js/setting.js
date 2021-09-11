@@ -43,8 +43,10 @@ window.addEventListener("load", function () {
         success: function (response) {
           console.log($("#form").serialize());
           console.log(response)
-          localStorage.setItem('user' ,JSON.stringify(response.data));
-          window.location.reload();
+          if(response.data != null){
+            localStorage.setItem('user' ,JSON.stringify(response.data));
+            window.location.reload();
+          }
         },
         error: function (error) {
           console.log(error);
@@ -136,8 +138,10 @@ window.addEventListener("load", function () {
         success: function (response) {
           console.log($("#formThree").serialize());
           console.log(response)
-          localStorage.setItem('user' ,JSON.stringify(response.data));
-          window.location.reload();
+          if(response.data != null){
+            localStorage.setItem('user' ,JSON.stringify(response.data));
+            window.location.reload();
+          }
         },
         error: function (error) {
           console.log(error);
