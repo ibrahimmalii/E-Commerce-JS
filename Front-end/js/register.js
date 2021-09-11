@@ -1,9 +1,16 @@
 import { validate } from "./validate.js";
 
 //=================================== Check If User Logged ===============//
-if(localStorage.getItem('user')){
+if (localStorage.getItem('user')) {
     localStorage.clear();
 }
+
+//============================= Handle alert success for register ==========================//
+var alert = document.getElementsByClassName('alert')[0];
+var closeAlert = document.getElementsByClassName('close')[0];
+closeAlert.addEventListener('click', () => {
+    alert.style.display = 'none';
+});
 
 
 //=================================== Target Inputs ===============================================//
@@ -97,18 +104,22 @@ document.getElementById('submit').addEventListener('click', (e) => {
             console.log(response);
             console.log(response.data.access_token);
             console.log(response.data.user);
-            
-            if(response.data != null){
+
+            if (response.data != null) {
                 let user_role = response.data.user.role;
-                localStorage.setItem('token' , response.data.access_token);
-                localStorage.setItem('user' ,JSON.stringify( response.data.user));
-                localStorage.setItem('user_role' , user_role);
+                localStorage.setItem('token', response.data.access_token);
+                localStorage.setItem('user', JSON.stringify(response.data.user));
+                localStorage.setItem('user_role', user_role);
+                alert.style.display = 'block';
+
 
                 //redirect user as admin or visitor depend in his role 
-                (user_role == 1) ? window.open("/index.html" , "_self") : window.open("/Admin/index.html" , "_self");
-            }else{
-                alert ('data field')
-            } 
+                setTimeout(() => {
+                    (user_role == 1) ? window.open("/index.html", "_self") : window.open("/Admin/index.html", "_self");
+                }, 3000);
+            } else {
+                alert('data field')
+            }
         },
         error: function (error) {
             console.log(error);

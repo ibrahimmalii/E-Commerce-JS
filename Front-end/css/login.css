@@ -43,3 +43,7 @@ a{
 a:hover{
     text-decoration: underline;
 }
+
+.alert{
+    display: none;
+  }
