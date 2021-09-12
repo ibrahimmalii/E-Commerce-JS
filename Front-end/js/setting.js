@@ -212,7 +212,7 @@ document.getElementsByClassName("city")[0].innerHTML = userData.city;
     validate(phone_number, /^(010|011|012|015)[0-9]{8}$/, phoneNumberErr);
   });
 
-  var exit = this.document.getElementsByClassName("exit")[0];
+  var exit = document.getElementsByClassName("exit")[0];
   exit.addEventListener("click", () => {
     window.open("/index.html");
   });

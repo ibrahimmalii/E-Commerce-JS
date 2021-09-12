@@ -6,10 +6,17 @@ if (localStorage.getItem('user')) {
 }
 
 //============================= Handle alert success for register ==========================//
-var alert = document.getElementsByClassName('alert')[0];
-var closeAlert = document.getElementsByClassName('close')[0];
-closeAlert.addEventListener('click', () => {
-    alert.style.display = 'none';
+var alertSuccess = document.getElementsByClassName('alert')[0];
+var closeAlertSuccess = document.getElementsByClassName('closeSuccess')[0];
+closeAlertSuccess.addEventListener('click', () => {
+    alertSuccess.style.display = 'none';
+});
+
+//============================= Handle alert field for register ==========================//
+var alertError = document.getElementsByClassName('alert')[1];
+var closeAlertError = document.getElementsByClassName('closeError')[0];
+closeAlertError.addEventListener('click', () => {
+    alertError.style.display = 'none';
 });
 
 
@@ -100,10 +107,6 @@ document.getElementById('submit').addEventListener('click', (e) => {
         data: $('#form').serialize(),
         dataType: 'json',
         success: function (response) {
-            console.log('from ajax call');
-            console.log(response);
-            console.log(response.data.access_token);
-            console.log(response.data.user);
 
             if (response.data != null) {
                 let user_role = response.data.user.role;
@@ -117,12 +120,16 @@ document.getElementById('submit').addEventListener('click', (e) => {
                 setTimeout(() => {
                     (user_role == 1) ? window.open("/index.html", "_self") : window.open("/Admin/index.html", "_self");
                 }, 3000);
-            } else {
-                alert('data field')
-            }
+            };
+
         },
         error: function (error) {
             console.log(error);
+            alertError.style.display = 'block';
+            email.classList.remove('success');
+            email.classList.add('error');
+            emailErr.innerText = 'Email already token';
+            emailErr.style.display = 'block';
         }
 
     });

@@ -1568,7 +1568,6 @@
       success: async function (response) {
         productsData = await response;
         products.innerHTML = `${productsData.data.length}`;
-        localStorage.setItem('products', JSON.stringify(productsData));
       },
       error: function (error) {
         console.log(error);
