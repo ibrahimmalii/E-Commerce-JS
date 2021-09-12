@@ -72,19 +72,35 @@ fetchdata().then(data => {
         window.open("/html/login.html", "_self");
     })
 
+    returndeData.data.sort(function(a, b) {
+        return parseFloat(a.number_of_sales) - parseFloat(b.number_of_sales);
+    });
     for (let i = 0; i < 3; i++) {
-        bestList[i].title.innerText = returndeData.data[i + 9].title;
-        topSaleList[i].title.innerText = returndeData.data[i + 10].title;
-        newItemList[i].title.innerText = returndeData.data[i + 11].title;
-        bestList[i].sal.innerText = returndeData.data[i + 9].price;
-        topSaleList[i].sal.innerText = returndeData.data[i + 10].price;
-        newItemList[i].sal.innerText = returndeData.data[i + 11].price;
-        latestnewItemList[i].title.innerText = returndeData.data[i + 12].title;
-        latestnewItemList[i].sal.innerText = returndeData.data[i + 12].price;
+        bestList[i].title.innerText = returndeData.data[i].title;
+        bestList[i].sal.innerText = returndeData.data[i].price;
     }
-    latestnewItemList[3].title.innerText = returndeData.data[15].title;
+    returndeData.data.sort(function(a, b) {
+        return parseFloat(a.price) - parseFloat(b.price);
+    });
+    for (let i = 0; i < 3; i++) {
+        topSaleList[i].title.innerText = returndeData.data[i].title;
+        topSaleList[i].sal.innerText = returndeData.data[i].price;
+    }
+    returndeData.data.sort(function(a, b) {
+        return parseFloat(a.updated_at) - parseFloat(b.updated_at);
+    });
+    for (let i = 0; i < 3; i++) {
+        newItemList[i].title.innerText = returndeData.data[i].title;
+        newItemList[i].sal.innerText = returndeData.data[i].price;
+    }
 
-    latestnewItemList[3].sal.innerText = returndeData.data[15].price;
+    for (let i = 0; i < 4; i++) {
+
+        latestnewItemList[i].title.innerText = returndeData.data[i].title;
+        latestnewItemList[i].sal.innerText = returndeData.data[i].price;
+        latestnewItemList[i].title.innerText = returndeData.data[i].title;
+        latestnewItemList[i].sal.innerText = returndeData.data[i].price;
+    }
 
 })
 async function getbest(src) {
