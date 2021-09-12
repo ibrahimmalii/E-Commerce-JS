@@ -29,6 +29,16 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
+  <script>
+    //====================================== Check authorization and authentication ===========================//
+    // Get user role and token from local_storage
+    const user_role = localStorage.user_role;
+    const token = localStorage.token;
+
+    if (user_role != 2 || !token) {
+      window.open('/html/login.html', "_self");
+    };
+  </script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -1536,6 +1546,7 @@
     $.ajax({
       url: 'http://localhost:8000/api/users',
       type: 'GET',
+      headers: { "Authorization": `Bearer ${token}` },
       dataType: 'json',
       success: async function (response) {
         usersData = await response;
@@ -1552,11 +1563,11 @@
     $.ajax({
       url: 'http://localhost:8000/api/products',
       type: 'GET',
+      headers: { "Authorization": `Bearer ${token}` },
       dataType: 'json',
       success: async function (response) {
         productsData = await response;
         products.innerHTML = `${productsData.data.length}`;
-        localStorage.setItem('products', JSON.stringify(productsData));
       },
       error: function (error) {
         console.log(error);

@@ -1,3 +1,12 @@
+//====================================== Check authorization and authentication ===========================//
+// Get user role from local_storage
+const user_role = localStorage.user_role;
+const token = localStorage.token;
+
+if (user_role != 2 || !token) {
+  window.open('/html/login.html' , "_self");
+};
+
 var back = document.getElementById('back');
 var addProduct = document.getElementById('add');
 
@@ -15,7 +24,7 @@ $.ajax({
   dataType: 'json',
   success: async function (response) {
     productsData = await response;
-    console.log(productsData);
+    productsData.data = productsData.data.reverse();
 
     productsData.data.forEach(item => {
 
@@ -37,8 +46,7 @@ $.ajax({
                 </form>
               </div>
             </div>
-          </div>
-          <hr>`;
+          </div>`;
 
     });
 
@@ -47,6 +55,7 @@ $.ajax({
     var allForms = document.getElementsByClassName('form');
     var alert = document.getElementsByClassName('alert')[0];
     var closeAlert = document.getElementsByClassName('close')[0];
+    var productsRows = document.getElementsByClassName('card-body');
 
     closeAlert.addEventListener('click', () => {
       alert.style.display = 'none';
@@ -58,13 +67,15 @@ $.ajax({
 
         if (confirm('Are You Sure You Want To Delete It?')) {
           //================== Delete Current Item =============//
+
           $.ajax({
             url: `http://localhost:8000/api/products/delete/${allForms[i].id}`,
+            headers: { "Authorization": `Bearer ${token}` },
             type: 'Delete',
             dataType: 'json',
             success: function (response) {
               console.log(response);
-              location.reload();
+              productsRows[i].style.display = 'none';
             },
             error: function (error) {
               console.log(error);
@@ -78,10 +89,11 @@ $.ajax({
 
       saveItem[i].addEventListener('click', () => {
 
-        //================== Save New Data =============//
+        //================== Update product =============//
         $.ajax({
           url: `http://localhost:8000/api/products/${allForms[i].id}`,
           type: 'POST',
+          headers: { "Authorization": `Bearer ${token}` },
           data: $(`#${allForms[i].id}`).serialize(),
           dataType: 'json',
           success: function (response) {
@@ -92,7 +104,7 @@ $.ajax({
             console.log(error);
           }
         });
-        // End Of Save Data
+        //================== End Of Update Data ========//
 
       })
 
@@ -112,6 +124,7 @@ addProduct.addEventListener('click', () => {
   $.ajax({
     url: 'http://localhost:8000/api/products',
     type: 'POST',
+    headers: { "Authorization": `Bearer ${token}` },
     data: $('#addNewProduct').serialize(),
     dataType: 'json',
     success: function (response) {
@@ -127,5 +140,5 @@ addProduct.addEventListener('click', () => {
   // End Of Ajax Call
 })
 
-    //============================= End Of Add Product ====================================//
+//============================= End Of Add Product ====================================//
 
