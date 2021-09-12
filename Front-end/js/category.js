@@ -1,12 +1,11 @@
-<<<<<<< HEAD
 fetch('http://localhost:8000/api/products')
     .then(response => response.json())
     .then(data => console.log(data))
-=======
+
 
 //search operator
- 
- 
+
+
 // function search(){
 //   let searchInp= document.getElementById('searchVal');
 //   let myDiv='';
@@ -32,23 +31,23 @@ fetch('http://localhost:8000/api/products')
 //      console.log(myDiv)
 //    }
 //     }
-  
+
 // }
 
 
 
 
 //ajax call
-let mydata=[]
+let mydata = []
 fetch('http://localhost:8000/api/products')
-.then(res => res.json()).then((data) => {
-    console.log(data);
-    mydata=data;
+    .then(res => res.json()).then((data) => {
+        console.log(data);
+        mydata = data;
 
-// disply data in div
-    for (i=0;i< mydata.data.length ;i++) {
+        // disply data in div
+        for (i = 0; i < mydata.data.length; i++) {
 
-                 myDiv=` <div class="col-md-4">
+            myDiv = ` <div class="col-md-4">
                 <div class="card mt-4" style="max-width: 16rem;
                 max-height: 25rem;">
                   <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
@@ -68,12 +67,12 @@ fetch('http://localhost:8000/api/products')
    
     </a> 
     </div>`
-    
-    $( "#grid" ).append(myDiv);
-  
 
-    }
-});    
+            $("#grid").append(myDiv);
+
+
+        }
+    });
 
 // function show(title){
 // console.log(title)
@@ -81,22 +80,21 @@ fetch('http://localhost:8000/api/products')
 
 
 
- //  onclick="showProduct(${mydata.data[i]['id']}, ${mydata.data[i]['title']},${mydata.data[i]['price']},${mydata.data[i]['description']},
-    //  ${i}.jpg)"></i>
+//  onclick="showProduct(${mydata.data[i]['id']}, ${mydata.data[i]['title']},${mydata.data[i]['price']},${mydata.data[i]['description']},
+//  ${i}.jpg)"></i>
 
-var productList=[]
-function showProduct(a,b,c,d,e){
-  let cart = {
-    id:a,
-    title:b,
-    price:c,
-    description:d,
-    image:e
-  }   
-  productList.push(cart);
+var productList = []
 
-  console.log( productList)
-  localStorage.setItem('carts',JSON.stringify(productList))
+function showProduct(a, b, c, d, e) {
+    let cart = {
+        id: a,
+        title: b,
+        price: c,
+        description: d,
+        image: e
+    }
+    productList.push(cart);
+
+    console.log(productList)
+    localStorage.setItem('carts', JSON.stringify(productList))
 }
-
->>>>>>> 537840cb3fd6dff2fe2e23eaa90e1b5dcd385c80
