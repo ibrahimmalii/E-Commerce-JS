@@ -114,7 +114,7 @@ document.getElementById('submit').addEventListener('click', (e) => {
                 localStorage.setItem('user', JSON.stringify(response.data.user));
                 localStorage.setItem('user_role', user_role);
                 alertError.style.display = 'none';
-                alert.style.display = 'block';
+                alertSuccess.style.display = 'block';
 
 
                 //redirect user as admin or visitor depend in his role 
