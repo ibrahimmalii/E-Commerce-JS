@@ -20,36 +20,36 @@ window.addEventListener("load", function () {
     creattdthree.innerHTML = "white";
 
     let creattdfour = document.createElement("td");
-    creattdfour.innerHTML = cartData[index].price + "$";
-
+    creattdfour.innerHTML = (cartData[index].price) ;
+    creattdfour.classList.add('four')
     let creattdfive = document.createElement("td");
-
+    
     creatspan = document.createElement("span");
     creatspan.classList.add("span");
     creatspan.innerText = value + " ";
     creattdfive.appendChild(creatspan);
-
+    
     let creatbtn = document.createElement("button");
     creatbtn.style.width = "25px";
     creatbtn.innerText = "+";
     creatbtn.classList.add("one");
-
+    
     creattdfive.appendChild(creatbtn);
-
+    
     let creatbtntwo = document.createElement("button");
     creatbtntwo.style.width = "25px";
     creatbtntwo.innerText = "-";
     creatbtntwo.classList.add("two");
     creattdfive.appendChild(creatbtntwo);
-
+    
     let creattdsix = document.createElement("td");
     creattdsix.innerHTML = `<button>save</button>`;
     creattdsix.classList.add("save");
-
+    
     let creattdseven = document.createElement("td");
     creattdseven.innerHTML = `<button>X</button>`;
     creattdseven.classList.add("exit");
-
+    
     creattr.appendChild(creattdone);
     creattr.appendChild(creattdtwo);
     creattr.appendChild(creattdthree);
@@ -65,14 +65,16 @@ window.addEventListener("load", function () {
   var createxit = document.getElementsByClassName("exit");
   var creattrows = document.getElementsByClassName("tr");
   var creatsave = document.getElementsByClassName("save");
-
-  var newCarts = "";
-
+  var creatbtntwo = document.getElementsByClassName("two");
+  var creatfour = document.getElementsByClassName('four');
+  
+  
   for (let i = 0; i < creatbuttons.length; i++) {
     creatbuttons[i].addEventListener("click", () => {
       ++creatspans[i].innerHTML;
+      creatfour[i].innerHTML = Number((creatfour[i].innerHTML) * (creatspans[i].innerHTML))
     });
-
+    
     createxit[i].addEventListener("click", (e) => {
       if (this.confirm("are you sure from delet")) {
         creattrows[i].style.display = "none";
@@ -83,9 +85,10 @@ window.addEventListener("load", function () {
         e.preventDefault();
       }
     });
-
+    
     creatsave[i].addEventListener("click", function () {
       var num = Number(creatspans[i].innerHTML);
+      console.log(num)
       creatbuttons[i].style.display = "none";
       creatbtntwo[i].innerHTML = "Done...";
       creatbtntwo[i].style.width = "70px";
@@ -105,10 +108,10 @@ window.addEventListener("load", function () {
       });
     });
   }
-  var creatbtntwo = document.getElementsByClassName("two");
   for (let i = 0; i < creatbtntwo.length; i++) {
     creatbtntwo[i].addEventListener("click", () => {
       if (creatspans[i].innerHTML > 1) {
+        creatfour[i].innerHTML = Number( (creatfour[i].innerHTML) /  (creatspans[i].innerHTML) )
         --creatspans[i].innerHTML;
       }
     });
