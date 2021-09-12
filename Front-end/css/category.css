@@ -46,10 +46,6 @@ nav a {
     color: grey;
 }
 
-<<<<<<< HEAD
-.displ{
-=======
-
 .form-inline {
     right: 0;
     position: absolute;
@@ -57,8 +53,6 @@ nav a {
 }
 
 .displ {
-
->>>>>>> b657f3b98818f3771d1ef2c1b03eeca53bff8ebc
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -71,4 +65,8 @@ nav a {
 
 footer {
     background-color: #3e4551;
+}
+
+#signOutOrSignIn{
+    cursor:pointer;
 }

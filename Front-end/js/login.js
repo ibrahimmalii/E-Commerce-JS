@@ -10,11 +10,18 @@ if (localStorage.getItem('user')) {
     (user_role == 1) ? window.open("/index.html", "_self") : window.open("/Admin/index.html", "_self");
 };
 
-//============================= Handle alert success for register ==========================//
-var alert = document.getElementsByClassName('alert')[0];
-var closeAlert = document.getElementsByClassName('close')[0];
-closeAlert.addEventListener('click', () => {
-    alert.style.display = 'none';
+//============================= Handle alert success for login ==========================//
+var alertSuccess = document.getElementsByClassName('alert')[0];
+var closeAlertSuccess = document.getElementsByClassName('closeSuccess')[0];
+closeAlertSuccess.addEventListener('click', () => {
+    alertSuccess.style.display = 'none';
+});
+
+//============================= Handle alert field for login ==========================//
+var alertError = document.getElementsByClassName('alert')[1];
+var closeAlertError = document.getElementsByClassName('closeError')[0];
+closeAlertError.addEventListener('click', () => {
+    alertError.style.display = 'none';
 });
 
 
@@ -59,28 +66,31 @@ document.getElementById('login').addEventListener('click', (e) => {
         data: $('#loginForm').serialize(),
         dataType: 'json',
         success: function (response) {
-            console.log('from ajax call');
-            console.log($('#loginForm').serialize())
-            console.log(response);
-            console.log(response.data.user.role);
 
             if (response.data != null) {
                 let user_role = response.data.user.role;
                 localStorage.setItem('token', response.data.access_token);
                 localStorage.setItem('user', JSON.stringify(response.data.user));
                 localStorage.setItem('user_role', user_role);
-                alert.style.display = 'block';
+                alertError.style.display = 'none';
+                alertSuccess.style.display = 'block';
 
                 //redirect user as admin or visitor depend in his role 
                 setTimeout(() => {
                     (user_role == 1) ? window.open("/index.html", "_self") : window.open("/Admin/index.html", "_self");
                 }, 3000);
-            } else {
-                alert('data field')
-            }
+            };
+
         },
         error: function (error) {
             console.log(error);
+            alertError.style.display = 'block';
+            email.classList.remove('success');
+            email.classList.add('error');
+            password.classList.remove('success');
+            password.classList.add('error');
+            emailErr.style.display = 'block';
+            passwordErr.style.display = 'block';
         }
 
     });

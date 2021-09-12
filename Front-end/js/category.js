@@ -1,15 +1,14 @@
-
 //ajax call
 let mydata = []
 fetch('http://localhost:8000/api/products')
-  .then(res => res.json()).then((data) => {
-    console.log(data);
-    mydata = data;
+    .then(res => res.json()).then((data) => {
+        console.log(data);
+        mydata = data;
 
-    // disply data in div
-    for (i = 0; i < mydata.data.length; i++) {
+        // disply data in div
+        for (i = 0; i < mydata.data.length; i++) {
 
-      myDiv = ` <div class="col-md-4">
+            myDiv = ` <div class="col-md-4">
                 <div class="card mt-4" style="max-width: 16rem;
                 max-height: 25rem;">
                   <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
@@ -31,29 +30,30 @@ fetch('http://localhost:8000/api/products')
     </a> 
     </div>`
 
-      $("#grid").append(myDiv);
+            $("#grid").append(myDiv);
 
 
-    }
-  });
+        }
+    });
 
 // add content of any cart click to localstroge
 var productList = []
+
 function showProduct(myId, myTitle, myPrice, myDecraption, myImage) {
 
-  let cart = {
-    id: myId,
-    title: myTitle,
-    price: myPrice,
+    let cart = {
+        id: myId,
+        title: myTitle,
+        price: myPrice,
 
-    description: myDecraption,
-    image: myImage
-  }
-  productList.push(cart);
+        description: myDecraption,
+        image: myImage
+    }
+    productList.push(cart);
 
-  console.log(productList)
+    console.log(productList)
 
-  localStorage.setItem('carts', JSON.stringify(productList))
+    localStorage.setItem('carts', JSON.stringify(productList))
 
 }
 
@@ -72,25 +72,25 @@ function showProduct(myId, myTitle, myPrice, myDecraption, myImage) {
 
 function showCard(Id, Title, Price, Decraption, Image) {
 
-  // will work in three step
-  //step one catch data and store it in localstorage 
+    // will work in three step
+    //step one catch data and store it in localstorage 
 
-  let products = []
-  let cartDetails = {
-    id: Id,
-    title: Title,
-    price: Price,
-    description: Decraption,
-    image: Image
-  }
-  products.push(cartDetails);
-  // 2 set data and open window
+    let products = []
+    let cartDetails = {
+        id: Id,
+        title: Title,
+        price: Price,
+        description: Decraption,
+        image: Image
+    }
+    products.push(cartDetails);
+    // 2 set data and open window
 
-  localStorage.setItem('opencard', JSON.stringify(products))
-  let newWin = open('/html/detailsProduct.html', "_self");
-  console.log(opendata)
-  //3 disply in card
-  //  $("#grid2").append(opendata); in   second page 
+    localStorage.setItem('opencard', JSON.stringify(products))
+    let newWin = open('/html/detailsProduct.html', "_self");
+    console.log(opendata)
+        //3 disply in card
+        //  $("#grid2").append(opendata); in   second page 
 
 
 
@@ -105,12 +105,12 @@ function showCard(Id, Title, Price, Decraption, Image) {
 
 function searchNav() {
 
-  let searchInp = document.getElementById('searchVal');
-  let myDiv = '';
-  for (var i = 0; i < mydata.data.length; i++) {
+    let searchInp = document.getElementById('searchVal');
+    let myDiv = '';
+    for (var i = 0; i < mydata.data.length; i++) {
 
-    if (mydata.data[i].title.includes(searchInp.value)) {
-      myDiv = ` <div class="col-md-4">
+        if (mydata.data[i].title.includes(searchInp.value)) {
+            myDiv = ` <div class="col-md-4">
       <div class="card mt-4" style="max-width: 16rem;
       max-height: 25rem;">
         <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
@@ -131,17 +131,10 @@ function searchNav() {
 
    </div>`
 
+        }
     }
-  }
-  let myGrid = document.getElementById('grid');
-  myGrid.innerHTML = myDiv;
-  console.log(myDiv)
+    let myGrid = document.getElementById('grid');
+    myGrid.innerHTML = myDiv;
+    console.log(myDiv)
 
 }
-
-
-
-
-
-
-
