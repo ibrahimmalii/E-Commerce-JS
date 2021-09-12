@@ -1,16 +1,21 @@
 import { validate } from "./validate.js";
-window.addEventListener("load", function () {
-  if (!localStorage.getItem("user")) {
-    window.open("/html/login.html", "_self");
-  } else {
-    var userData = localStorage.getItem("user");
-    userData = JSON.parse(userData);
-    document.getElementsByClassName("userName")[0].innerHTML = userData.name;
-    document.getElementsByClassName("email")[0].innerHTML = userData.email;
-    document.getElementsByClassName("phone")[0].innerHTML =
-      userData.phone_number;
-    document.getElementsByClassName("city")[0].innerHTML = userData.city;
-  }
+
+//====================================== Check authorization and authentication ===========================//
+// Get user role and token from local_storage
+const user_role = localStorage.user_role;
+const token = localStorage.token;
+
+if (user_role != 1 || !token) {
+  window.open('/html/login.html' , "_self");
+};
+
+var userData = localStorage.getItem("user");
+userData = JSON.parse(userData);
+document.getElementsByClassName("userName")[0].innerHTML = userData.name;
+document.getElementsByClassName("email")[0].innerHTML = userData.email;
+document.getElementsByClassName("phone")[0].innerHTML =
+  userData.phone_number;
+document.getElementsByClassName("city")[0].innerHTML = userData.city;
   
 
   var btnsendone = document.getElementById("one");
@@ -36,13 +41,14 @@ window.addEventListener("load", function () {
       $.ajax({
         url: `http://localhost:8000/api/user/updateemail/${userData.id}`,
         type: "post",
+        headers: { "Authorization": `Bearer ${token}` },
         dataType: "json",
         data: $("#form").serialize(),
   
         success: function (response) {
           console.log(response);
           console.log($("#form").serialize());
-          console.log(userData.id);
+          console.log(response)
           if(response.data != null){
             localStorage.setItem('user' ,JSON.stringify(response.data));
             window.location.reload();
@@ -88,6 +94,7 @@ window.addEventListener("load", function () {
       $.ajax({
         url: `http://localhost:8000/api/user/updatepassword/${userData.id}`,
         type: "post",
+        headers: { "Authorization": `Bearer ${token}` },
         typeof: "json",
         data: $("#formTwo").serialize(),
         success: function (response) {
@@ -133,13 +140,16 @@ window.addEventListener("load", function () {
       $.ajax({
         url: `http://localhost:8000/api/user/updatecontact/${userData.id}`,
         type: "post",
+        headers: { "Authorization": `Bearer ${token}` },
         typeof: "json",
         data: $("#formThree").serialize(),
         success: function (response) {
           console.log($("#formThree").serialize());
           console.log(response)
-          localStorage.setItem('user' ,JSON.stringify(response.data));
-          window.location.reload();
+          if(response.data != null){
+            localStorage.setItem('user' ,JSON.stringify(response.data));
+            window.location.reload();
+          }
         },
         error: function (error) {
           console.log(error);
@@ -202,8 +212,7 @@ window.addEventListener("load", function () {
     validate(phone_number, /^(010|011|012|015)[0-9]{8}$/, phoneNumberErr);
   });
 
-  var exit = this.document.getElementsByClassName("exit")[0];
+  var exit = document.getElementsByClassName("exit")[0];
   exit.addEventListener("click", () => {
     window.open("/index.html");
   });
-});
