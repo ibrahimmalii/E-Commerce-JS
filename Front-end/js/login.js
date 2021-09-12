@@ -72,6 +72,7 @@ document.getElementById('login').addEventListener('click', (e) => {
                 localStorage.setItem('token', response.data.access_token);
                 localStorage.setItem('user', JSON.stringify(response.data.user));
                 localStorage.setItem('user_role', user_role);
+                alertError.style.display = 'none';
                 alertSuccess.style.display = 'block';
 
                 //redirect user as admin or visitor depend in his role 
