@@ -43,12 +43,11 @@ fetch('http://localhost:8000/api/products')
   function showProduct(myId,myTitle,myPrice,myDecraption,myImage){
 
     // debugger;
-    let cart = {};
   if(localStorage.carts){
       cart=JSON.parse(localStorage.carts);
       let found = false;
       for(item in cart){
-          if(cart[item].id == myId){
+          if(cart.id == myId){
               found = true;
               cart[item].count++;
               break;
@@ -57,9 +56,8 @@ fetch('http://localhost:8000/api/products')
       if(!found){
           cart={id:myId,price:myPrice,title:myTitle,description:myDecraption,image:myImage,count:1};
       }
-  }
-  else{
-    cart={id:myId,price:myPrice,title:myTitle,description:myDecraption,image:myImage,count:1};
+  }else{
+    cart={id:myId,price:myPrice,title:myTitle,description:myDecraption,image:myImage, count:1};
     // document.getElementById('myDiv').style.backgroundColor='red';
 
 }
