@@ -3,7 +3,6 @@
 
         let opendata = JSON.parse(localStorage.getItem('opencard'))
 
-
 let mycardDetails=` <div class="col-md-12">
 <div class="card mt-4 align-center" style="max-width: 300rem;
 max-height: 30rem;">
@@ -26,8 +25,6 @@ max-height: 30rem;">
        <i class="fas fa-shopping-cart gr"></i>
        
 </div>`
-
-
         $("#grid2").append(mycardDetails);
 
 
