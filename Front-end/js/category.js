@@ -134,18 +134,16 @@ function searchNav() {
 
     //range price
     var rangeslider = document.getElementById("sliderRange");
-var output = document.getElementById("demo");
+      var output = document.getElementById("demo");
 output.innerHTML = rangeslider.value;
-
 rangeslider.oninput = function() {
 output.innerHTML = this.value;
-console.log(this.value)
-// console.log(output.value)
-for (i=0; i< mydata.data.length; i++) {
-if(mydata.data[i].price==output.innerHTML){
-    console.log(output.innerHTML)
+// debugger;
 
-//     myDiv = ` <div class="col-md-4">
+for (var i = 0; i < mydata.data.length;i++) {
+    console.log(mydata.data[i].price)
+
+    //     myDiv = ` <div class="col-md-4">
 //         <div class="card mt-4" style="max-width: 16rem;
 //         max-height: 25rem;">
 //           <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
@@ -163,7 +161,7 @@ if(mydata.data[i].price==output.innerHTML){
 // <div class="mt-2">   
 // <a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
 // onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]['title']}','${mydata.data[i].price}',
-// '${mydata.data[i].description}','${i}.jpg')"></i>
+// '${mydata.daa[i].description}','${i}.jpg')"></i>
 
 // </a> 
 // </div>`
@@ -171,10 +169,11 @@ if(mydata.data[i].price==output.innerHTML){
 
 // }
 // $("#grid").append(myDiv);
-}
 
 }
 }
+
+
 
 
 
