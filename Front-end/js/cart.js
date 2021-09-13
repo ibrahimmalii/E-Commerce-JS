@@ -7,6 +7,9 @@ cartData = JSON.parse(cartData);
 let table = document.getElementById("table");
 var value = 1;
 
+// ====================================== loop and creat table =====================================
+
+
 window.addEventListener("load", function () {
   cartData.forEach((item, index) => {
     let creattr = document.createElement("tr");
@@ -66,6 +69,9 @@ window.addEventListener("load", function () {
     table.appendChild(creattr);
   });
 
+// =================================== get item from loop =================================
+
+
   var creatspans = document.getElementsByClassName("span");
   var creatbuttons = document.getElementsByClassName("one");
   var createxit = document.getElementsByClassName("exit");
@@ -73,11 +79,12 @@ window.addEventListener("load", function () {
   var creatsave = document.getElementsByClassName("save");
   var creatbtntwo = document.getElementsByClassName("two");
   var creatfour = document.getElementsByClassName("four");
-  var save = document.getElementsByClassName('savebtn')
-  var exit = document.getElementsByClassName('exitbtn')
-  console.log(exit)
+  var save = document.getElementsByClassName('savebtn');
+  var exit = document.getElementsByClassName('exitbtn');
 
 
+
+//event increament
   for (let i = 0; i < creatbuttons.length; i++) {
     creatbuttons[i].addEventListener("click", () => {
       ++creatspans[i].innerHTML;
@@ -86,6 +93,8 @@ window.addEventListener("load", function () {
       creatfour[i].innerHTML = result;
     });
 
+  
+//event in exit button
     createxit[i].addEventListener("click", (e) => {
       if (this.confirm("are you sure from delet")) {
         creattrows[i].style.display = "none";
@@ -97,6 +106,9 @@ window.addEventListener("load", function () {
       }
     });
 
+
+
+//event in save button
     creatsave[i].addEventListener("click", function (e) {
       if(confirm('The purchase will be made')){
         var num = Number(creatspans[i].innerHTML);
@@ -112,6 +124,8 @@ window.addEventListener("load", function () {
         var cartData = JSON.parse(localStorage.getItem("carts"));
         cartData.splice(i, 1);
         localStorage.setItem("carts", JSON.stringify(cartData));
+
+//get data by ajax call
         $.ajax({
           url: `http://localhost:8000/api/products/sell/${cartData[i].id}`,
           type: "post",
@@ -131,6 +145,9 @@ window.addEventListener("load", function () {
     
     });
   }
+
+
+//event in decreament button
   for (let i = 0; i < creatbtntwo.length; i++) {
     creatbtntwo[i].addEventListener("click", () => {
       if (creatspans[i].innerHTML > 1) {
