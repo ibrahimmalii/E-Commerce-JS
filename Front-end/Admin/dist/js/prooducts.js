@@ -7,8 +7,49 @@ if (user_role != 2 || !token) {
   window.open('/html/login.html' , "_self");
 };
 
-var back = document.getElementById('back');
-var addProduct = document.getElementById('add');
+var back = document.querySelector('#back');
+var addProduct = document.querySelector('#add');
+var searchInput = document.querySelector('#search');
+
+const filters = {
+    searchText : '',
+};
+
+//==================================== Function for search in products ===========================//
+const renderSearch = (arr , filter)=>{
+  const result = arr.filter((item)=>{
+    return item.title.toLowerCase().includes(filter.searchText.toLowerCase());
+  });
+
+  //=========== Loop for all products ============//
+  products.innerHTML = '';
+  result.forEach(result => {
+  products.innerHTML += `<div class="row card-body">
+            <div class="col"><span class="h3">${result.title}</span> <span>( Rate : ${result.rate} )</span><br><small>${result.description}</small></div>
+              <div class="col text-end">
+                <form class="form" id="${result.id}">
+                  <input type="hidden" name="title" value="${result.title}">
+                  <input type="hidden" name="description" value="${result.description}">
+                  <input type="hidden" name="type" value="${result.type}">
+                  <span class="fw-bold">Amount :
+                    <input type="number" name="amount" value="${result.amount}" class="counter"></input>
+                  </span>
+                  <spnan class="fw-bold"> Price :
+                    <input type="number" name="price" value="${result.price}" class="price"></input>
+                  </spnan>
+                  <input type="button" value="Save" class="btn btn-primary mx-3 save"></input>
+                  <input type="button" value="remove" class="btn btn-danger mx-3 remove"></input>
+                </form>
+              </div>
+            </div>
+          </div>`;
+
+        });
+}
+
+
+
+
 
 
 back.addEventListener('click', () => {
@@ -26,6 +67,7 @@ $.ajax({
     productsData = await response;
     productsData.data = productsData.data.reverse();
 
+    //=========== Loop for all products ============//
     productsData.data.forEach(item => {
 
       products.innerHTML += `<div class="row card-body">
@@ -141,4 +183,11 @@ addProduct.addEventListener('click', () => {
 })
 
 //============================= End Of Add Product ====================================//
+
+
+//========== fire event for search in products ========//
+searchInput.addEventListener('keyup' , (e)=>{
+  filters.searchText = e.target.value;
+  renderSearch(productsData.data , filters);
+})
 
