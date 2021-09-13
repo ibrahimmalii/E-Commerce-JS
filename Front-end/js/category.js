@@ -96,15 +96,17 @@ function showCard(Id, Title, Price, Decraption, Image) {
 
 //search operator
 
-
-function searchNav() {
+function searchNav(){
 
     let searchInp = document.getElementById('searchVal');
-    let myDiv = '';
+
+    let myDiv ='';
+    debugger;
     for (var i = 0; i < mydata.data.length; i++) {
 
-        if (mydata.data[i].title.toLowerCase().includes(searchInp.value)){
-            myDiv = ` <div class="col-md-4">
+        if (mydata.data[i].title.toLowerCase().includes(searchInp.value.toLowerCase())){
+
+            myDiv = `<div class="col-md-4">
       <div class="card mt-4" style="max-width: 16rem;
       max-height: 25rem;">
         <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
@@ -120,56 +122,57 @@ function searchNav() {
               <i class="fas fa-star text-primary "></i>
           </div>
 <div class="mt-2">   
-<a href="" style="text-decoration: none ;"> ${mydata.data[i].price}<i class="fas fa-shopping-cart gr" onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]['title']}','${mydata.data[i].price}','${mydata.data[i].description}',
+<a href="" style="text-decoration: none ;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr" onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]['title']}','${mydata.data[i].price}','${mydata.data[i].description}',
 '${i}.jpg')"></i>
 </div>`
+      
         }
-        }
+        
         let myGrid = document.getElementById('grid');
         myGrid.innerHTML = myDiv;
         console.log(myDiv)
-    }
-
+     
+}
+}
 
 
     //range price
     var rangeslider = document.getElementById("sliderRange");
-      var output = document.getElementById("demo");
+     var output = document.getElementById("demo");
 output.innerHTML = rangeslider.value;
-rangeslider.oninput = function() {
+rangeslider.oninput=function(){
 output.innerHTML = this.value;
-// debugger;
+for(i=0; i< mydata.data.length;i++) {
+  // debugger;
+  myDiv='';
 
-for (var i = 0; i < mydata.data.length;i++) {
-    console.log(mydata.data[i].price)
-
-    //     myDiv = ` <div class="col-md-4">
-//         <div class="card mt-4" style="max-width: 16rem;
-//         max-height: 25rem;">
-//           <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
-//           <div class="card-body">
-//             <h5 class="card-title">${mydata.data[i]['title']}</h5>
-//             <a href="#" class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]['title']}','${mydata.data[i].price}'
-//             ,'${mydata.data[i].description}','${i}.jpg')">Show details</a>
-//             <div class="ml-1 mt-2">
-//               <i class="fas fa-star text-primary "></i>
-//                 <i class="fas fa-star text-primary "></i>
-//                 <i class="fas fa-star text-primary "></i>
-//                 <i class="fas fa-star text-primary "></i>
-//                 <i class="fas fa-star text-primary "></i>
-//             </div>
-// <div class="mt-2">   
-// <a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
-// onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]['title']}','${mydata.data[i].price}',
-// '${mydata.daa[i].description}','${i}.jpg')"></i>
-
-// </a> 
-// </div>`
-
-
-// }
-// $("#grid").append(myDiv);
-
+  if (mydata.data[i].price==output.innerHTML){
+    myDiv =`<div class="col-md-4">
+        <div class="card mt-4" style="max-width: 16rem;
+        max-height: 25rem;">
+          <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${mydata.data[i]['title']}</h5>
+            <a href="#" class="btn btn-danger" onclick="showCard('${mydata.data[i].id}','${mydata.data[i]['title']}','${mydata.data[i].price}'
+            ,'${mydata.data[i].description}','${i}.jpg')">Show details</a>
+            <div class="ml-1 mt-2">
+              <i class="fas fa-star text-primary "></i>
+                <i class="fas fa-star text-primary "></i>
+                <i class="fas fa-star text-primary "></i>
+                <i class="fas fa-star text-primary "></i>
+                <i class="fas fa-star text-primary "></i>
+            </div>
+<div class="mt-2">   
+<a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]['title']}','${mydata.data[i].price}',
+'${mydata.data[i].description}','${i}.jpg')"></i>
+</a> 
+</div>   
+</div>`
+} 
+let myGrid = document.getElementById('grid');
+    myGrid.innerHTML=myDiv;
+    console.log(myDiv)
 }
 }
 
