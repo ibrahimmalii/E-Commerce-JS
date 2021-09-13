@@ -4,27 +4,31 @@ const user_role = localStorage.user_role;
 const token = localStorage.token;
 
 if (user_role != 2 || !token) {
-  window.open('/html/login.html' , "_self");
+  window.open('/html/login.html', "_self");
 };
 
 var back = document.querySelector('#back');
 var addProduct = document.querySelector('#add');
 var searchInput = document.querySelector('#search');
+var productsCounter = document.querySelector('#products-counter');
 
 const filters = {
-    searchText : '',
+  searchText: '',
 };
 
 //==================================== Function for search in products ===========================//
-const renderSearch = (arr , filter)=>{
-  const result = arr.filter((item)=>{
+const renderSearch = (arr, filter) => {
+  const result = arr.filter((item) => {
     return item.title.toLowerCase().includes(filter.searchText.toLowerCase());
   });
 
-  //=========== Loop for all products ============//
-  products.innerHTML = '';
-  result.forEach(result => {
-  products.innerHTML += `<div class="row card-body">
+  //=========== Loop for all results of search ============//
+
+  productsCounter.innerHTML = `Products : ${result.length}`;
+  if (result.length != 0) {
+    products.innerHTML = '';
+    result.forEach(result => {
+      products.innerHTML += `<div class="row card-body">
             <div class="col"><span class="h3">${result.title}</span> <span>( Rate : ${result.rate} )</span><br><small>${result.description}</small></div>
               <div class="col text-end">
                 <form class="form" id="${result.id}">
@@ -44,7 +48,10 @@ const renderSearch = (arr , filter)=>{
             </div>
           </div>`;
 
-        });
+    });
+  }else{
+    products.innerHTML = `<p class="h5 text-light py-4 text-center">No product found with title "${filter.searchText}"</p>`
+  }
 }
 
 
@@ -66,10 +73,10 @@ $.ajax({
   success: async function (response) {
     productsData = await response;
     productsData.data = productsData.data.reverse();
+    productsCounter.innerHTML = `Products : ${productsData.data.length}`;
 
     //=========== Loop for all products ============//
     productsData.data.forEach(item => {
-
       products.innerHTML += `<div class="row card-body">
             <div class="col"><span class="h3">${item.title}</span> <span>( Rate : ${item.rate} )</span><br><small>${item.description}</small></div>
               <div class="col text-end">
@@ -186,8 +193,8 @@ addProduct.addEventListener('click', () => {
 
 
 //========== fire event for search in products ========//
-searchInput.addEventListener('keyup' , (e)=>{
+searchInput.addEventListener('input', (e) => {
   filters.searchText = e.target.value;
-  renderSearch(productsData.data , filters);
+  renderSearch(productsData.data, filters);
 })
 
