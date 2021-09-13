@@ -8,9 +8,6 @@ let table = document.getElementById("table");
 var value = 1;
 
 //====================================== Check authorization and authentication ===========================//
-// Get user role and token from local_storage
-const user_role = localStorage.user_role;
-const token = localStorage.token;
 
 if (user_role != 1 || !token) {
   window.open('/html/login.html' , "_self");
@@ -112,8 +109,9 @@ window.addEventListener("load", function () {
         creatbtntwo[i].style.backgroundColor = "white";
         creatbtntwo[i].disabled = true;
         createxit[i].innerHTML = '<h6 class="text-success">completed</h6>'
-        createxit[i].disabled = true;
-        creatsave[i].disabled = true;
+        createxit[i].style.disabled = true;
+        console.log(creatsave[i])
+        creatsave[i].style.disabled = true;
         $.ajax({
           url: `http://localhost:8000/api/products/sell/${cartData[i].id}`,
           type: "post",
