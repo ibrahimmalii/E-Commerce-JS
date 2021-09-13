@@ -2,7 +2,7 @@
 const user_role = localStorage.user_role;
 const token = localStorage.token;
 
-let cartData = localStorage.getItem("carts");
+var cartData = localStorage.getItem("carts");
 cartData = JSON.parse(cartData);
 let table = document.getElementById("table");
 var value = 1;
@@ -10,69 +10,80 @@ var value = 1;
 //====================================== Check authorization and authentication ===========================//
 
 if (user_role != 1 || !token) {
-  window.open('/html/login.html' , "_self");
+  window.open('/html/login.html', "_self");
 };
 
-window.addEventListener("load", function () {
+const boughtProducts = localStorage.sellProducts;
+// window.addEventListener("load", function () {
   cartData.forEach((item, index) => {
-    let creattr = document.createElement("tr");
-    creattr.classList.add("tr");
 
-    let creatimg = document.createElement("img");
-    creatimg.src = `/public/cat-images/images/${cartData[index].image}`;
-    let creattdone = document.createElement("td");
-    creattdone.appendChild(creatimg);
 
-    let creattdtwo = document.createElement("td");
-    creattdtwo.innerHTML = cartData[index].title;
+    if (boughtProducts && boughtProducts[index] == item.id) {
 
-    let creattdthree = document.createElement("td");
-    creattdthree.innerHTML = "white";
+      
 
-    let creattdfour = document.createElement("td");
-    creattdfour.innerHTML = cartData[index].price;
-    creattdfour.classList.add("four");
-    let creattdfive = document.createElement("td");
+    } else {
+      let creattr = document.createElement("tr");
+      creattr.classList.add("tr");
 
-    creatspan = document.createElement("span");
-    creatspan.classList.add("span");
-    creatspan.innerText = value + " ";
-    creattdfive.appendChild(creatspan);
+      let creatimg = document.createElement("img");
+      creatimg.src = `/public/cat-images/images/${item.image}`;
+      let creattdone = document.createElement("td");
+      creattdone.appendChild(creatimg);
 
-    let creatbtn = document.createElement("button");
-    creatbtn.style.width = "25px";
-    creatbtn.innerHTML = "+";
-    creatbtn.style.display = "inline-block";
-    creatbtn.classList.add("one");
+      let creattdtwo = document.createElement("td");
+      creattdtwo.innerHTML = item.title;
 
-    creattdfive.appendChild(creatbtn);
+      let creattdthree = document.createElement("td");
+      creattdthree.innerHTML = "white";
 
-    let creatbtntwo = document.createElement("button");
-    creatbtntwo.style.width = "25px";
-    creatbtntwo.style.display = "inline-block";
-    creatbtntwo.innerText = "-";
-    creatbtntwo.classList.add("two");
-    creattdfive.appendChild(creatbtntwo);
+      let creattdfour = document.createElement("td");
+      creattdfour.innerHTML = item.price;
+      creattdfour.classList.add("four");
+      let creattdfive = document.createElement("td");
 
-    let creattdsix = document.createElement("td");
-    creattdsix.innerHTML = `<button class='savebtn'>save</button>`;
-    creattdsix.classList.add("save");
+      creatspan = document.createElement("span");
+      creatspan.classList.add("span");
+      creatspan.innerText = value + " ";
+      creattdfive.appendChild(creatspan);
 
-    let creattdseven = document.createElement("td");
-    creattdseven.innerHTML = `<button class='exitbtn'>X</button>`;
-    creattdseven.classList.add("exit");
+      let creatbtn = document.createElement("button");
+      creatbtn.style.width = "25px";
+      creatbtn.innerHTML = "+";
+      creatbtn.style.display = "inline-block";
+      creatbtn.classList.add("one");
 
-    creattr.appendChild(creattdone);
-    creattr.appendChild(creattdtwo);
-    creattr.appendChild(creattdthree);
-    creattr.appendChild(creattdfour);
-    creattr.appendChild(creattdfive);
-    creattr.appendChild(creattdsix);
-    creattr.appendChild(creattdseven);
-    table.appendChild(creattr);
+      creattdfive.appendChild(creatbtn);
+
+      let creatbtntwo = document.createElement("button");
+      creatbtntwo.style.width = "25px";
+      creatbtntwo.style.display = "inline-block";
+      creatbtntwo.innerText = "-";
+      creatbtntwo.classList.add("two");
+      creattdfive.appendChild(creatbtntwo);
+
+      let creattdsix = document.createElement("td");
+      creattdsix.innerHTML = `<button class='savebtn'>save</button>`;
+      creattdsix.classList.add("save");
+
+      let creattdseven = document.createElement("td");
+      creattdseven.innerHTML = `<button class='exitbtn'>X</button>`;
+      creattdseven.classList.add("exit");
+
+      creattr.appendChild(creattdone);
+      creattr.appendChild(creattdtwo);
+      creattr.appendChild(creattdthree);
+      creattr.appendChild(creattdfour);
+      creattr.appendChild(creattdfive);
+      creattr.appendChild(creattdsix);
+      creattr.appendChild(creattdseven);
+      table.appendChild(creattr);
+    }
+
+
   });
 
-// =================================== get item from loop =================================//
+  // =================================== get item from loop =================================//
 
 
   var creatspans = document.getElementsByClassName("span");
@@ -87,7 +98,7 @@ window.addEventListener("load", function () {
 
 
 
-//event increament
+  //event increament
   for (let i = 0; i < creatbuttons.length; i++) {
     creatbuttons[i].addEventListener("click", () => {
       ++creatspans[i].innerHTML;
@@ -96,10 +107,10 @@ window.addEventListener("load", function () {
       creatfour[i].innerHTML = result;
     });
 
-  
-//event in exit button
-    createxit[i].addEventListener("click", (e) => {
-      if (this.confirm("are you sure from delet")) {
+
+    //event in exit button
+    exit[i].addEventListener("click", (e) => {
+      if (this.confirm("Are you sure from delete?")) {
         creattrows[i].style.display = "none";
         var cartData = JSON.parse(localStorage.getItjem("carts"));
         cartData.splice(i, 1);
@@ -109,9 +120,10 @@ window.addEventListener("load", function () {
       }
     });
 
-//event in save button
-    creatsave[i].addEventListener("click", function (e) {
-      if(confirm('The purchase will be made')){
+    //event in save button
+    save[i].addEventListener("click", function (e) {
+      // let amount = cartData[i].price;
+      if (confirm('The purchase will be made')) {
         var num = Number(creatspans[i].innerHTML);
         creatbtntwo[i].disabled = true
         creatbuttons[i].disabled = true;
@@ -121,12 +133,13 @@ window.addEventListener("load", function () {
         creatbtntwo[i].style.backgroundColor = "white";
         exit[i].disabled = true;
         save[i].disabled = true;
-        creattrows[i].style.display = "none";
+        // creattrows[i].style.display = "none";
+        let sellProducts = [];
         var cartData = JSON.parse(localStorage.getItem("carts"));
         cartData.splice(i, 1);
         localStorage.setItem("carts", JSON.stringify(cartData));
 
-//get data by ajax call
+        //get data by ajax call
         $.ajax({
           url: `http://localhost:8000/api/products/sell/${cartData[i].id}`,
           type: "post",
@@ -140,14 +153,14 @@ window.addEventListener("load", function () {
             console.log(error);
           },
         });
-      }else{
+      } else {
         e.preventDefault()
       }
-    
+
     });
   }
 
-//event in decreament button
+  //event in decreament button
   for (let i = 0; i < creatbtntwo.length; i++) {
     creatbtntwo[i].addEventListener("click", () => {
       if (creatspans[i].innerHTML > 1) {
@@ -158,5 +171,5 @@ window.addEventListener("load", function () {
       }
     });
   }
-});
+// });
 
