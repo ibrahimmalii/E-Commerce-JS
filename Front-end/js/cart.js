@@ -93,30 +93,36 @@ window.addEventListener("load", function () {
       }
     });
 
-    creatsave[i].addEventListener("click", function () {
-      var num = Number(creatspans[i].innerHTML);
-      creatbuttons[i].style.display = "none";
-      creatbtntwo[i].innerHTML = '' ;
-      creatbtntwo[i].innerHTML = `<i class='fa fa-check-circle' style='font-size:25px'></i>`;
-      creatbtntwo[i].style.width = "70px";
-      creatbtntwo[i].disabled = true;
-      createxit[i].innerHTML = '<h6 class="text-success">completed</h6>'
-      createxit[i].disabled = true;
-      creatsave[i].disabled = true;
-      $.ajax({
-        url: `http://localhost:8000/api/products/sell/${cartData[i].id}`,
-        type: "post",
-        headers: { "Authorization": `Bearer ${token}` },
-        dataType: "json",
-        data: { amount: num },
-        success: function (response) {
-          console.log({ amount: num });
-          console.log(response);
-        },
-        error: function (error) {
-          console.log(error);
-        },
-      });
+    creatsave[i].addEventListener("click", function (e) {
+      if(confirm('The purchase will be made')){
+        var num = Number(creatspans[i].innerHTML);
+        creatbuttons[i].style.display = "none";
+        creatbtntwo[i].innerHTML = '' ;
+        creatbtntwo[i].innerHTML = `<i class='fa fa-check-circle' style='font-size:25px'></i>`;
+        creatbtntwo[i].style.width = "70px";
+        creatbtntwo[i].style.backgroundColor = "white";
+        creatbtntwo[i].disabled = true;
+        createxit[i].innerHTML = '<h6 class="text-success">completed</h6>'
+        createxit[i].disabled = true;
+        creatsave[i].disabled = true;
+        $.ajax({
+          url: `http://localhost:8000/api/products/sell/${cartData[i].id}`,
+          type: "post",
+          headers: { "Authorization": `Bearer ${token}` },
+          dataType: "json",
+          data: { amount: num },
+          success: function (response) {
+            console.log({ amount: num });
+            console.log(response);
+          },
+          error: function (error) {
+            console.log(error);
+          },
+        });
+      }else{
+        e.preventDefault()
+      }
+    
     });
   }
   for (let i = 0; i < creatbtntwo.length; i++) {

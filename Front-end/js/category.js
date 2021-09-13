@@ -1,17 +1,13 @@
-
-var value = 0;
-let headerSpan = document.getElementsByClassName('val')[0];
-headerSpan.innerHTML = value ;
-
-
-
 //ajax call
 let mydata = []
 fetch('http://localhost:8000/api/products')
     .then(res => res.json()).then((data) => {
+        console.log(data);
         mydata = data;
+
         // disply data in div
         for (i = 0; i < mydata.data.length; i++) {
+
             myDiv = ` <div class="col-md-4">
                 <div class="card mt-4" style="max-width: 16rem;
                 max-height: 25rem;">
@@ -42,17 +38,22 @@ fetch('http://localhost:8000/api/products')
 
 // add content of any cart click to localstroge
 var productList = []
+
 function showProduct(myId, myTitle, myPrice, myDecraption, myImage) {
+
     let cart = {
         id: myId,
         title: myTitle,
         price: myPrice,
+
         description: myDecraption,
         image: myImage
     }
     productList.push(cart);
-    localStorage.setItem('carts', JSON.stringify(productList));
-   
+
+    console.log(productList)
+
+    localStorage.setItem('carts', JSON.stringify(productList))
 
 }
 
@@ -136,4 +137,3 @@ function searchNav() {
     console.log(myDiv)
 
 }
-

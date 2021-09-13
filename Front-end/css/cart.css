@@ -42,6 +42,14 @@ span {
 .four{
     font-size: 20px;
 }
+p{
+    width: 25px;
+    height: 25px;
+    background-color:#8fa2c4;
+    border-radius: 10px;
+    /* color: wheat; */
+    cursor: pointer;
+}
 
 
 
