@@ -36,7 +36,7 @@ class ProductController extends Controller
             'price' => 'required|min:2,price',
             'type' => 'required|min:2,type',
             'amount' => 'required|min:2,amount',
-            'rate' => 'min:1,rate',
+            'rate' => 'min:1|max:5,rate',
         ]);
 
         if($validate->fails()){
@@ -137,7 +137,7 @@ class ProductController extends Controller
             return $this->apiResponse(null , "Sorry you can't do this!!");
         };
 
-        $product->rate = $request->rate;
+        $product->rate = ($request->rate + $product->rate) / 2;
         $product->save();
         return $product->rate;
     }
