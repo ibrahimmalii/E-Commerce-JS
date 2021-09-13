@@ -106,8 +106,6 @@ window.addEventListener("load", function () {
       }
     });
 
-
-
 //event in save button
     creatsave[i].addEventListener("click", function (e) {
       if(confirm('The purchase will be made')){
@@ -145,7 +143,6 @@ window.addEventListener("load", function () {
     
     });
   }
-
 
 //event in decreament button
   for (let i = 0; i < creatbtntwo.length; i++) {
