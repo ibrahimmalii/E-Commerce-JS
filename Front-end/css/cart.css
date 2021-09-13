@@ -16,10 +16,10 @@ button{
     background-color: rgb(64, 65, 58);
     color: white;
 }
-button:hover{
+/* button:hover{
     background-color: white;
     color: black;
-}
+} */
 img{
     width: 200px;
     height: 200px;
