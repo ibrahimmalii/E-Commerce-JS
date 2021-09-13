@@ -33,36 +33,6 @@ fetch('http://localhost:8000/api/products')
             $("#grid").append(myDiv);
 
 
-<<<<<<< HEAD
-    }
-  });
-  //function add cart and check it
-
-  // var productList = []
-  function showProduct(myId,myTitle,myPrice,myDecraption,myImage) {
-    // debugger;
-let cart={};
-  if(localStorage.carts){
-          cart = JSON.parse(localStorage.carts);
-          let found = false;
-          for( item in cart){
-              if(cart[item].id == myId){
-                  found = true;
-                  cart[item].count++;
-                  break;
-              }  
-          }
-          if(!found){
-              cart[myId]= {id:myId,price:myPrice,description:myDecraption,image: myImage,count:1};
-          }
-      }
-      else{
-        cart[myId]={id:myId,price: myPrice,title:myTitle,description:myDecraption,image: myImage,count:1};
-      }
-      // products.push(cart);
-      localStorage.setItem("carts",JSON.stringify(cart));
-    }
-=======
         }
     });
 
@@ -89,7 +59,6 @@ function showProduct(myId, myTitle, myPrice, myDecraption, myImage) {
 
 
 
->>>>>>> 3d4c602bd008753652efe9f5752867e862685105
 
 
 
@@ -117,19 +86,11 @@ function showCard(Id, Title, Price, Decraption, Image) {
     products.push(cartDetails);
     // 2 set data and open window
 
-<<<<<<< HEAD
-  localStorage.setItem('opencard', JSON.stringify(products))
-  let newWin = open('../html/product.html', "_self");
-  console.log(opendata)
-  //3 disply in card
-  //  $("#grid2").append(opendata); in   second page 
-=======
     localStorage.setItem('opencard', JSON.stringify(products))
     let newWin = open('/html/detailsProduct.html', "_self");
     console.log(opendata)
         //3 disply in card
         //  $("#grid2").append(opendata); in   second page 
->>>>>>> 3d4c602bd008753652efe9f5752867e862685105
 
 
 
@@ -144,21 +105,12 @@ function showCard(Id, Title, Price, Decraption, Image) {
 
 function searchNav() {
 
-<<<<<<< HEAD
-  let searchInp = document.getElementById('searchVal');
-  let myDiv = '';
-  for (var i = 0; i < mydata.data.length; i++) {
-    
-    if (mydata.data[i].title.toLowerCase().includes(searchInp.value)) {
-      myDiv = ` <div class="col-md-4">
-=======
     let searchInp = document.getElementById('searchVal');
     let myDiv = '';
     for (var i = 0; i < mydata.data.length; i++) {
 
         if (mydata.data[i].title.includes(searchInp.value)) {
             myDiv = ` <div class="col-md-4">
->>>>>>> 3d4c602bd008753652efe9f5752867e862685105
       <div class="card mt-4" style="max-width: 16rem;
       max-height: 25rem;">
         <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
@@ -176,41 +128,12 @@ function searchNav() {
 <div class="mt-2">   
 <a href="" style="text-decoration: none ;"> ${mydata.data[i].price}<i class="fas fa-shopping-cart gr" onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]['title']}','${mydata.data[i].price}','${mydata.data[i].description}',
 '${i}.jpg')"></i>
-
-<<<<<<< HEAD
-</a> 
 </div>`
-    }
-//     }else{
-// console.log(mydata.data[i].title.includes('') )
-    
 
-  }
-  let myGrid = document.getElementById('grid');
-  myGrid.innerHTML = myDiv;
-  // $('#grid').append(myDiv);
-  console.log(myDiv)
-
-}
-
-
-
-
-
-// var rangeslider = document.getElementById("sliderRange");
-// var output = document.getElementById("demo");
-// output.innerHTML = rangeslider.value;
-
-// rangeslider.oninput = function() {
-//   output.innerHTML = this.value;
-// }
-
-=======
         }
     }
     let myGrid = document.getElementById('grid');
     myGrid.innerHTML = myDiv;
     console.log(myDiv)
->>>>>>> 3d4c602bd008753652efe9f5752867e862685105
 
 }
