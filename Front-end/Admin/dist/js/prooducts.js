@@ -16,40 +16,45 @@ const filters = {
   searchText: '',
 };
 
+// Generate products in html code
+const generateProduct = (item) => {
+  return products.innerHTML += `<div class="row card-body">
+    <div class="col"><span class="h3">${item.title}</span> <span>( Rate : ${item.rate} )</span><br><small>${item.description}</small></div>
+      <div class="col text-end">
+        <form class="form" id="${item.id}">
+          <input type="hidden" name="title" value="${item.title}">
+          <input type="hidden" name="description" value="${item.description}">
+          <input type="hidden" name="type" value="${item.type}">
+          <span class="fw-bold">Amount :
+            <input type="number" name="amount" value="${item.amount}" class="counter"></input>
+          </span>
+          <spnan class="fw-bold"> Price :
+            <input type="number" name="price" value="${item.price}" class="price"></input>
+          </spnan>
+          <input type="button" value="Save" class="btn btn-primary mx-3 save"></input>
+          <input type="button" value="remove" class="btn btn-danger mx-3 remove"></input>
+        </form>
+      </div>
+    </div>
+  </div>`;
+};
+
+
 //==================================== Function for search in products ===========================//
 const renderSearch = (arr, filter) => {
-  const result = arr.filter((item) => {
+  const SearchResult = arr.filter((item) => {
     return item.title.toLowerCase().includes(filter.searchText.toLowerCase());
   });
 
   //=========== Loop for all results of search ============//
 
-  productsCounter.innerHTML = `Products : ${result.length}`;
-  if (result.length != 0) {
+  productsCounter.innerHTML = `Products : ${SearchResult.length}`;
+  if (SearchResult.length != 0) {
     products.innerHTML = '';
-    result.forEach(result => {
-      products.innerHTML += `<div class="row card-body">
-            <div class="col"><span class="h3">${result.title}</span> <span>( Rate : ${result.rate} )</span><br><small>${result.description}</small></div>
-              <div class="col text-end">
-                <form class="form" id="${result.id}">
-                  <input type="hidden" name="title" value="${result.title}">
-                  <input type="hidden" name="description" value="${result.description}">
-                  <input type="hidden" name="type" value="${result.type}">
-                  <span class="fw-bold">Amount :
-                    <input type="number" name="amount" value="${result.amount}" class="counter"></input>
-                  </span>
-                  <spnan class="fw-bold"> Price :
-                    <input type="number" name="price" value="${result.price}" class="price"></input>
-                  </spnan>
-                  <input type="button" value="Save" class="btn btn-primary mx-3 save"></input>
-                  <input type="button" value="remove" class="btn btn-danger mx-3 remove"></input>
-                </form>
-              </div>
-            </div>
-          </div>`;
-
+    SearchResult.forEach(item => {
+      generateProduct(item);
     });
-  }else{
+  } else {
     products.innerHTML = `<p class="h5 text-light py-4 text-center">No product found with title "${filter.searchText}"</p>`
   }
 }
@@ -75,29 +80,17 @@ $.ajax({
     productsData.data = productsData.data.reverse();
     productsCounter.innerHTML = `Products : ${productsData.data.length}`;
 
-    //=========== Loop for all products ============//
-    productsData.data.forEach(item => {
-      products.innerHTML += `<div class="row card-body">
-            <div class="col"><span class="h3">${item.title}</span> <span>( Rate : ${item.rate} )</span><br><small>${item.description}</small></div>
-              <div class="col text-end">
-                <form class="form" id="${item.id}">
-                  <input type="hidden" name="title" value="${item.title}">
-                  <input type="hidden" name="description" value="${item.description}">
-                  <input type="hidden" name="type" value="${item.type}">
-                  <span class="fw-bold">Amount :
-                    <input type="number" name="amount" value="${item.amount}" class="counter"></input>
-                  </span>
-                  <spnan class="fw-bold"> Price :
-                    <input type="number" name="price" value="${item.price}" class="price"></input>
-                  </spnan>
-                  <input type="button" value="Save" class="btn btn-primary mx-3 save"></input>
-                  <input type="button" value="remove" class="btn btn-danger mx-3 remove"></input>
-                </form>
-              </div>
-            </div>
-          </div>`;
+    if (productsData.data.length != 0) {
+      
+      //=========== Loop for all products ============//
+      productsData.data.forEach(item => {
+        generateProduct(item);
+      });
 
-    });
+    } else {
+      products.innerHTML = `<p class="h5 text-light py-4 text-center">No product found in your storage</p>`
+    }
+
 
     var saveItem = document.getElementsByClassName('save');
     var removeItem = document.getElementsByClassName('remove');
