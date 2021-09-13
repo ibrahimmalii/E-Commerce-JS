@@ -3,6 +3,15 @@ cartData = JSON.parse(cartData);
 let table = document.getElementById("table");
 var value = 1;
 
+//====================================== Check authorization and authentication ===========================//
+// Get user role and token from local_storage
+const user_role = localStorage.user_role;
+const token = localStorage.token;
+
+if (user_role != 1 || !token) {
+  window.open('/html/login.html' , "_self");
+};
+
 window.addEventListener("load", function () {
   cartData.forEach((item, index) => {
     let creattr = document.createElement("tr");
