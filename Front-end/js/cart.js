@@ -9,64 +9,120 @@ var value = 1;
 
 // ====================================== loop and creat table =====================================
 
+const sellsArr = [];
 
 window.addEventListener("load", function () {
   cartData.forEach((item, index) => {
-    let creattr = document.createElement("tr");
-    creattr.classList.add("tr");
 
-    let creatimg = document.createElement("img");
-    creatimg.src = `/public/cat-images/images/${cartData[index].image}`;
-    let creattdone = document.createElement("td");
-    creattdone.appendChild(creatimg);
+      if(JSON.parse(localStorage.getItem('sells')) == item.id){
+        let creattr = document.createElement("tr");
+        creattr.classList.add("tr");
+    
+        let creatimg = document.createElement("img");
+        creatimg.src = `/public/cat-images/images/${cartData[index].image}`;
+        let creattdone = document.createElement("td");
+        creattdone.appendChild(creatimg);
 
-    let creattdtwo = document.createElement("td");
-    creattdtwo.innerHTML = cartData[index].title;
+        
+        let creattdtwo = document.createElement("td");
+        creattdtwo.innerHTML = cartData[index].title;
+    
+        let creattdthree = document.createElement("td");
+        creattdthree.innerHTML = "white";
 
-    let creattdthree = document.createElement("td");
-    creattdthree.innerHTML = "white";
+        
+        let creattdfour = document.createElement("td");
+        creattdfour.innerHTML = cartData[index].price;
+        creattdfour.classList.add("four");
+        let creattdfive = document.createElement("td");
 
-    let creattdfour = document.createElement("td");
-    creattdfour.innerHTML = cartData[index].price;
-    creattdfour.classList.add("four");
-    let creattdfive = document.createElement("td");
+        
+        creatspan = document.createElement("span");
+        creatspan.classList.add("span");
+        creatspan.innerText = value + " ";
+        creattdfive.appendChild(creatspan);
+    
+        let creatbtn = document.createElement("button");
+        creatbtn.style.width = "25px";
+        creatbtn.innerHTML = `<i class='fa fa-check-circle text-dark' style='font-size:25px'></i>`;
+        creatbtn.style.border = '1px solid white';
+        creatbtn.style.backgroundColor = "white";
 
-    creatspan = document.createElement("span");
-    creatspan.classList.add("span");
-    creatspan.innerText = value + " ";
-    creattdfive.appendChild(creatspan);
+        creattdfive.appendChild(creatbtn);
 
-    let creatbtn = document.createElement("button");
-    creatbtn.style.width = "25px";
-    creatbtn.innerHTML = "+";
-    creatbtn.style.display = "inline-block";
-    creatbtn.classList.add("one");
+        let creattdsix = document.createElement("td");
+        creattdsix.innerHTML = `<span class='text-success'>complete<span>`;
 
-    creattdfive.appendChild(creatbtn);
+        let creattdseven = document.createElement("td");
+        creattdseven.innerHTML = `<button class='exitbtn'>X</button>`;
 
-    let creatbtntwo = document.createElement("button");
-    creatbtntwo.style.width = "25px";
-    creatbtntwo.style.display = "inline-block";
-    creatbtntwo.innerText = "-";
-    creatbtntwo.classList.add("two");
-    creattdfive.appendChild(creatbtntwo);
+        creattr.appendChild(creattdone);
+        creattr.appendChild(creattdtwo);
+        creattr.appendChild(creattdthree);
+        creattr.appendChild(creattdfour);
+        creattr.appendChild(creattdfive);
+        creattr.appendChild(creattdsix);
+        creattr.appendChild(creattdseven);
+        table.appendChild(creattr);
 
-    let creattdsix = document.createElement("td");
-    creattdsix.innerHTML = `<button class='savebtn'>save</button>`;
-    creattdsix.classList.add("save");
+      }else{
+        let creattr = document.createElement("tr");
+        creattr.classList.add("tr");
+    
+        let creatimg = document.createElement("img");
+        creatimg.src = `/public/cat-images/images/${cartData[index].image}`;
+        let creattdone = document.createElement("td");
+        creattdone.appendChild(creatimg);
+    
+        let creattdtwo = document.createElement("td");
+        creattdtwo.innerHTML = cartData[index].title;
+    
+        let creattdthree = document.createElement("td");
+        creattdthree.innerHTML = "white";
+    
+        let creattdfour = document.createElement("td");
+        creattdfour.innerHTML = cartData[index].price;
+        creattdfour.classList.add("four");
+        let creattdfive = document.createElement("td");
+    
+        creatspan = document.createElement("span");
+        creatspan.classList.add("span");
+        creatspan.innerText = value + " ";
+        creattdfive.appendChild(creatspan);
+    
+        let creatbtn = document.createElement("button");
+        creatbtn.style.width = "25px";
+        creatbtn.innerHTML = "+";
+        creatbtn.style.display = "inline-block";
+        creatbtn.classList.add("one");
+    
+        creattdfive.appendChild(creatbtn);
+    
+        let creatbtntwo = document.createElement("button");
+        creatbtntwo.style.width = "25px";
+        creatbtntwo.style.display = "inline-block";
+        creatbtntwo.innerText = "-";
+        creatbtntwo.classList.add("two");
+        creattdfive.appendChild(creatbtntwo);
+    
+        let creattdsix = document.createElement("td");
+        creattdsix.innerHTML = `<button class='savebtn'>Buy</button>`;
+        creattdsix.classList.add("save");
+    
+        let creattdseven = document.createElement("td");
+        creattdseven.innerHTML = `<button class='exitbtn'>X</button>`;
+        creattdseven.classList.add("exit");
+    
+        creattr.appendChild(creattdone);
+        creattr.appendChild(creattdtwo);
+        creattr.appendChild(creattdthree);
+        creattr.appendChild(creattdfour);
+        creattr.appendChild(creattdfive);
+        creattr.appendChild(creattdsix);
+        creattr.appendChild(creattdseven);
+        table.appendChild(creattr);
 
-    let creattdseven = document.createElement("td");
-    creattdseven.innerHTML = `<button class='exitbtn'>X</button>`;
-    creattdseven.classList.add("exit");
-
-    creattr.appendChild(creattdone);
-    creattr.appendChild(creattdtwo);
-    creattr.appendChild(creattdthree);
-    creattr.appendChild(creattdfour);
-    creattr.appendChild(creattdfive);
-    creattr.appendChild(creattdsix);
-    creattr.appendChild(creattdseven);
-    table.appendChild(creattr);
+      }
   });
 
 // =================================== get item from loop =================================
@@ -95,7 +151,7 @@ window.addEventListener("load", function () {
 
   
 //event in exit button
-    createxit[i].addEventListener("click", (e) => {
+    exit[i].addEventListener("click", (e) => {
       if (this.confirm("are you sure from delet")) {
         creattrows[i].style.display = "none";
         var cartData = JSON.parse(localStorage.getItjem("carts"));
@@ -107,21 +163,25 @@ window.addEventListener("load", function () {
     });
 
 //event in save button
-    creatsave[i].addEventListener("click", function (e) {
+    save[i].addEventListener("click", function (e) {
       if(confirm('The purchase will be made')){
         var num = Number(creatspans[i].innerHTML);
         creatbtntwo[i].disabled = true
         creatbuttons[i].disabled = true;
         creatbuttons[i].style.display = 'none';
         creatbtntwo[i].innerHTML = `<i class='fa fa-check-circle text-dark' style='font-size:25px'></i>`;
+        creatbtntwo[i].style.border = '1px solid white'
         creatbtntwo[i].style.width = "40px";
         creatbtntwo[i].style.backgroundColor = "white";
         exit[i].disabled = true;
+        save[i].innerHTML = 'completed'
+        save[i].style.backgroundColor = 'white'
+        save[i].style.color = 'green'
+        save[i].style.border = '1px solid white'
         save[i].disabled = true;
-        creattrows[i].style.display = "none";
-        var cartData = JSON.parse(localStorage.getItem("carts"));
-        cartData.splice(i, 1);
-        localStorage.setItem("carts", JSON.stringify(cartData));
+        sellsArr.push(cartData[i].id)
+        localStorage.setItem('sells',JSON.stringify(sellsArr))
+        console.log(sellsArr)
 
 //get data by ajax call
         $.ajax({
@@ -131,7 +191,7 @@ window.addEventListener("load", function () {
           dataType: "json",
           data: { amount: num },
           success: function (response) {
-            console.log(response);
+            // console.log(response);
           },
           error: function (error) {
             console.log(error);
