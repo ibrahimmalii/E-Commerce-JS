@@ -16,10 +16,13 @@ button{
     background-color: rgb(64, 65, 58);
     color: white;
 }
-/* button:hover{
-    background-color: white;
-    color: black;
-} */
+.exitbtn{
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(64, 65, 58);
+    color: white;
+}
 img{
     width: 200px;
     height: 200px;
