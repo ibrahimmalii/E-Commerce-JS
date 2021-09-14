@@ -19,7 +19,7 @@ const filters = {
 };
 
 // Generte row for new user
-const generateUser = (item)=>{
+const generateUser = item => {
   //create div container all users
   var user = document.createElement('div');
   user.classList.add('card-header');
@@ -53,11 +53,7 @@ const generateUser = (item)=>{
           headers: { "Authorization": `Bearer ${token}` },
           dataType: 'json',
           success: function (response) {
-            console.log('from delete user');
-            usersRows.forEach((index, value) => {
-              value.display = 'none';
-            })
-            // if (response.data == true) location.reload();
+            if (response.data == true) location.reload();
           },
           error: function (error) {
             console.log(error);

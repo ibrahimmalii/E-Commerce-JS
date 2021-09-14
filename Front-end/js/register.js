@@ -32,8 +32,6 @@ let passwordErr = document.getElementById('passwordErr');
 let passwordConfirmationErr = document.getElementById('passwordConfirmationErr');
 
 
-// firstName.focus();
-
 firstName.addEventListener('blur', function () {
     authFunctions.validation(firstName, /^[a-zA-Z]{2,20}$/, firstNameErr);
 });
@@ -74,7 +72,7 @@ password_confirmation.addEventListener('blur', function () {
 
 
 document.getElementById('submit').addEventListener('click', (e) => {
-    // debugger;
+    debugger;
     for (var i = 0; i < allErr.length && allInputs.length; i++) {
         if (allErr[i].style.display == 'block' || allInputs[i].value.length == 0 || (password_confirmation.value != password.value)) {
             console.log('block');

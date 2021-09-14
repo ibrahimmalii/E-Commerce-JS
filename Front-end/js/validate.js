@@ -68,7 +68,7 @@ const accessUser = (url)=>{
             password.classList.remove('success');
             emailErr.innerText = 'Please try another email';
             emailErr.style.display = 'block';
-            password.value = '';
+            // password.value = '';
         }
 
     });

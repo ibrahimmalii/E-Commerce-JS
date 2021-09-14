@@ -47,5 +47,3 @@ document.getElementById('login').addEventListener('click', (e) => {
     authFunctions.accessUser(loginUrl);
 });
     //=========================================== End Of Submit Form =============================================//
-
-
