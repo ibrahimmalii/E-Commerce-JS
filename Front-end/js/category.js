@@ -174,3 +174,16 @@ $('#grid').append(myDiv)
     console.log(myDiv);
   }
 };
+
+
+
+// conter for number of carts which added from user 
+function pluscounter(){
+  if(){
+    document.getElementById('count').innerHTML= count++;
+
+  }
+
+}
+
+
