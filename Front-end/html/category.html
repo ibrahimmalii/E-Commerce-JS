@@ -11,6 +11,16 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="icon" href="../public/cat-images/headerIcon.PNG" type="image/x-icon">
+    <script>
+        //====================================== Check authorization and authentication ===========================//
+        // Get user role and token from local_storage
+        const user_role = localStorage.user_role;
+        const token = localStorage.token;
+  
+        if (user_role != 1 || !token) {
+          location.assign('/html/login.html');
+        };
+    </script>
     <!--style css-->
     <link rel="stylesheet" href="../css/category.css">
 </head>
@@ -34,7 +44,7 @@
                 </li>
                 <li class="nav-item ">
                     
-                    <a class="nav-link" href="cart.html"> <i class="fas fa-shopping-cart"></i> carts <span class="count">0</span> </a>
+                    <a class="nav-link" href="cart.html"> <i class="fas fa-shopping-cart"></i> carts <span id="count">0</span> </a>
                 </li>
             </ul>
         </div>
@@ -389,24 +399,29 @@
    <h3 class="text-dark font-weight-bold">Category</h3>
    <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
    <div class="custom-control custom-radio">
-     <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" style="cursor: pointer;" checked>
+     <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" style="cursor: pointer;"onclick="all()" checked>
      <label class="custom-control-label" for="customRadio1" style="cursor: pointer;">All</label>
    </div>
    <div class="custom-control custom-radio">
-     <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" style="cursor: pointer;" required> 
-     <label class="custom-control-label" for="customRadio2" style="cursor: pointer;">Laptop</label>
+     <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" style="cursor: pointer;" onclick="displayLap()"> 
+     <label class="custom-control-label" style="cursor: pointer;">Laptop</label>
    </div>
    <div class="custom-control custom-radio">
-     <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" style="cursor: pointer;">
-     <label class="custom-control-label" for="customRadio2" style="cursor: pointer;" >Smartphone</label>
+     <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" style="cursor:pointer;" onclick="displayMob()">
+     <label class="custom-control-label"  style="cursor: pointer;" >Smartphone</label>
    </div>
  </div>
+
+
+
+
+
+
+
  <div class="w-100 mt-5" >
    <h3 class="text-dark font-weight-bold">Price</h3>
    <hr class="bg-dark mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
- 
    <form>
-   
 
      <div class="rangeslider">
         <label class="mr-4"for="formControlRange" id="rangemin"><span id="demo"></span>$</label>

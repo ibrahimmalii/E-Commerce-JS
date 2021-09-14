@@ -1,11 +1,12 @@
+//======================================  Check if products sailed ===========================//
 
-//====================================== Check localstorage  salles  ===========================//
-let sells = localStorage.sells;
-if(localStorage.sells){
-  localStorage.sells=JSON.stringify([]);
-}
+let sells = localStorage.sells; 
+if(sells){
+    localStorage.sells = JSON.stringify([]);
+} 
 
-//====================================== ajax call for fetch our proudect ===========================//
+
+//====================================== ajax call for my product ===========================//
 let mydata = [];
 fetch("http://localhost:8000/api/products")
   .then((res) => res.json())
@@ -13,7 +14,7 @@ fetch("http://localhost:8000/api/products")
     console.log(data);
     mydata = data;
 
-//====================================== display data in div ===========================//
+//====================================== loop for display data in div ===========================//
 for (i = 0; i < mydata.data.length; i++) {
       myDiv = ` <div class="col-md-4">
                 <div class="card mt-4" style="max-width: 16rem;
@@ -61,8 +62,7 @@ function showProduct(myId, myTitle, myPrice, myDecraption,myImage) {
           }
           if(!found){
             cart.push({id:myId, price: myPrice,title:myTitle,description:myDecraption, image: myImage, count:1});
-            document.getElementById('count').innerHTML=count++;
-
+            
         }  
         
     }
@@ -70,7 +70,22 @@ function showProduct(myId, myTitle, myPrice, myDecraption,myImage) {
       cart.push({id:myId, price: myPrice,title:myTitle,description:myDecraption, image: myImage, count:1});
     }
     localStorage.setItem("carts",JSON.stringify(cart));
+
+
+    // conter 
+if(localStorage.carts){
+  cart= JSON.parse(localStorage.carts);
+  document.getElementById('count').innerHTML=cart.length;
+  $('#count').append(count++) 
+    count++
+   localStorage.setItem("carts",JSON.stringify(cart));
+}  
 }
+
+
+
+
+
 
 // open page display my card on click
 
@@ -176,5 +191,104 @@ $('#grid').append(myDiv)
   }
 };
 
+// type mobile   customRadio2
 
+function displayLap(){
+  document.getElementById('grid').innerHTML = " ";
+
+for (i = 0; i < mydata.data.length; i++) {
+  if(mydata.data[i].type=="laptop"){
+    myDiv =`<div class="col-md-4">
+      <div class="card mt-4" style="max-width: 16rem;
+      max-height: 25rem;">
+        <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${mydata.data[i]["title"]}</h5>
+          <a href="#" class="btn btn-danger" onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
+          ,'${mydata.data[i].description}','${i}.jpg')">Show details</a>
+          <div class="ml-1 mt-2">
+            <i class="fas fa-star text-primary "></i>
+              <i class="fas fa-star text-primary "></i>
+              <i class="fas fa-star text-primary "></i>
+              <i class="fas fa-star text-primary "></i>
+              <i class="fas fa-star text-primary "></i>
+          </div>
+<div class="mt-2">   
+<a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}',
+'${mydata.data[i].description}','${i}.jpg')"></i>
+</a> 
+</div>   
+</div>`
+$('#grid').append(myDiv)
+  }
+}
+}
+ // type of mobile 
+ function displayMob(){
+  document.getElementById('grid').innerHTML = " ";
+
+  for (i = 0; i < mydata.data.length; i++) {
+    if(mydata.data[i].type=="mobile"){
+      myDiv =`<div class="col-md-4">
+        <div class="card mt-4" style="max-width: 16rem;
+        max-height: 25rem;">
+          <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${mydata.data[i]["title"]}</h5>
+            <a href="#" class="btn btn-danger" onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
+            ,'${mydata.data[i].description}','${i}.jpg')">Show details</a>
+            <div class="ml-1 mt-2">
+              <i class="fas fa-star text-primary "></i>
+                <i class="fas fa-star text-primary "></i>
+                <i class="fas fa-star text-primary "></i>
+                <i class="fas fa-star text-primary "></i>
+                <i class="fas fa-star text-primary "></i>
+            </div>
+  <div class="mt-2">   
+  <a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+  onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}',
+  '${mydata.data[i].description}','${i}.jpg')"></i>
+  </a> 
+  </div>   
+  </div>`
+  $('#grid').append(myDiv)
+    }
+  }
+ }
+
+
+
+
+ // all 
+//  function all(){
+//   document.getElementById('grid').innerHTML = " ";
+//   for (i = 0; i < mydata.data.length; i++) {
+//     if(mydata.data[i].type=="mobile" || mydata.data[i].type =="laptop"){
+//       myDiv =`<div class="col-md-4">
+//         <div class="card mt-4" style="max-width: 16rem;
+//         max-height: 25rem;">
+//           <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
+//           <div class="card-body">
+//             <h5 class="card-title">${mydata.data[i]["title"]}</h5>
+//             <a href="#" class="btn btn-danger" onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
+//             ,'${mydata.data[i].description}','${i}.jpg')">Show details</a>
+//             <div class="ml-1 mt-2">
+//               <i class="fas fa-star text-primary "></i>
+//                 <i class="fas fa-star text-primary "></i>
+//                 <i class="fas fa-star text-primary "></i>
+//                 <i class="fas fa-star text-primary "></i>
+//                 <i class="fas fa-star text-primary "></i>
+//             </div>
+//   <div class="mt-2">   
+//   <a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+//   onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}',
+//   '${mydata.data[i].description}','${i}.jpg')"></i>
+//   </a> 
+//   </div>   
+//   </div>`
+//   $('#grid').append(myDiv)
+//     }
+//   }
+//  }
 
