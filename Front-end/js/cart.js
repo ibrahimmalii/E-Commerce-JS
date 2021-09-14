@@ -11,8 +11,7 @@ var value = 1;
 
 const sellsArr = [];
 
-const boughtProducts = localStorage.sellProducts;
-// window.addEventListener("load", function () {
+window.addEventListener("load", function () {
   cartData.forEach((item, index) => {
 
       if(JSON.parse(localStorage.getItem('sells')) == item.id){
@@ -153,7 +152,7 @@ const boughtProducts = localStorage.sellProducts;
   
 //event in exit button
     exit[i].addEventListener("click", (e) => {
-      if (this.confirm("are you sure from delet")) {
+      if (this.confirm("are you sure from delete")) {
         creattrows[i].style.display = "none";
         var cartData = JSON.parse(localStorage.getItjem("carts"));
         cartData.splice(i, 1);
@@ -216,5 +215,5 @@ const boughtProducts = localStorage.sellProducts;
       }
     });
   }
-// });
+});
 
