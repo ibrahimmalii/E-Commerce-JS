@@ -19,17 +19,17 @@
     <!-- Alert for success process -->
     <div class="alert alert-info mt-3 mx-auto w-50 alert-dismissible fade show" role="alert">
       <strong>Great job!</strong> Welcome to your site.
-      <button type="button" class="btn-close closeSuccess"  aria-label="Close"></button>
-  </div>
+      <button type="button" class="btn-close closeSuccess" aria-label="Close"></button>
+    </div>
 
-  <!-- Alert for error process -->
-  <div class="alert alert-danger mt-3 mx-auto w-50 alert-dismissible fade show" role="alert">
+    <!-- Alert for error process -->
+    <div class="alert alert-danger mt-3 mx-auto w-50 alert-dismissible fade show" role="alert">
       <strong>Field Connection!</strong> Email already taken.
-      <button type="button" class="btn-close closeError"  aria-label="Close"></button>
-  </div>
+      <button type="button" class="btn-close closeError" aria-label="Close"></button>
+    </div>
 
     <div class="container d-flex justify-content-center">
-      
+
 
       <!-- Card to contain register form -->
       <div class="card form">
@@ -75,10 +75,14 @@
                 <td class="d-flex" colspan="2">
                   <label for="gender">Gender</label>
                   <div class="mx-3">
-                    <input type="radio" name="gender" value="male"> Male
+                    <label>
+                      <input type="radio" name="gender" value="male"> Male
+                    </label>
                   </div>
                   <div>
-                    <input type="radio" name="gender" value="female"> Female
+                    <label>
+                      <input type="radio" name="gender" value="female"> Female
+                    </label>
                   </div>
                   <small id="genderErr" class="fs-6 fw-bold">You have to select your gender</small>
                 </td>
@@ -119,7 +123,7 @@
               </tr>
               <tr>
                 <td colspan="2" class="text-center">
-                  <input type="button"  class="btn form-control w-50 fw-bold" id="submit" value="Submit"></input>
+                  <input type="button" class="btn form-control w-50 fw-bold" id="submit" value="Submit"></input>
                 </td>
               </tr>
             </table>
@@ -127,7 +131,8 @@
           </form>
         </div>
         <div class="text-muted">
-          <a href="http://localhost:5501/html/login.html" class="btn text-light btn-link">Do You Already Have An Account?</a>
+          <a href="/html/login.html" class="btn text-light btn-link">Do You Already Have An
+            Account?</a>
         </div>
       </div>
     </div>
@@ -137,17 +142,15 @@
   <!-- JS Scripts -->
   <script src="../js/jquery.js"></script>
   <script src="../js/register.js" type="module"></script>
-  
+
 
   <!-- BootStrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
-    integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
-    crossorigin="anonymous">
-  </script>
+    integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous">
+    </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
-    integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
-    crossorigin="anonymous">
-  </script>
+    integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous">
+    </script>
 
 </body>
 

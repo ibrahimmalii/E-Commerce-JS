@@ -2,16 +2,17 @@
 const user_role = localStorage.user_role;
 const token = localStorage.token;
 
-let cartData = localStorage.getItem("carts");
+var cartData = localStorage.getItem("carts");
 cartData = JSON.parse(cartData);
 let table = document.getElementById("table");
 var value = 1;
 
-// ====================================== loop and creat table =====================================
+//====================================== Check authorization and authentication ===========================//
 
 const sellsArr = [];
 
-window.addEventListener("load", function () {
+const boughtProducts = localStorage.sellProducts;
+// window.addEventListener("load", function () {
   cartData.forEach((item, index) => {
 
       if(JSON.parse(localStorage.getItem('sells')) == item.id){
@@ -125,7 +126,7 @@ window.addEventListener("load", function () {
       }
   });
 
-// =================================== get item from loop =================================
+  // =================================== get item from loop =================================//
 
 
   var creatspans = document.getElementsByClassName("span");
@@ -140,7 +141,7 @@ window.addEventListener("load", function () {
 
 
 
-//event increament
+  //event increament
   for (let i = 0; i < creatbuttons.length; i++) {
     creatbuttons[i].addEventListener("click", () => {
       ++creatspans[i].innerHTML;
@@ -183,7 +184,7 @@ window.addEventListener("load", function () {
         localStorage.setItem('sells',JSON.stringify(sellsArr))
         console.log(sellsArr)
 
-//get data by ajax call
+        //get data by ajax call
         $.ajax({
           url: `http://localhost:8000/api/products/sell/${cartData[i].id}`,
           type: "post",
@@ -197,14 +198,14 @@ window.addEventListener("load", function () {
             console.log(error);
           },
         });
-      }else{
+      } else {
         e.preventDefault()
       }
-    
+
     });
   }
 
-//event in decreament button
+  //event in decreament button
   for (let i = 0; i < creatbtntwo.length; i++) {
     creatbtntwo[i].addEventListener("click", () => {
       if (creatspans[i].innerHTML > 1) {
@@ -215,5 +216,5 @@ window.addEventListener("load", function () {
       }
     });
   }
-});
+// });
 

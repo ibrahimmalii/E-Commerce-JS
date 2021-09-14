@@ -357,7 +357,7 @@
                  
                     </div>
                     <form class="form-inline">
-                                          <input class="form-control mt-sm-1" id="searchVal" onkeyup=" searchNav();" type="search" placeholder="Search" aria-label="Search" />
+                                          <input class="form-control mt-sm-1" id="searchVal" onkeydown="searchNav();" type="search" placeholder="Search" aria-label="Search" />
                                       </form>
               </nav>
             </div>
@@ -413,11 +413,18 @@
 
 
 
-     <div class="form-group">
-       <label for="formControlRange">1000$</label>
+     <!-- <div class="form-group">
+       <label for="formControlRange" id="rangemin">1000$</label>
+       <label for="formControlRange" id="rangemax">10000$</label>
        <input type="range" value="1000" min="0" max="10000" class="form-control-range" id="formControlRange">
-       <label for="formControlRange">10000$</label>
-     </div>
+     </div> -->
+
+     <div class="rangeslider">
+        <label class="mr-4"for="formControlRange" id="rangemin"><span id="demo"></span>$</label>
+        <label for="formControlRange" id="rangemax">10000$</label>
+        <input type="range" min="1000" max="10000" value="1000"
+                        class="myslider" id="sliderRange">
+        </div>
    </form>
  </div>
  <div class="w-100 mt-5">
