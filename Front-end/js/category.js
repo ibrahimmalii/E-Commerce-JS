@@ -1,27 +1,11 @@
 
-//====================================== Check authorization and authentication ===========================//
-// Get user role and token from local_storage
-const user_role = localStorage.user_role;
-const token = localStorage.token;
-
-if (user_role != 1 || !token) {
-  window.open('/html/login.html' , "_self");
-};
-
-
 //====================================== Check localstorage  salles  ===========================//
-//  sells=localStorage.sells;
-const sells = JSON.parse(localStorage.sells);
+let sells = localStorage.sells;
 if(localStorage.sells){
- let   sells=[];
+  localStorage.sells=JSON.stringify([]);
 }
 
-
-
-
-
-
-//ajax call
+//====================================== ajax call for fetch our proudect ===========================//
 let mydata = [];
 fetch("http://localhost:8000/api/products")
   .then((res) => res.json())
@@ -29,8 +13,8 @@ fetch("http://localhost:8000/api/products")
     console.log(data);
     mydata = data;
 
-    // disply data in div
-    for (i = 0; i < mydata.data.length; i++) {
+//====================================== display data in div ===========================//
+for (i = 0; i < mydata.data.length; i++) {
       myDiv = ` <div class="col-md-4">
                 <div class="card mt-4" style="max-width: 16rem;
                 max-height: 25rem;">
@@ -63,7 +47,6 @@ fetch("http://localhost:8000/api/products")
 // var productList = [];
 function showProduct(myId, myTitle, myPrice, myDecraption,myImage) {
   // debugger;
-  // let myCounter=document.getElementById('count').innerHTML
   let cart = [];
     if(localStorage.carts){
       cart = JSON.parse(localStorage.carts);
@@ -78,8 +61,8 @@ function showProduct(myId, myTitle, myPrice, myDecraption,myImage) {
           }
           if(!found){
             cart.push({id:myId, price: myPrice,title:myTitle,description:myDecraption, image: myImage, count:1});
-            count++;
-            myCounter=count++
+            document.getElementById('count').innerHTML=count++;
+
         }  
         
     }
