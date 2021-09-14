@@ -1,3 +1,26 @@
+
+//====================================== Check authorization and authentication ===========================//
+// Get user role and token from local_storage
+const user_role = localStorage.user_role;
+const token = localStorage.token;
+
+if (user_role != 1 || !token) {
+  window.open('/html/login.html' , "_self");
+};
+
+
+//====================================== Check localstorage  salles  ===========================//
+//  sells=localStorage.sells;
+const sells = JSON.parse(localStorage.sells);
+if(localStorage.sells){
+ let   sells=[];
+}
+
+
+
+
+
+
 //ajax call
 let mydata = [];
 fetch("http://localhost:8000/api/products")
@@ -38,9 +61,9 @@ fetch("http://localhost:8000/api/products")
 
 // add content of any cart click to localstroge
 // var productList = [];
-
 function showProduct(myId, myTitle, myPrice, myDecraption,myImage) {
   // debugger;
+  // let myCounter=document.getElementById('count').innerHTML
   let cart = [];
     if(localStorage.carts){
       cart = JSON.parse(localStorage.carts);
@@ -55,7 +78,8 @@ function showProduct(myId, myTitle, myPrice, myDecraption,myImage) {
           }
           if(!found){
             cart.push({id:myId, price: myPrice,title:myTitle,description:myDecraption, image: myImage, count:1});
-            
+            count++;
+            myCounter=count++
         }  
         
     }
@@ -102,8 +126,7 @@ function searchNav() {
   document.getElementById('grid').innerHTML = " ";
 
   for (var i = 0; i < mydata.data.length; i++) {
-    if (
-      mydata.data[i].title.toLowerCase().includes(searchInp.value.toLowerCase())) {
+    if (mydata.data[i].title.toLowerCase().includes(searchInp.value.toLowerCase())) {
       myDiv = `<div class="col-md-4">
       <div class="card mt-4" style="max-width: 16rem;
       max-height: 25rem;">
@@ -126,11 +149,6 @@ function searchNav() {
 $('#grid').append(myDiv)
 
     }
-
-    // let myGrid = document.getElementById("grid");
-    // myGrid.innerHTML = myDiv;
-
-    console.log(myDiv);
   }
 }
 
@@ -175,15 +193,5 @@ $('#grid').append(myDiv)
   }
 };
 
-
-
-// conter for number of carts which added from user 
-function pluscounter(){
-  if(){
-    document.getElementById('count').innerHTML= count++;
-
-  }
-
-}
 
 

@@ -51,7 +51,7 @@ const renderSearch = (arr, filter) => {
   productsCounter.innerHTML = `Products : ${SearchResult.length}`;
   if (SearchResult.length != 0) {
     products.innerHTML = '';
-    SearchResult.forEach(item => {
+    SearchResult.forEach(item =>{
       generateProduct(item);
     });
   } else {
