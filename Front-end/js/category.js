@@ -112,8 +112,8 @@ function searchNav() {
   document.getElementById('grid').innerHTML = " ";
 
   for (var i = 0; i < mydata.data.length; i++) {
-    if (
-      mydata.data[i].title.toLowerCase().includes(searchInp.value.toLowerCase())) {
+    if (mydata.data[i].title.toLowerCase().includes(searchInp.value.toLowerCase())) {
+      console.log('if');
       myDiv = `<div class="col-md-4">
       <div class="card mt-4" style="max-width: 16rem;
       max-height: 25rem;">
@@ -129,18 +129,16 @@ function searchNav() {
               <i class="fas fa-star text-primary "></i>
               <i class="fas fa-star text-primary "></i>
           </div>
-<div class="mt-2">   
-<a href="" style="text-decoration: none ;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr" onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}','${mydata.data[i].description}',
-'${i}.jpg')"></i>
-</div>`
-$('#grid').append(myDiv)
+          <div class="mt-2">   
+          <a href="" style="text-decoration: none ;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr" onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}','${mydata.data[i].description}',
+          '${i}.jpg')"></i>
+          </div>`
+          $('#grid').append(myDiv)
 
+    }else {
+      console.log('from else')
+      myDiv = `<p class="h5 text-light py-4 text-center">No product found with title ""</p>`
     }
-
-    // let myGrid = document.getElementById("grid");
-    // myGrid.innerHTML = myDiv;
-
-    console.log(myDiv);
   }
 }
 
