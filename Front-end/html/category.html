@@ -11,6 +11,16 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="icon" href="../public/cat-images/headerIcon.PNG" type="image/x-icon">
+    <script>
+        //====================================== Check authorization and authentication ===========================//
+        // Get user role and token from local_storage
+        const user_role = localStorage.user_role;
+        const token = localStorage.token;
+  
+        if (user_role != 1 || !token) {
+          location.assign('/html/login.html');
+        };
+    </script>
     <!--style css-->
     <link rel="stylesheet" href="../css/category.css">
 </head>
