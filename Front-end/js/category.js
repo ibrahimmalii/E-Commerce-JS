@@ -2,7 +2,15 @@
 
 let sells = localStorage.sells;
 if (sells) {
-  localStorage.sells = JSON.stringify([]);
+    localStorage.sells = JSON.stringify([]);
+}
+
+if (localStorage.user) {
+    let name = JSON.parse(localStorage.user).name;
+    console.log(name);
+    document.getElementById("navbarDropdown").innerText = name;
+    document.getElementById("signOutOrSignIn").innerText = "Log out";
+    document.getElementById("signup").style.display = "none";
 }
 
 //====================================== ajax call for my product ===========================//
@@ -91,17 +99,17 @@ function showProduct(myId, myTitle, myPrice, myDecraption, myImage) {
 // open page display my card on click
 
 function showCard(
-  Id,
-  Title,
-  Price,
-  Decraption,
-  Image,
-  myAmount,
-  myCreated,
-  myNumb,
-  myRate,
-  myType,
-  myUpda
+    Id,
+    Title,
+    Price,
+    Decraption,
+    Image,
+    myAmount,
+    myCreated,
+    myNumb,
+    myRate,
+    myType,
+    myUpda
 ) {
   // will work in three step
   //step one catch data and store it in localstorage
@@ -170,7 +178,7 @@ function searchNav() {
 
 //=====================================range price slider===========================//
 
-//=====================================first funcation for set range slider===========================//
+    //=====================================range price slider===========================//
 
 var rangeslider = document.getElementById("sliderRange");
 var output = document.getElementById("demo");
@@ -203,19 +211,19 @@ onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${myda
 </a> 
 </div>   
 </div>`;
-      $("#grid").append(myDiv);
-    }
-  }
-};
+                $("#grid").append(myDiv);
+            }
+        }
+    };
 
-//====================================== type by laptoop===========================//
+    //====================================== type by laptoop===========================//
 
-function displayLap() {
-  document.getElementById("grid").innerHTML = " ";
+    function displayLap() {
+        document.getElementById("grid").innerHTML = " ";
 
-  for (i = 0; i < mydata.data.length; i++) {
-    if (mydata.data[i].type == "laptop") {
-      myDiv = `<div class="col-md-4">
+        for (i = 0; i < mydata.data.length; i++) {
+            if (mydata.data[i].type == "laptop") {
+                myDiv = `<div class="col-md-4">
       <div class="card mt-4" style="max-width: 16rem;
       max-height: 25rem;">
         <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
@@ -237,17 +245,17 @@ onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${myda
 </a> 
 </div>   
 </div>`;
-      $("#grid").append(myDiv);
+                $("#grid").append(myDiv);
+            }
+        }
     }
-  }
-}
-//=====================================type by mobile ===========================//
-function displayMob() {
-  document.getElementById("grid").innerHTML = " ";
+    //=====================================type by mobile ===========================//
+    function displayMob() {
+        document.getElementById("grid").innerHTML = " ";
 
-  for (i = 0; i < mydata.data.length; i++) {
-    if (mydata.data[i].type == "mobile") {
-      myDiv = `<div class="col-md-4">
+        for (i = 0; i < mydata.data.length; i++) {
+            if (mydata.data[i].type == "mobile") {
+                myDiv = `<div class="col-md-4">
         <div class="card mt-4" style="max-width: 16rem;
         max-height: 25rem;">
           <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
@@ -269,21 +277,21 @@ function displayMob() {
   </a> 
   </div>   
   </div>`;
-      $("#grid").append(myDiv);
+                $("#grid").append(myDiv);
+            }
+        }
     }
-  }
-}
 
-//====================================== low to heigh price ===========================//
+    //====================================== low to heigh price ===========================//
 
-function lowPrice() {
-  mydata.data.sort(function (a, b) {
-    return parseFloat(a.price) - parseFloat(b.price);
-  });
-  document.getElementById("grid").innerHTML = " ";
+    function lowPrice() {
+        mydata.data.sort(function(a, b) {
+            return parseFloat(a.price) - parseFloat(b.price);
+        });
+        document.getElementById("grid").innerHTML = " ";
 
-  for (i = 0; i < mydata.data.length; i++) {
-    myDiv = `<div class="col-md-4">
+        for (i = 0; i < mydata.data.length; i++) {
+            myDiv = `<div class="col-md-4">
           <div class="card mt-4" style="max-width: 16rem;
           max-height: 25rem;">
             <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
@@ -305,19 +313,19 @@ function lowPrice() {
     </a> 
     </div>   
     </div>`;
-    $("#grid").append(myDiv);
-  }
-}
-//======================================heigh to low price===========================//
+            $("#grid").append(myDiv);
+        }
+    }
+    //======================================heigh to low price===========================//
 
-function heighPrice() {
-  mydata.data.sort(function (a, b) {
-    return parseFloat(b.price) - parseFloat(a.price);
-  });
-  document.getElementById("grid").innerHTML = " ";
+    function heighPrice() {
+        mydata.data.sort(function(a, b) {
+            return parseFloat(b.price) - parseFloat(a.price);
+        });
+        document.getElementById("grid").innerHTML = " ";
 
-  for (i = 0; i < mydata.data.length; i++) {
-    myDiv = `<div class="col-md-4">
+        for (i = 0; i < mydata.data.length; i++) {
+            myDiv = `<div class="col-md-4">
         <div class="card mt-4" style="max-width: 16rem;
         max-height: 25rem;">
           <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">

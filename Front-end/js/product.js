@@ -113,7 +113,7 @@ function makeRate(c) {
                 update: opendata[0].update
             };
             localStorage.setItem("opencard", JSON.stringify([cartDetails]));
-            location.reload();
+            // location.reload();
         },
         error: function(error) {
             console.log(error);
