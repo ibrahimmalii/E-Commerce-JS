@@ -1,8 +1,6 @@
 // opendata = JSON.parse(opendata);
 var token_name;
-if (!localStorage.token) {
-    window.open("/html/register.html", "_blank");
-} else {
+if (localStorage.token) {
     token_name = localStorage.token;
 }
 
@@ -114,9 +112,9 @@ function makeRate(c) {
     console.log("clicked");
 }
 
-function send() {
+// function send() {
 
-}
+// }
 
 function drowStars(numOfstars = 0) {
     let c = 1
