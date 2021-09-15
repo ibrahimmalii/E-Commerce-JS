@@ -101,14 +101,21 @@ function makeRate(c) {
         }
     }
     localStorage.setItem("rated", JSON.stringify(storedRate));
-    debugger
-    fetch('http://localhost:8000/api/products/rate/' + opendata[0]['id'], {
+    fetch('http://localhost:8000/api/products/rate/3', {
+
         method: 'POST',
-        body: JSON.stringify({ rate: r }), // The data
+        body: JSON.stringify({ rate: 5 }), // The data
         headers: {
             //'Authorization': "Bearer " + token_name, // The type of data you're sending
         }
+    }).then(response => {
+        console.log(response);
     });
+    console.log("clicked");
+}
+
+function send() {
+
 }
 
 function drowStars(numOfstars = 0) {
