@@ -191,7 +191,7 @@ window.addEventListener("load", function () {
           dataType: "json",
           data: { amount: num },
           success: function (response) {
-            // console.log(response);
+            console.log(response);
           },
           error: function (error) {
             console.log(error);
