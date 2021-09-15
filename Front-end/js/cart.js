@@ -16,6 +16,7 @@ var value = 1;
 //====================================== Check authorization and authentication ===========================//
 
 const sellsArr = [];
+const cart =[];
 
 window.addEventListener("load", function () {
   cartData.forEach((item, index) => {
@@ -165,9 +166,7 @@ window.addEventListener("load", function () {
         creatbtntwo[i].disabled = true;
         creatbuttons[i].disabled = true;
         creatbuttons[i].style.display = "none";
-        creatbtntwo[
-          i
-        ].innerHTML = `<i class='fa fa-check-circle text-dark' style='font-size:25px'></i>`;
+        creatbtntwo[i].innerHTML = `<i class='fa fa-check-circle text-dark' style='font-size:25px'></i>`;
         creatbtntwo[i].style.border = "1px solid white";
         creatbtntwo[i].style.width = "40px";
         creatbtntwo[i].style.backgroundColor = "white";
