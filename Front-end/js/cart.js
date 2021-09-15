@@ -57,7 +57,7 @@ window.addEventListener("load", function () {
       creattdsix.innerHTML = `<span class='text-success'>complete<span>`;
 
       let createdDisableExit = document.createElement("td");
-      createdDisableExit.innerHTML = `<button class='disableExitBtn' disabled>X</button>`;
+      createdDisableExit.innerHTML = `<button class='disableExitBtn' disabled><i class='fa fa-check'></i></button>`;
 
 
       creattr.appendChild(creattdone);
@@ -68,6 +68,7 @@ window.addEventListener("load", function () {
       creattr.appendChild(creattdsix);
       creattr.appendChild(createdDisableExit);
       table.appendChild(creattr);
+
     } else {
       let creattr = document.createElement("tr");
       creattr.classList.add("tr");
@@ -197,8 +198,8 @@ window.addEventListener("load", function () {
     });
   }
 
-
   //------------------------- Handle delete product from carts ----------------------------//
+
   let exit = document.querySelectorAll('.exitbtn')
   exit.forEach((item,index) => {
     item.addEventListener('click', (e) => {
@@ -210,7 +211,6 @@ window.addEventListener("load", function () {
       } else {
         e.preventDefault();
       }
-
     })
   })
 
