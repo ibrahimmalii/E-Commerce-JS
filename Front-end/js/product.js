@@ -1,5 +1,3 @@
-
-
 let opendata = JSON.parse(localStorage.getItem('opencard'))
 let mycardDetails = `<div class="col-md-12">
 <div class="card mt-4 align-center" style="max-width: 300rem;
@@ -100,10 +98,24 @@ function makeRate(c) {
         data: { rate: r },
         headers: { "Authorization": `Bearer ${token}` },
         dataType: 'json',
-        success: function (response) {
-            console.log(response);
+        success: function(response) {
+            let cartDetails = {
+                id: opendata[0].id,
+                title: opendata[0].title,
+                price: opendata[0].price,
+                description: opendata[0].description,
+                image: opendata[0].image,
+                amount: opendata[0].amount,
+                creat: opendata[0].creat,
+                numb: opendata[0].numb,
+                rate: r,
+                type: opendata[0].type,
+                update: opendata[0].update
+            };
+            localStorage.setItem("opencard", JSON.stringify([cartDetails]));
+            location.reload();
         },
-        error: function (error) {
+        error: function(error) {
             console.log(error);
         }
 
