@@ -59,7 +59,7 @@ fetchdata().then(data => {
     });
     data_fetch(10);
     returndeData.data.sort(function(a, b) {
-        return parseFloat(a.updated_at) - parseFloat(b.updated_at);
+        return parseFloat(b.id) - parseFloat(a.id);
     });
     data_fetch(13);
     data_fetch(16);
@@ -87,7 +87,7 @@ fetchdata().then(data => {
         topSaleList[i].sal.innerText = returndeData.data[i].price;
     }
     returndeData.data.sort(function(a, b) {
-        return parseFloat(a.updated_at) - parseFloat(b.updated_at);
+        return parseFloat(b.id) - parseFloat(a.id);
     });
     for (let i = 0; i < 3; i++) {
         newItemList[i].title.innerText = returndeData.data[i].title;
@@ -146,12 +146,12 @@ async function getbest(src) {
         imgGood.src = "/public/cat-images/images/18.jpg";
 
         console.log(returndeData.data);
-        titleBest.innerText = returndeData.data[6].title;
-        priceBest.innerText = returndeData.data[6].price;
-        titleBetter.innerText = returndeData.data[7].title;
-        priceBetter.innerText = returndeData.data[7].price;
-        titleGood.innerText = returndeData.data[8].title;
-        priceGood.innerText = returndeData.data[8].price;
+        titleBest.innerText = returndeData.data[0].title;
+        priceBest.innerText = returndeData.data[0].price;
+        titleBetter.innerText = returndeData.data[1].title;
+        priceBetter.innerText = returndeData.data[1].price;
+        titleGood.innerText = returndeData.data[2].title;
+        priceGood.innerText = returndeData.data[2].price;
     }
 }
 //fetch data to card 
