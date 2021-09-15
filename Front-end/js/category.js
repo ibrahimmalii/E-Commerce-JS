@@ -1,3 +1,13 @@
+
+
+// Check if products sailed
+let sells = localStorage.sells; 
+if(sells){
+    localStorage.sells = JSON.stringify([]);
+} 
+
+
+
 //ajax call
 let mydata = [];
 fetch("http://localhost:8000/api/products")
