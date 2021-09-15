@@ -6,7 +6,7 @@ const user_role = localStorage.user_role;
 const token = localStorage.token;
 
 if (user_role != 1 || !token) {
-  window.open('/html/login.html' , "_self");
+  location.assign('/html/login.html');
 };
 
 var userData = localStorage.getItem("user");
@@ -14,7 +14,7 @@ userData = JSON.parse(userData);
 document.getElementsByClassName("userName")[0].innerHTML = userData.name;
 document.getElementsByClassName("email")[0].innerHTML = userData.email;
 document.getElementsByClassName("phone")[0].innerHTML =
-  userData.phone_number;
+userData.phone_number;
 document.getElementsByClassName("city")[0].innerHTML = userData.city;
   
 
@@ -214,5 +214,5 @@ document.getElementsByClassName("city")[0].innerHTML = userData.city;
 
   var exit = document.getElementsByClassName("exit")[0];
   exit.addEventListener("click", () => {
-    window.open("/index.html");
+    location.assign("/index.html");
   });

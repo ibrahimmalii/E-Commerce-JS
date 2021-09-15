@@ -16,7 +16,7 @@ button{
     background-color: rgb(64, 65, 58);
     color: white;
 }
-.exitbtn{
+.exitbtn , .disableExitBtn{
     width: 60px;
     height: 30px;
     border-radius: 10px;

@@ -51,11 +51,12 @@ const accessUser = (url)=>{
                 localStorage.setItem('user_role', user_role);
                 alertError.style.display = 'none';
                 alertSuccess.style.display = 'block';
+                console.log(response.data.user.name);
 
 
                 //redirect user as admin or visitor depend in his role 
                 setTimeout(() => {
-                    (user_role == 1) ? window.open("/index.html", "_self") : window.open("/Admin/index.html", "_self");
+                    (user_role == 1) ? location.assign(`/index.html#id=${uuidv4()}`) : location.assign(`/Admin/index.html#id=${uuidv4()}`);
                 }, 3000);
             };
 
@@ -68,7 +69,6 @@ const accessUser = (url)=>{
             password.classList.remove('success');
             emailErr.innerText = 'Please try another email';
             emailErr.style.display = 'block';
-            // password.value = '';
         }
 
     });

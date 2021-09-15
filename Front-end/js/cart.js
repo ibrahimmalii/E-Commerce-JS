@@ -5,7 +5,7 @@ const user_role = localStorage.user_role;
 const token = localStorage.token;
 
 if (user_role != 1 || !token) {
-  window.open('/html/login.html' , "_self");
+  window.open('/html/login.html', "_self");
 };
 
 var cartData = localStorage.getItem("carts");
@@ -15,28 +15,32 @@ var value = 1;
 
 //====================================== Check authorization and authentication ===========================//
 
-const sellsArr = [];
-const cart =[];
+//======= check if products done ========//
+let sellsArr = localStorage.sells;
+if(sellsArr){
+  latestSellsArr = JSON.parse(sellsArr);
+};
 
 window.addEventListener("load", function () {
   cartData.forEach((item, index) => {
-    if (JSON.parse(localStorage.getItem("sells")) == item.id) {
+
+    if (sellsArr && latestSellsArr[index] == item.id) {
       let creattr = document.createElement("tr");
       creattr.classList.add("tr");
 
       let creatimg = document.createElement("img");
-      creatimg.src = `/public/cat-images/images/${cartData[index].image}`;
+      creatimg.src = `/public/cat-images/images/${item.image}`;
       let creattdone = document.createElement("td");
       creattdone.appendChild(creatimg);
 
       let creattdtwo = document.createElement("td");
-      creattdtwo.innerHTML = cartData[index].title;
+      creattdtwo.innerHTML = item.title;
 
       let creattdthree = document.createElement("td");
       creattdthree.innerHTML = "white";
 
       let creattdfour = document.createElement("td");
-      creattdfour.innerHTML = cartData[index].price;
+      creattdfour.innerHTML = item.price;
       creattdfour.classList.add("four");
       let creattdfive = document.createElement("td");
 
@@ -56,8 +60,9 @@ window.addEventListener("load", function () {
       let creattdsix = document.createElement("td");
       creattdsix.innerHTML = `<span class='text-success'>complete<span>`;
 
-      let creattdseven = document.createElement("td");
-      creattdseven.innerHTML = `<button class='exitbtn'>X</button>`;
+      let createdDisableExit = document.createElement("td");
+      createdDisableExit.innerHTML = `<button class='disableExitBtn' disabled>X</button>`;
+
 
       creattr.appendChild(creattdone);
       creattr.appendChild(creattdtwo);
@@ -65,25 +70,25 @@ window.addEventListener("load", function () {
       creattr.appendChild(creattdfour);
       creattr.appendChild(creattdfive);
       creattr.appendChild(creattdsix);
-      creattr.appendChild(creattdseven);
+      creattr.appendChild(createdDisableExit);
       table.appendChild(creattr);
     } else {
       let creattr = document.createElement("tr");
       creattr.classList.add("tr");
 
       let creatimg = document.createElement("img");
-      creatimg.src = `/public/cat-images/images/${cartData[index].image}`;
+      creatimg.src = `/public/cat-images/images/${item.image}`;
       let creattdone = document.createElement("td");
       creattdone.appendChild(creatimg);
 
       let creattdtwo = document.createElement("td");
-      creattdtwo.innerHTML = cartData[index].title;
+      creattdtwo.innerHTML = item.title;
 
       let creattdthree = document.createElement("td");
       creattdthree.innerHTML = "white";
 
       let creattdfour = document.createElement("td");
-      creattdfour.innerHTML = cartData[index].price;
+      creattdfour.innerHTML = item.price;
       creattdfour.classList.add("four");
       let creattdfive = document.createElement("td");
 
@@ -136,7 +141,6 @@ window.addEventListener("load", function () {
   var creatbtntwo = document.getElementsByClassName("two");
   var creatfour = document.getElementsByClassName("four");
   var save = document.getElementsByClassName("savebtn");
-  var exit = document.getElementsByClassName("exitbtn");
 
   //event increament
   for (let i = 0; i < creatbuttons.length; i++) {
@@ -147,19 +151,8 @@ window.addEventListener("load", function () {
       creatfour[i].innerHTML = result;
     });
 
-    //event in exit button
-    exit[i].addEventListener("click", (e) => {
-      if (this.confirm("are you sure from delete")) {
-        creattrows[i].style.display = "none";
-        var cartData = JSON.parse(localStorage.getItjem("carts"));
-        cartData.splice(i, 1);
-        localStorage.setItem("carts", JSON.stringify(cartData));
-      } else {
-        e.preventDefault();
-      }
-    });
-
     //event in save button
+    let completedProducts = [];
     save[i].addEventListener("click", function (e) {
       if (confirm("The purchase will be made")) {
         var num = Number(creatspans[i].innerHTML);
@@ -176,9 +169,17 @@ window.addEventListener("load", function () {
         save[i].style.color = "green";
         save[i].style.border = "1px solid white";
         save[i].disabled = true;
-        sellsArr.push(cartData[i].id);
-        localStorage.setItem("sells", JSON.stringify(sellsArr));
-        console.log(sellsArr);
+
+        if(localStorage.sells){
+          let currentSells = localStorage.sells;
+          currentSells = JSON.parse(currentSells);
+          console.log(currentSells);
+          currentSells.push(cartData[i].id);
+          localStorage.setItem("sells", JSON.stringify(currentSells));
+        }else{
+          completedProducts.push(cartData[i].id);
+          localStorage.setItem("sells", JSON.stringify(completedProducts));
+        }
 
         //get data by ajax call
         $.ajax({
@@ -188,7 +189,7 @@ window.addEventListener("load", function () {
           dataType: "json",
           data: { amount: num },
           success: function (response) {
-            // console.log(response);
+            console.log(response);
           },
           error: function (error) {
             console.log(error);
@@ -199,6 +200,23 @@ window.addEventListener("load", function () {
       }
     });
   }
+
+
+  //------------------------- Handle delete product from carts ----------------------------//
+  let exit = document.querySelectorAll('.exitbtn')
+  exit.forEach((item,index) => {
+    item.addEventListener('click', (e) => {
+      if (this.confirm("are you sure from delete")) {
+        creattrows[index].style.display = "none";
+        var cartData = JSON.parse(localStorage.getItem("carts"));
+        cartData.splice(index, 1);
+        localStorage.setItem("carts", JSON.stringify(cartData));
+      } else {
+        e.preventDefault();
+      }
+
+    })
+  })
 
   //event in decreament button
   for (let i = 0; i < creatbtntwo.length; i++) {
