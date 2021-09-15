@@ -1,5 +1,3 @@
-// opendata = JSON.parse(opendata);
-
 let opendata = JSON.parse(localStorage.getItem('opencard'))
 let mycardDetails = `<div class="col-md-12">
 <div class="card mt-4 align-center" style="max-width: 300rem;
@@ -27,44 +25,115 @@ $("#grid2").append(mycardDetails);
 function drowStars(numOfstars = 0) {
     for (let i = 0; i < numOfstars; i++) {
         // debugger;
-        let icon = `<i id="star-${i+1}" class="fas fa-star text-gray " style="cursor: pointer" onclick="makeRate('star-${i+1}')">
+        let icon = `<i id="star-${i + 1}" class="fas fa-star text-gray " style="cursor: pointer" onclick="makeRate('star-${i + 1}')">
         </i>`
 
         $("#star-container").append(icon); //= "<i class='fas fa-star text-primary '></i>";
     }
     for (let i = 0; i < 5 - numOfstars; i++) {
-        let icon = `<i id="star-${i+numOfstars}"  class="fas fa-star text-gray " style="cursor: pointer" onclick="makeRate('star-${i+1}')"></i>`
+        let icon = `<i id="star-${i + numOfstars}"  class="fas fa-star text-gray " style="cursor: pointer" onclick="makeRate('star-${i + 1}')"></i>`
         $("#star-container").append(icon);
     }
 }
 drowStars(opendata[0]['rate']);
 
 function makeRate(c) {
+    var storedRate = [];
+    var r = opendata[0]['rate'];
+    var found = false;
     let num_stars = c;
-    document.getElementById('star-container').innerHTML = "";
-    if (num_stars == 'star-1') {
-        drowStars(1);
-    } else if (num_stars == "star-2") {
-        drowStars(2);
-    } else if (num_stars == "star-3") {
-        drowStars(3);
-    } else if (num_stars == "star-4") {
-        drowStars(4);
+    if (localStorage.rated) {
+        storedRate = JSON.parse(localStorage.rated);
+        for (item in storedRate) {
+            if (storedRate[item].id ==
+                opendata[0]['id'])
+                found = true;
+        }
+        if (!found) {
+            storedRate.push({ id: opendata[0]["id"] });
+            document.getElementById('star-container').innerHTML = "";
+            if (num_stars == 'star-1') {
+                r = 1;
+                drowStars(1);
+            } else if (num_stars == "star-2") {
+                r = 2;
+                drowStars(2);
+            } else if (num_stars == "star-3") {
+                r = 3;
+                drowStars(3);
+            } else if (num_stars == "star-4") {
+                r = 4;
+                drowStars(4);
+            } else {
+                r = 5;
+                drowStars(5);
+            }
+        }
+
+
     } else {
-        drowStars(5);
+        storedRate.push({ id: opendata[0]['id'] });
+        document.getElementById('star-container').innerHTML = "";
+        if (num_stars == 'star-1') {
+            r = 1;
+            drowStars(1);
+        } else if (num_stars == "star-2") {
+            r = 2;
+            drowStars(2);
+        } else if (num_stars == "star-3") {
+            r = 3;
+            drowStars(3);
+        } else if (num_stars == "star-4") {
+            r = 4;
+            drowStars(4);
+        } else {
+            r = 5;
+            drowStars(5);
+        }
     }
+    localStorage.setItem("rated", JSON.stringify(storedRate));
+    $.ajax({
+        url: `http://localhost:8000/api/products/rate/${opendata[0].id}`,
+        type: 'POST',
+        data: { rate: r },
+        headers: { "Authorization": `Bearer ${token}` },
+        dataType: 'json',
+        success: function(response) {
+            console.log(response);
+            let cartDetails = {
+                id: opendata[0].id,
+                title: opendata[0].title,
+                price: opendata[0].price,
+                description: opendata[0].description,
+                image: opendata[0].image,
+                amount: opendata[0].amount,
+                creat: opendata[0].creat,
+                numb: opendata[0].numb,
+                rate: r,
+                type: opendata[0].type,
+                update: opendata[0].update
+            };
+            localStorage.setItem("opencard", JSON.stringify([cartDetails]));
+            // location.reload();
+        },
+        error: function(error) {
+            console.log(error);
+        }
+
+    });
 }
+
 
 function drowStars(numOfstars = 0) {
     let c = 1
     for (let i = 0; i < numOfstars; i++) {
-        let icon = `<i id="star-${i+1}" class="fas fa-star text-primary " style="cursor: pointer" onclick="makeRate('star-${c}')">
+        let icon = `<i id="star-${i + 1}" class="fas fa-star text-primary " style="cursor: pointer" onclick="makeRate('star-${c}')">
         </i>`
         c++;
         $("#star-container").append(icon); //= "<i class='fas fa-star text-primary '></i>";
     }
     for (let i = 0; i < 5 - numOfstars; i++) {
-        let icon = `<i id="star-${i+numOfstars}"  class="fas fa-star text-gray " style="cursor: pointer" onclick="makeRate('star-${c}')"></i>`
+        let icon = `<i id="star-${i + numOfstars}"  class="fas fa-star text-gray " style="cursor: pointer" onclick="makeRate('star-${c}')"></i>`
         $("#star-container").append(icon);
         c++;
     }

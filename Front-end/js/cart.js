@@ -1,19 +1,15 @@
-
-
-// Get user role from local_storage
-const user_role = localStorage.user_role;
-const token = localStorage.token;
-
-if (user_role != 1 || !token) {
-  window.open('/html/login.html', "_self");
-};
-
 var cartData = localStorage.getItem("carts");
 cartData = JSON.parse(cartData);
 let table = document.getElementById("table");
 var value = 1;
 
 //====================================== Check authorization and authentication ===========================//
+
+if (localStorage.user) {
+  let name = JSON.parse(localStorage.user).name;
+  console.log(name);
+  document.getElementById("navbarDropdown").innerText = name;
+}
 
 //======= check if products done ========//
 let sellsArr = localStorage.sells;
