@@ -42,8 +42,7 @@ Route::get('products',[ProductController::class,'index']);
 Route::get('products/{product}',[ProductController::class,'show']);
 Route::post('products',[ProductController::class,'store'])->middleware(['auth:sanctum' , 'admin']);
 Route::post('products/sell/{product}',[ProductController::class,'sell'])->middleware('auth:sanctum');
-// Route::post('products/rate/{product}',[ProductController::class,'updateRate'])->middleware('auth:sanctum');
-Route::post('products/rate/{product}',[ProductController::class,'updateRate']);
+Route::post('products/rate/{product}',[ProductController::class,'updateRate'])->middleware('auth:sanctum');
 Route::post('/products/{product}',[ProductController::class,'update'])->middleware(['auth:sanctum' , 'admin']);
 Route::delete('/products/delete/{product}',[ProductController::class,'destroy'])->middleware(['auth:sanctum' , 'admin']);
 

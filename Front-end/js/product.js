@@ -1,10 +1,3 @@
-// opendata = JSON.parse(opendata);
-var token_name;
-if (!localStorage.token) {
-    window.open("/html/register.html", "_blank");
-} else {
-    token_name = localStorage.token;
-}
 
 
 let opendata = JSON.parse(localStorage.getItem('opencard'))
@@ -34,13 +27,13 @@ $("#grid2").append(mycardDetails);
 function drowStars(numOfstars = 0) {
     for (let i = 0; i < numOfstars; i++) {
         // debugger;
-        let icon = `<i id="star-${i+1}" class="fas fa-star text-gray " style="cursor: pointer" onclick="makeRate('star-${i+1}')">
+        let icon = `<i id="star-${i + 1}" class="fas fa-star text-gray " style="cursor: pointer" onclick="makeRate('star-${i + 1}')">
         </i>`
 
         $("#star-container").append(icon); //= "<i class='fas fa-star text-primary '></i>";
     }
     for (let i = 0; i < 5 - numOfstars; i++) {
-        let icon = `<i id="star-${i+numOfstars}"  class="fas fa-star text-gray " style="cursor: pointer" onclick="makeRate('star-${i+1}')"></i>`
+        let icon = `<i id="star-${i + numOfstars}"  class="fas fa-star text-gray " style="cursor: pointer" onclick="makeRate('star-${i + 1}')"></i>`
         $("#star-container").append(icon);
     }
 }
@@ -101,33 +94,33 @@ function makeRate(c) {
         }
     }
     localStorage.setItem("rated", JSON.stringify(storedRate));
-    fetch('http://localhost:8000/api/products/rate/3', {
-
-        method: 'POST',
-        body: JSON.stringify({ rate: 5 }), // The data
-        headers: {
-            //'Authorization': "Bearer " + token_name, // The type of data you're sending
+    $.ajax({
+        url: `http://localhost:8000/api/products/rate/${opendata[0].id}`,
+        type: 'POST',
+        data: { rate: r },
+        headers: { "Authorization": `Bearer ${token}` },
+        dataType: 'json',
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (error) {
+            console.log(error);
         }
-    }).then(response => {
-        console.log(response);
+
     });
-    console.log("clicked");
 }
 
-function send() {
-
-}
 
 function drowStars(numOfstars = 0) {
     let c = 1
     for (let i = 0; i < numOfstars; i++) {
-        let icon = `<i id="star-${i+1}" class="fas fa-star text-primary " style="cursor: pointer" onclick="makeRate('star-${c}')">
+        let icon = `<i id="star-${i + 1}" class="fas fa-star text-primary " style="cursor: pointer" onclick="makeRate('star-${c}')">
         </i>`
         c++;
         $("#star-container").append(icon); //= "<i class='fas fa-star text-primary '></i>";
     }
     for (let i = 0; i < 5 - numOfstars; i++) {
-        let icon = `<i id="star-${i+numOfstars}"  class="fas fa-star text-gray " style="cursor: pointer" onclick="makeRate('star-${c}')"></i>`
+        let icon = `<i id="star-${i + numOfstars}"  class="fas fa-star text-gray " style="cursor: pointer" onclick="makeRate('star-${c}')"></i>`
         $("#star-container").append(icon);
         c++;
     }
