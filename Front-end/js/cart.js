@@ -5,6 +5,12 @@ var value = 1;
 
 //====================================== Check authorization and authentication ===========================//
 
+if (localStorage.user) {
+  let name = JSON.parse(localStorage.user).name;
+  console.log(name);
+  document.getElementById("navbarDropdown").innerText = name;
+}
+
 //======= check if products done ========//
 let sellsArr = localStorage.sells;
 if(sellsArr){

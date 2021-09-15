@@ -99,6 +99,7 @@ function makeRate(c) {
         headers: { "Authorization": `Bearer ${token}` },
         dataType: 'json',
         success: function(response) {
+            console.log(response);
             let cartDetails = {
                 id: opendata[0].id,
                 title: opendata[0].title,
