@@ -6,7 +6,7 @@ let password = document.getElementsByName('password')[0];
 //============================= Handle alert success for register ==========================//
 var alertSuccess = document.getElementsByClassName('alert')[0];
 var closeAlertSuccess = document.getElementsByClassName('closeSuccess')[0];
-if(closeAlertSuccess){
+if (closeAlertSuccess) {
     closeAlertSuccess.addEventListener('click', () => {
         alertSuccess.style.display = 'none';
     });
@@ -15,19 +15,18 @@ if(closeAlertSuccess){
 //============================= Handle alert field for register ==========================//
 var alertError = document.getElementsByClassName('alert')[1];
 var closeAlertError = document.getElementsByClassName('closeError')[0];
-if(closeAlertError){
+if (closeAlertError) {
     closeAlertError.addEventListener('click', () => {
         alertError.style.display = 'none';
     });
 }
 
 //============================= Function for validation =================================//
-const validation = (type , pattern , errMessage)=>
-{
-    if(!type.value.match(pattern)){
+const validation = (type, pattern, errMessage) => {
+    if (!type.value.match(pattern)) {
         errMessage.style.display = 'block';
         return false;
-    }else{
+    } else {
         type.classList.add('success');
         errMessage.style.display = 'none';
         return true;
@@ -36,13 +35,13 @@ const validation = (type , pattern , errMessage)=>
 
 
 
-const accessUser = (url)=>{
+const accessUser = (url) => {
     $.ajax({
         url: `${url}`,
         type: 'POST',
         data: $('#form').serialize(),
         dataType: 'json',
-        success: function (response) {
+        success: function(response) {
             console.log(response);
             if (response.data != null) {
                 let user_role = response.data.user.role;
@@ -56,12 +55,12 @@ const accessUser = (url)=>{
 
                 //redirect user as admin or visitor depend in his role 
                 setTimeout(() => {
-                    (user_role == 1) ? location.assign(`/index.html#id=${uuidv4()}`) : location.assign(`/Admin/index.html#id=${uuidv4()}`);
+                    (user_role == 1) ? location.assign(`/index.html#id=${uuidv4()}`): location.assign(`/Admin/index.html#id=${uuidv4()}`);
                 }, 3000);
             };
 
         },
-        error: function (error) {
+        error: function(error) {
             console.log(error);
             alertError.style.display = 'block';
             email.classList.remove('success');
@@ -76,4 +75,4 @@ const accessUser = (url)=>{
     // End Of Ajax Call
 }
 
-export {validation , accessUser};
+export { validation, accessUser };

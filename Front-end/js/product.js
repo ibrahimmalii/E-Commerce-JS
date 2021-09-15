@@ -1,4 +1,11 @@
 // opendata = JSON.parse(opendata);
+var token_name;
+if (!localStorage.token) {
+    window.open("/html/register.html", "_blank");
+} else {
+    token_name = localStorage.token;
+}
+
 
 let opendata = JSON.parse(localStorage.getItem('opencard'))
 let mycardDetails = `<div class="col-md-12">
@@ -40,19 +47,75 @@ function drowStars(numOfstars = 0) {
 drowStars(opendata[0]['rate']);
 
 function makeRate(c) {
+    var storedRate = [];
+    var r = opendata[0]['rate'];
+    var found = false;
     let num_stars = c;
-    document.getElementById('star-container').innerHTML = "";
-    if (num_stars == 'star-1') {
-        drowStars(1);
-    } else if (num_stars == "star-2") {
-        drowStars(2);
-    } else if (num_stars == "star-3") {
-        drowStars(3);
-    } else if (num_stars == "star-4") {
-        drowStars(4);
+    if (localStorage.rated) {
+        storedRate = JSON.parse(localStorage.rated);
+        for (item in storedRate) {
+            if (storedRate[item].id ==
+                opendata[0]['id'])
+                found = true;
+        }
+        if (!found) {
+            storedRate.push({ id: opendata[0]["id"] });
+            document.getElementById('star-container').innerHTML = "";
+            if (num_stars == 'star-1') {
+                r = 1;
+                drowStars(1);
+            } else if (num_stars == "star-2") {
+                r = 2;
+                drowStars(2);
+            } else if (num_stars == "star-3") {
+                r = 3;
+                drowStars(3);
+            } else if (num_stars == "star-4") {
+                r = 4;
+                drowStars(4);
+            } else {
+                r = 5;
+                drowStars(5);
+            }
+        }
+
+
     } else {
-        drowStars(5);
+        storedRate.push({ id: opendata[0]['id'] });
+        document.getElementById('star-container').innerHTML = "";
+        if (num_stars == 'star-1') {
+            r = 1;
+            drowStars(1);
+        } else if (num_stars == "star-2") {
+            r = 2;
+            drowStars(2);
+        } else if (num_stars == "star-3") {
+            r = 3;
+            drowStars(3);
+        } else if (num_stars == "star-4") {
+            r = 4;
+            drowStars(4);
+        } else {
+            r = 5;
+            drowStars(5);
+        }
     }
+    localStorage.setItem("rated", JSON.stringify(storedRate));
+    fetch('http://localhost:8000/api/products/rate/3', {
+
+        method: 'POST',
+        body: JSON.stringify({ rate: 5 }), // The data
+        headers: {
+            //'Authorization': "Bearer " + token_name, // The type of data you're sending
+        }
+    }).then(response => {
+        console.log(response);
+    });
+    console.log("clicked");
+}
+
+function send() {
+
 }
 
 function drowStars(numOfstars = 0) {
