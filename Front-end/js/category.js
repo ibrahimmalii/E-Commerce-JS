@@ -20,6 +20,7 @@ fetch("http://localhost:8000/api/products")
   .then((data) => {
     mydata = data;
 
+
     //====================================== loop for display data in div ===========================//
     for (i = 0; i < mydata.data.length; i++) {
       myDiv = ` <div class="col-md-4">
@@ -43,7 +44,25 @@ fetch("http://localhost:8000/api/products")
       $("#grid").append(myDiv);
       drowStars(mydata.data[i].rate, i);
     }
+    //============ Check if product checked ========//
+    let carts = localStorage.carts
+    if (carts) {
+      parsedCarts = JSON.parse(carts);
+      console.log(parsedCarts);
+    }
+    mydata.data.forEach(item => {
+      if (parsedCarts) {
+        parsedCarts.forEach((cart, index) => {
+          if (item.title == cart.title) {
+            $(`#card-contan${index}`).addClass("sucsess");
+            $(`#count`).html(parsedCarts.length);
+          }
+        })
+      }
+    })
   });
+
+
 
 //
 function drowStars(numOfstars = 0, cart) {
@@ -63,8 +82,8 @@ function drowStars(numOfstars = 0, cart) {
 
 //======================================  add content of any cart click to localstroge ===========================//
 
+
 function showProduct(myId, myTitle, myPrice, myDecraption, myImage, i) {
-  debugger;
 
   $(`#card-contan${i}`).addClass("sucsess");
   let cart = [];
@@ -181,11 +200,11 @@ function searchNav() {
           </div>`;
       $("#grid").append(myDiv);
       drowStars(mydata.data[i].rate, i);
-    }else{
+    } else {
       $('#grid').css({
         // margin : "10px auto",
         // textAlign: "center",
-        color : "red",
+        color: "red",
       })
       $('#grid').html(`Sorry, No product is found with title "${searchInp.value}"!!`)
     }
