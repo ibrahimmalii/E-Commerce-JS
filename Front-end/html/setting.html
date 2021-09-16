@@ -5,8 +5,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+    <link rel="icon" href="../public/cat-images/headerIcon.PNG" type="image/x-icon">
   <link rel="stylesheet" href="../css/setting.css" />
   <title>Setting</title>
+  <script>
+      //====================================== Check authorization and authentication ===========================//
+      // Get user role and token from local_storage
+      const user_role = localStorage.user_role;
+      const token = localStorage.token;
+
+      if (user_role != 1 || !token) {
+        location.assign('/html/login.html');
+      };
+  </script>
 </head>
 
 <body>
@@ -19,7 +30,7 @@
     <div class="card-body">
       <p class="fw-bold h3 text-uppercase">personal information</p>
       <h4 class="pull-left ">Name</h4>
-      <button class="btn fa fa-pencil pull-righ=======t rounded-circle" data-bs-toggle="modal"
+      <button class="btn fa fa-pencil pull-right rounded-circle" data-bs-toggle="modal"
         data-bs-target="#exampleModal"></button>
       <br /><br>
       <p class="pull-left text-muted userName"></p>
