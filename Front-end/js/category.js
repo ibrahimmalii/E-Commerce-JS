@@ -11,7 +11,12 @@ if (localStorage.user) {
   document.getElementById("navbarDropdown").innerText = name;
   document.getElementById("signOutOrSignIn").innerText = "Log out";
   document.getElementById("signup").style.display = "none";
-}
+};
+
+document.querySelector('#signOutOrSignIn').addEventListener('click' , ()=>{
+  localStorage.clear();
+  location.assign('/html/login.html');
+})
 
 //====================================== ajax call for my product ===========================//
 let mydata = [];

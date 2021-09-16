@@ -19,7 +19,7 @@
         const token = localStorage.token;
   
         if (user_role != 1 || !token) {
-          location.assign('/html/login.html');
+            location.assign('/html/login.html');
         };
     </script>
     <!--style css-->
@@ -58,7 +58,7 @@
                 <i class="fas fa-user"></i> New User
             </a>
             <div class="dropdown-menu text-center align-items-left" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item waves-effect waves-light"  id="signOutOrSignIn" href="login.html"><i class="fas fa-sign-in-alt m-2"></i>Sign In</a>
+              <a class="dropdown-item waves-effect waves-light"  id="signOutOrSignIn"><i class="fas fa-sign-in-alt m-2"></i>Sign In</a>
               <a class="dropdown-item  waves-effect waves-light" id="signup" href="register.html"><i class="fas fa-user-plus m-2"></i>Sign Up</a>
             </div>
 
