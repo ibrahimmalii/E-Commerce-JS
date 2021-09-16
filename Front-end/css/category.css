@@ -73,3 +73,7 @@ footer {
 .sucsess {
   border: 2px solid #3ac51d;
 }
+
+a{
+  cursor: pointer;
+}

@@ -29,14 +29,14 @@ fetch("http://localhost:8000/api/products")
                   <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">${mydata.data[i]["title"]}</h5>
-                    <a href="#" class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
+                    <a  class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
                     ,'${mydata.data[i].description}','${i}.jpg','${mydata.data[i].amount}','${mydata.data[i].created_at}'
                     ,'${mydata.data[i].number_of_sales}','${mydata.data[i].rate}','${mydata.data[i].type}','${mydata.data[i].updated_at}')">Show details</a>
                     <div  id="star-container${i}" class="ml-1 mt-2">
 
                     </div>
     <div class="mt-2">   
-    <a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+    <a  style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
      onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}',
      '${mydata.data[i].description}','${i}.jpg',${i})"></i>
    
@@ -189,7 +189,7 @@ function searchNav() {
         <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
         <div class="card-body">
           <h5 class="card-title">${mydata.data[i]["title"]}</h5>
-          <a href="#" class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
+          <a  class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
           ,'${mydata.data[i].description}','${i}.jpg')">Show details</a>
           <div class="ml-1 mt-2"  id="star-container${i}">
         
@@ -231,14 +231,14 @@ rangeslider.oninput = function () {
                 <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">${mydata.data[i]["title"]}</h5>
-                  <a href="#" class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
+                  <a  class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
                   ,'${mydata.data[i].description}','${i}.jpg','${mydata.data[i].amount}','${mydata.data[i].created_at}'
                   ,'${mydata.data[i].number_of_sales}','${mydata.data[i].rate}','${mydata.data[i].type}','${mydata.data[i].updated_at}')">Show details</a>
                   <div  id="star-container${i}" class="ml-1 mt-2">
 
                   </div>
   <div class="mt-2">   
-  <a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+  <a  style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
    onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}',
    '${mydata.data[i].description}','${i}.jpg',${i})"></i>
  
@@ -262,14 +262,14 @@ function displayLap() {
                       <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
                       <div class="card-body">
                         <h5 class="card-title">${mydata.data[i]["title"]}</h5>
-                        <a href="#" class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
+                        <a  class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
                         ,'${mydata.data[i].description}','${i}.jpg','${mydata.data[i].amount}','${mydata.data[i].created_at}'
                         ,'${mydata.data[i].number_of_sales}','${mydata.data[i].rate}','${mydata.data[i].type}','${mydata.data[i].updated_at}')">Show details</a>
                         <div  id="star-container${i}" class="ml-1 mt-2">
     
                         </div>
         <div class="mt-2">   
-        <a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+        <a  style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
          onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}',
          '${mydata.data[i].description}','${i}.jpg',${i})"></i>
        
@@ -291,14 +291,14 @@ function displayMob() {
                       <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
                       <div class="card-body">
                         <h5 class="card-title">${mydata.data[i]["title"]}</h5>
-                        <a href="#" class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
+                        <a  class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
                         ,'${mydata.data[i].description}','${i}.jpg','${mydata.data[i].amount}','${mydata.data[i].created_at}'
                         ,'${mydata.data[i].number_of_sales}','${mydata.data[i].rate}','${mydata.data[i].type}','${mydata.data[i].updated_at}')">Show details</a>
                         <div  id="star-container${i}" class="ml-1 mt-2">
     
                         </div>
         <div class="mt-2">   
-        <a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+        <a  style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
          onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}',
          '${mydata.data[i].description}','${i}.jpg',${i})"></i>
        
@@ -320,14 +320,14 @@ function allOf() {
                 <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">${mydata.data[i]["title"]}</h5>
-                  <a href="#" class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
+                  <a  class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
                   ,'${mydata.data[i].description}','${i}.jpg','${mydata.data[i].amount}','${mydata.data[i].created_at}'
                   ,'${mydata.data[i].number_of_sales}','${mydata.data[i].rate}','${mydata.data[i].type}','${mydata.data[i].updated_at}')">Show details</a>
                   <div  id="star-container${i}" class="ml-1 mt-2">
 
                   </div>
   <div class="mt-2">   
-  <a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+  <a  style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
    onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}',
    '${mydata.data[i].description}','${i}.jpg',${i})"></i>
  
@@ -353,7 +353,7 @@ function lowPrice() {
             <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
             <div class="card-body">
               <h5 class="card-title">${mydata.data[i]["title"]}</h5>
-              <a href="#" class="btn btn-danger" onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
+              <a  class="btn btn-danger" onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
               ,'${mydata.data[i].description}','${i}.jpg')">Show details</a>
               <div class="ml-1 mt-2">
                 <i class="fas fa-star text-primary "></i>
@@ -363,7 +363,7 @@ function lowPrice() {
                   <i class="fas fa-star text-primary "></i>
               </div>
     <div class="mt-2">   
-    <a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+    <a  style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
     onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}',
     '${mydata.data[i].description}','${i}.jpg')"></i>
     </a> 
@@ -387,14 +387,14 @@ function heighPrice() {
                       <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
                       <div class="card-body">
                         <h5 class="card-title">${mydata.data[i]["title"]}</h5>
-                        <a href="#" class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
+                        <a  class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
                         ,'${mydata.data[i].description}','${i}.jpg','${mydata.data[i].amount}','${mydata.data[i].created_at}'
                         ,'${mydata.data[i].number_of_sales}','${mydata.data[i].rate}','${mydata.data[i].type}','${mydata.data[i].updated_at}')">Show details</a>
                         <div  id="star-container${i}" class="ml-1 mt-2">
     
                         </div>
         <div class="mt-2">   
-        <a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+        <a  style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
          onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}',
          '${mydata.data[i].description}','${i}.jpg',${i})"></i>
        
@@ -416,14 +416,14 @@ function rate5() {
                 <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">${mydata.data[i]["title"]}</h5>
-                  <a href="#" class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
+                  <a  class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
                   ,'${mydata.data[i].description}','${i}.jpg','${mydata.data[i].amount}','${mydata.data[i].created_at}'
                   ,'${mydata.data[i].number_of_sales}','${mydata.data[i].rate}','${mydata.data[i].type}','${mydata.data[i].updated_at}')">Show details</a>
                   <div  id="star-container${i}" class="ml-1 mt-2">
 
                   </div>
   <div class="mt-2">   
-  <a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+  <a  style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
    onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}',
    '${mydata.data[i].description}','${i}.jpg',${i})"></i>
  
@@ -446,14 +446,14 @@ function rate4() {
                 <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">${mydata.data[i]["title"]}</h5>
-                  <a href="#" class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
+                  <a  class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
                   ,'${mydata.data[i].description}','${i}.jpg','${mydata.data[i].amount}','${mydata.data[i].created_at}'
                   ,'${mydata.data[i].number_of_sales}','${mydata.data[i].rate}','${mydata.data[i].type}','${mydata.data[i].updated_at}')">Show details</a>
                   <div  id="star-container${i}" class="ml-1 mt-2">
 
                   </div>
   <div class="mt-2">   
-  <a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+  <a  style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
    onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}',
    '${mydata.data[i].description}','${i}.jpg',${i})"></i>
  
@@ -476,14 +476,14 @@ function rate3() {
                 <img src="../public/cat-images/images/${i}.jpg"style="max-width:16rem; max-height: 13;" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">${mydata.data[i]["title"]}</h5>
-                  <a href="#" class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
+                  <a  class="btn btn-danger " onclick="showCard('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}'
                   ,'${mydata.data[i].description}','${i}.jpg','${mydata.data[i].amount}','${mydata.data[i].created_at}'
                   ,'${mydata.data[i].number_of_sales}','${mydata.data[i].rate}','${mydata.data[i].type}','${mydata.data[i].updated_at}')">Show details</a>
                   <div  id="star-container${i}" class="ml-1 mt-2">
 
                   </div>
   <div class="mt-2">   
-  <a href="#" style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
+  <a  style="text-decoration:none;">${mydata.data[i].price}<i class="fas fa-shopping-cart gr"
    onclick="showProduct('${mydata.data[i].id}','${mydata.data[i]["title"]}','${mydata.data[i].price}',
    '${mydata.data[i].description}','${i}.jpg',${i})"></i>
  
