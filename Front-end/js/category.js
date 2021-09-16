@@ -52,10 +52,14 @@ fetch("http://localhost:8000/api/products")
 
 //======================================  add content of any cart click to localstroge ===========================//
 
-function showProduct(myId, myTitle, myPrice, myDecraption, myImage) {
+
+
+
+function showProduct(myId, myTitle, myPrice, myDecraption, myImage ) {
   let cart = [];
   if (localStorage.carts) {
     cart = JSON.parse(localStorage.carts);
+    
     let found = false;
     for (item in cart) {
       if (cart[item].id == myId) {
@@ -74,6 +78,9 @@ function showProduct(myId, myTitle, myPrice, myDecraption, myImage) {
         count: 1,
       });
     }
+    }
+   
+    
   } else {
     cart.push({
       id: myId,
