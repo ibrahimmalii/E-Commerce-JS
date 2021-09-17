@@ -206,12 +206,10 @@ function searchNav() {
       $("#grid").append(myDiv);
       drowStars(mydata.data[i].rate, i);
     } else {
-      $('#grid').css({
-        // margin : "10px auto",
-        // textAlign: "center",
-        color: "red",
-      })
-      $('#grid').html(`Sorry, No product is found with title "${searchInp.value}"!!`)
+      // $('#grid').css({
+      //   color: "red",
+      // })
+      // $('#grid').html(`Sorry, No product is found with title "${searchInp.value}"!!`)
     }
   }
 }
