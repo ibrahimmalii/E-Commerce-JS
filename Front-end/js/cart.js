@@ -164,6 +164,7 @@ window.addEventListener("load", function () {
         exit[i].innerHTML =  `<button class='disableExitBtn bg-light'style='border:1px solid white' disabled><i class='fa fa-check' style='color:green'></i></button>`;
         save[i].innerHTML = "completed";
         exit[i].style.backgroundColor = "white";
+        exit[i].style.border = "1px solid white"
         save[i].style.backgroundColor = "white";
         save[i].style.color = "green";
         save[i].style.border = "1px solid white";
