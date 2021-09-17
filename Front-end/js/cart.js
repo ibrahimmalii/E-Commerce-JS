@@ -57,7 +57,7 @@ window.addEventListener("load", function () {
       creattdsix.innerHTML = `<span class='text-success'>complete<span>`;
 
       let createdDisableExit = document.createElement("td");
-      createdDisableExit.innerHTML = `<button class='disableExitBtn' disabled>X</button>`;
+      createdDisableExit.innerHTML = `<button class='disableExitBtn bg-light'style='border:1px solid white' disabled><i class='fa fa-check' style='color:green'></i></button>`;
 
 
       creattr.appendChild(creattdone);
@@ -68,6 +68,7 @@ window.addEventListener("load", function () {
       creattr.appendChild(creattdsix);
       creattr.appendChild(createdDisableExit);
       table.appendChild(creattr);
+
     } else {
       let creattr = document.createElement("tr");
       creattr.classList.add("tr");
@@ -160,7 +161,10 @@ window.addEventListener("load", function () {
         creatbtntwo[i].style.width = "40px";
         creatbtntwo[i].style.backgroundColor = "white";
         exit[i].disabled = true;
+        exit[i].innerHTML =  `<button class='disableExitBtn bg-light'style='border:1px solid white' disabled><i class='fa fa-check' style='color:green'></i></button>`;
         save[i].innerHTML = "completed";
+        exit[i].style.backgroundColor = "white";
+        exit[i].style.border = "1px solid white"
         save[i].style.backgroundColor = "white";
         save[i].style.color = "green";
         save[i].style.border = "1px solid white";
@@ -197,8 +201,8 @@ window.addEventListener("load", function () {
     });
   }
 
-
   //------------------------- Handle delete product from carts ----------------------------//
+
   let exit = document.querySelectorAll('.exitbtn')
   exit.forEach((item,index) => {
     item.addEventListener('click', (e) => {
@@ -210,7 +214,6 @@ window.addEventListener("load", function () {
       } else {
         e.preventDefault();
       }
-
     })
   })
 
